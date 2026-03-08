@@ -1,15 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project GTM</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WDD 231 Course Home | Takudzwa P. Matimura</title>
+
+<meta name="author" content="Takudzwa P. Matimura">
+<meta name="description" content="Course home page for WDD231 Web Frontend Development I. Student: Takudzwa P. Matimura. Showcasing coursework and web certificate progress.">
+
+<link rel="stylesheet" href="styles/course.css">
+<script defer src="scripts/course.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <h1>Takudzwa's path to greatness.</h1>
-    <p>Takudzwa is a young man with big dreams. He has always been passionate about technology and innovation. From a young age, he was fascinated by computers and how they work. He spent countless hours learning to code and experimenting with different programming languages.</p>
-    <p>As he grew older, Takudzwa's passion for technology only intensified. He decided to pursue a degree in computer science, where he excelled in his studies and gained valuable experience through internships and projects. Takudzwa's dedication and hard work paid off when he landed a job at a leading tech company.</p>
-    <p>At his new job, Takudzwa quickly made a name for himself as a talented and innovative developer. He worked on cutting-edge projects and contributed to the development of new technologies. Takudzwa's creativity and problem-solving skills earned him recognition from his peers and superiors.</p>
-    <p>As Takudzwa continues on his path to greatness, he remains committed to learning and growing as a developer. He is always seeking new challenges and opportunities to expand his knowledge and skills. With his passion, dedication, and talent, there is no doubt that Takudzwa will achieve great things in the world of technology.</p>   
+
+<header>
+
+    <div class="logo">
+
+<svg class="course-badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    
+
+  <defs>
+    <!-- Primary gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2D5C"/>
+      <stop offset="100%" stop-color="#3FA9F5"/>
+    </linearGradient>
+
+    <!-- Inner highlight -->
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e8f1ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer badge -->
+  <circle cx="32" cy="32" r="28"
+          fill="url(#shieldGrad)"
+          stroke="#082347"
+          stroke-width="2"/>
+
+  <!-- Inner panel -->
+  <rect x="16" y="16" width="32" height="22"
+        rx="4"
+        fill="url(#innerGrad)"
+        stroke="#0B2D5C"
+        stroke-width="1.5"/>
+
+  <!-- Browser bar -->
+  <line x1="16" y1="22" x2="48" y2="22"
+        stroke="#0B2D5C"
+        stroke-width="1.5"/>
+
+  <!-- Browser dots -->
+  <circle cx="20" cy="19" r="1" fill="#0B2D5C"/>
+  <circle cx="23" cy="19" r="1" fill="#3FA9F5"/>
+  <circle cx="26" cy="19" r="1" fill="#9EC9FF"/>
+
+  <!-- Code brackets -->
+  <polyline points="27,32 24,29 27,26"
+        stroke="#0B2D5C"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <polyline points="37,32 40,29 37,26"
+        stroke="#0B2D5C"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Slash -->
+  <line x1="30" y1="33" x2="34" y2="25"
+        stroke="#3FA9F5"
+        stroke-width="2"
+        stroke-linecap="round"/>
+
+  <!-- Course label -->
+  <text x="32" y="48"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="7"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-weight="600"
+        letter-spacing="0.5">
+        WDD231
+  </text>
+
+</svg>
+
+<span class="logo-text">WDD</span>
+
+</div>
+
+<button id="menuBtn">☰</button>
+
+<nav id="navMenu">
+<a href="#" class="active">Home</a>
+<a href="#">Chamber Project</a>
+<a href="#">Final Project</a>
+</nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+<h1>Takudzwa P. Matimura</h1>
+
+<p class="hero-subtitle">
+<span id="typing-text"></span>
+<span class="cursor">|</span>
+</p>
+
+<p class="hero-description">
+Building modern, responsive, and user-focused web experiences using
+HTML, CSS, and JavaScript.
+</p>
+
+</section>
+
+<div class="hero-line"></div>
+<section class="grid">
+
+<div class="card">
+<h2>About Me</h2>
+<p>
+My name is <strong>Takudzwa P. Matimura</strong>, a web development student
+focused on building clean, responsive, and user-friendly web experiences.
+
+I am currently studying modern frontend development, including HTML,
+CSS, JavaScript, and responsive design. My goal is to become a professional
+frontend developer capable of building performant and visually engaging
+web applications.
+
+This course portfolio showcases my progress as I develop projects such
+as a Chamber of Commerce website and a final interactive web application.
+</p>
+</div>
+
+<div class="card photo">
+<h2>Student Photo</h2>
+<img src="images/takudzwa.jpeg" alt="Student Photo of Takudzwa Matimura">
+</div>
+
+</section>
+
+
+<section class="courses">
+
+<h2>Web Certificate Courses</h2>
+
+<div class="filters">
+<button data-filter="all">All</button>
+<button data-filter="cse">CSE</button>
+<button data-filter="wdd">WDD</button>
+</div>
+
+<div class="course-list">
+
+<a href="projects/wdd130/index.html" class="course wdd">
+<span class="course-icon">🌐</span>
+<span class="course-title">WDD 130</span>
+</a>
+
+<a href="projects/wdd131/index.html" class="course wdd">
+<span class="course-icon">💻</span>
+<span class="course-title">WDD 131</span>
+</a>
+
+<a href="projects/wdd231/index.html" class="course wdd">
+<span class="course-icon">⚡</span>
+<span class="course-title">WDD 231</span>
+</a>
+
+<a href="#" class="course cse">
+<span class="course-icon">🧠</span>
+<span class="course-title">CSE 110</span>
+</a>
+
+<a href="#" class="course cse">
+<span class="course-icon">🔧</span>
+<span class="course-title">CSE 210</span>
+</a>
+
+</div>
+
+<p class="credits">The total credits for courses listed above is <strong>6</strong></p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="socials">
+
+<a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" target="_blank">
+<img src="images/linkedin.svg" alt="LinkedIn">
+</a>
+
+<a href="https://github.com/tklegendary47" target="_blank">
+<img src="images/github.svg" alt="GitHub">
+</a>
+
+</div>
+
+<p>© <span id="year"></span> • Takudzwa P. Matimura • Harare, Zimbabwe</p>
+<p>Last Modification: <span id="lastModified"></span></p>
+
+</footer>
+
 </body>
 </html>

@@ -29,3 +29,21 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 }
 
 }
+
+
+@media (min-width: 640px){
+
+.course-list{
+grid-template-columns:repeat(3, 1fr);
+}
+
+}
+
+
+@media (min-width: 1000px){
+
+.course-list{
+grid-template-columns:repeat(6, 1fr);
+}
+
+}

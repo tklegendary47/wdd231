@@ -75,8 +75,17 @@ border:2px solid white;
 }
 
 nav{
+display:none;
+flex-direction:column;
+background:#333;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+}
+
+nav.open{
 display:flex;
-gap:1rem;
 }
 
 
@@ -104,9 +113,8 @@ margin-bottom:1rem;
 
 .grid{
 display:grid;
-grid-template-columns:2fr 1fr;
+grid-template-columns:1fr;
 gap:20px;
-margin-bottom:2rem;
 }
 
 
@@ -139,10 +147,6 @@ border-radius:8px;
 font-weight:600;
 text-decoration:none;
 color:#222;
-
-transition:
-transform .2s ease,
-box-shadow .2s ease;
 }
 
 .course-icon{
@@ -163,7 +167,7 @@ margin:10px 0;
 display:grid;
 grid-template-columns:repeat(2, 1fr);
 gap:12px;
-margin-top:12px;
+
 }
 
 
@@ -240,23 +244,18 @@ box-shadow:0 6px 14px rgba(0,0,0,0.15);
 }
 
 .hero{
-text-align:center;
-margin-bottom:2.5rem;
-padding:10px 0;
 animation:fadeHero .8s ease;
+text-align:center;
+padding:30px 10px;
 }
 
 .hero h1{
-font-size:2rem;
-margin-bottom:.4rem;
+font-size:1.8rem;
 }
 
 .hero-subtitle{
-font-size:1.1rem;
-font-weight:600;
+font-size:1rem;
 color:#1E6FB8;
-margin-bottom:.5rem;
-text-shadow:0 0 6px rgba(63,169,245,.35);
 }
 
 .hero-description{

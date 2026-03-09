@@ -97,6 +97,12 @@ nav.open{
 display:flex;
 }
 
+
+.completed{
+border-left:5px solid green;
+background:#e8ffe8;
+}
+
 nav a{
 padding:14px;
 color:white;

@@ -5,6 +5,12 @@ display:flex;
 position:static;
 flex-direction:row;
 background:none;
+width:auto;
+}
+
+nav a{
+border:none;
+padding:8px 12px;
 }
 
 #menuBtn{

@@ -1,9 +1,16 @@
-const menuBtn = document.querySelector("#menuBtn");
-const navMenu = document.querySelector("#navMenu");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
 menuBtn.addEventListener("click", () => {
-navMenu.classList.toggle("open");
+    navMenu.classList.toggle("open");
+
+    if(navMenu.classList.contains("open")){
+        menuBtn.textContent = "✖";
+    } else {
+        menuBtn.textContent = "☰";
+    }
 });
+
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 document.querySelector("#lastModified").textContent = document.lastModified;

@@ -74,6 +74,14 @@ height:30px;
 border:2px solid white;
 }
 
+#menuBtn{
+font-size:1.6rem;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
 nav{
 display:none;
 flex-direction:column;
@@ -88,18 +96,20 @@ nav.open{
 display:flex;
 }
 
+nav a{
+padding:14px;
+color:white;
+text-decoration:none;
+border-top:1px solid #444;
+}
+
+
+
 
 nav a:hover{
 background:#444;
 }
 
-#menuBtn{
-display:none;
-font-size:1.5rem;
-background:none;
-border:none;
-color:white;
-}
 
 main{
 padding:20px;

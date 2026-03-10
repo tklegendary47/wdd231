@@ -13,6 +13,12 @@ menuBtn.addEventListener("click", () => {
     }
 });
 
+document.querySelectorAll("#navMenu a").forEach(link => {
+link.addEventListener("click", () => {
+navMenu.classList.remove("open");
+menuBtn.textContent = "☰";
+});
+});
 
 /* FOOTER INFO */
 

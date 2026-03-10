@@ -253,7 +253,7 @@ filter:drop-shadow(0 0 6px rgba(63,169,245,0.6));
 
 
 .course:hover{
-background:#1E6FB8;
+background:#0B4F8A;
 color:white;
 transform:translateY(-3px);
 box-shadow:0 6px 14px rgba(0,0,0,0.15);
@@ -271,7 +271,7 @@ font-size:1.8rem;
 
 .hero-subtitle{
 font-size:1rem;
-color:#1E6FB8;
+color:#0B4F8A;
 }
 
 .hero-description{
@@ -283,7 +283,7 @@ margin:auto;
 .hero-line{
 width:80px;
 height:3px;
-background:#1E6FB8;
+background:#0B4F8A;
 margin:20px auto 30px auto;
 border-radius:2px;
 }
@@ -349,7 +349,7 @@ transition:all .6s ease;
 }
 
 .wdd{
-border-left:5px solid #1E6FB8
+border-left:5px solid #0B4F8A
 }
 
 .cse{
@@ -365,7 +365,7 @@ left:0;
 bottom:-3px;
 width:0%;
 height:2px;
-background:#1E6FB8;
+background:#0B4F8A;
 transition:width .25s ease;
 }
 

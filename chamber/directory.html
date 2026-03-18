@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harare Chamber Directory</title>
+
+<meta name="description" content="Harare Chamber of Commerce Business Directory">
+<meta name="author" content="Takudzwa P. Matimura">
+
+<meta property="og:title" content="Harare Chamber Directory">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
+<meta property="og:image" content="images/social.png">
+<link rel="icon" href="images/favicon.ico">
+
+<link rel="stylesheet" href="styles/small.css">
+<link rel="stylesheet" href="styles/larger.css">
+
+<script defer src="scripts/directory.js"></script>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="nav-left">
+    <h1 class="logo">Harare Chamber of Commerce</h1>
+  </div>
+
+  <nav id="navMenu" class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="directory.html" class="active">Directory</a>
+    <a href="discover.html">Discover</a>
+    <a href="join.html">Join</a>
+  </nav>
+
+ <button id="menuButton" aria-label="Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
+
+</header>
+
+<main>
+
+
+    <section id="featured"></section>
+
+    <div class="directory-controls">
+        <input type="text" id="search" placeholder="Search companies...">
+
+        <select id="filterLevel">
+            <option value="all">All Members</option>
+            <option value="3">Gold</option>
+            <option value="2">Silver</option>
+            <option value="1">Member</option>
+        </select>
+
+    
+        <div class="view-buttons">
+            <button id="grid">🔳 Grid</button>
+            <button id="list">📄 List</button>
+        </div>
+    </div>
+
+    <div id="members" class="grid"></div>
+
+</main>
+
+<footer class="footer">
+
+     <div class="footer-top">
+    <div class="footer-brand">
+      <h2>Harare Chamber</h2>
+      <p>Conecting Businesses, Empowering Growth</p>
+    </div>
+
+<div class="socials">
+
+<a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" data-name="Linkedin" target="_blank">
+<img src="images/linkedin.svg" alt="LinkedIn">
+</a>
+
+<a href="https://github.com/tklegendary47" data-name="Github" target="_blank">
+<img src="images/github.svg" alt="GitHub">
+</a>
+
+<a href="https://facebook.com" data-name="Facebook" target="_blank">
+<img src="images/facebook.svg" alt="Facebook"> 
+</a>
+
+</div>
+
+  <div class="footer-bottom">
+    
+  <p>© <span id="year"></span> Takudzwa P. Matimura</p>
+<p>Last Modified: <span id="modified"></span></p>
+  </div>
+
+</footer>
+
+
+
+</body>
+</html>

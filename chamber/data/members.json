@@ -1,0 +1,75 @@
+[
+{
+"name": "Harare Tech Solutions",
+"address": "12 Samora Machel Ave",
+"phone": "+263 77 123 4567",
+"website": "https://hararetech.co.zw",
+"image": "tech.png",
+"membership": 3
+},
+
+{
+"name": "Savanna Café",
+"address": "45 Borrowdale Road",
+"phone": "+263 71 987 6543",
+"website": "https://savannacafe.co.zw",
+"image": "cafe.png",
+"membership": 2
+},
+
+{
+"name": "Zim Logistics",
+"address": "89 Airport Road",
+"phone": "+263 78 444 5555",
+"website": "https://zimlogistics.co.zw",
+"image": "logistics.png",
+"membership": 3
+},
+
+{
+"name": "Capital Bank",
+"address": "10 First Street",
+"phone": "+263 77 555 8888",
+"website": "https://capitalbank.co.zw",
+"image": "bank.png",
+"membership": 3
+},
+
+{
+"name": "Sunrise Hotel",
+"address": "20 Nelson Mandela Ave",
+"phone": "+263 71 111 2222",
+"website": "https://sunrisehotel.co.zw",
+"image": "hotel.png",
+"membership": 2
+},
+
+{
+"name": "Green Market",
+"address": "Avondale Shopping Center",
+"phone": "+263 77 777 1111",
+"website": "https://greenmarket.co.zw",
+"image": "market.png",
+"membership": 1
+},
+
+{
+"name": "Creative Media Agency",
+"address": "Sam Levy Village",
+"phone": "+263 78 888 9999",
+"website": "https://creativemedia.co.zw",
+"image": "agency.png",
+"membership": 2
+},
+
+{
+"name": "Harare Business Consulting",
+"address": "15 Jason Moyo Ave",
+"phone": "+263 77 222 3333",
+"website": "https://harareconsulting.co.zw",
+"image": "consulting.png",
+"membership": 2
+}
+
+
+]

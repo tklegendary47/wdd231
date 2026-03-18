@@ -53,13 +53,20 @@ backdrop-filter:blur(6px);
 z-index:10;
 }
 
-/* menu button */
-#menuButton{
+
+
+#menuButton {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 font-size:1.6rem;
-background:none;
-border:none;
 color:white;
-cursor:pointer;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 /* ================= NAVBAR ================= */
@@ -153,19 +160,7 @@ background:#3b82f6;
 border-radius:2px;
 }
 
-/* MENU BUTTON */
-#menuButton {
-    width: 30px;
-    height: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
 
 /* bars */
 .bar {
@@ -545,10 +540,6 @@ text-align:right;
 
 
 
-.footer-links a{
-font-size:0.95rem;  
-}
-
 .footer-brand h2{
 font-size:1.2rem;  
 font-weight:600;
@@ -568,11 +559,6 @@ line-height:1.4;
 color:white;
 }
 
-
-/* SOCIALS */
-.socials{
-justify-self:center;
-}
 
 .socials a{
 position:relative;

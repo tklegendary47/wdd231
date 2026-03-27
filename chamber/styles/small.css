@@ -373,31 +373,21 @@ white-space:nowrap;
 }
 
 /* NAV LINKS */
-.nav-links {
-  display: flex;
-  flex-direction: column;
+.nav-links{
+display:none;
+flex-direction:column;
 
-  position: absolute;
-  top: 60px;
+position:absolute;
+  top: 60px;   /* matches header height */
   left: 0;
-  right: 0;
+  right: 0;    /* 👈 IMPORTANT FIX */
 
-  background: #1e293b;
-
-  padding: 1rem;
-  gap: 1rem;
-
-  transform: translateY(-20px);
-  opacity: 0;
-  pointer-events: none;
-
-  transition: all 0.3s ease;
+background:#1e293b;
 }
 
-.nav-links.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+/* OPEN STATE (mobile) */
+.nav-links.open{
+display:flex;
 }
 
 /* LINKS */

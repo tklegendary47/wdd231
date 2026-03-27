@@ -1,41 +1,6 @@
 const url = "data/members.json";
 const cards = document.querySelector("#members");
 
-async function getMembers() {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    data.sort((a, b) => b.membership - a.membership);
-
-    displayMembers(data);
-
-    const goldMember = data.find(m => m.membership === 3);
-
-displayFeatured(goldMember);
-
-function displayFeatured(member) {
-
-    const featured = document.querySelector("#featured");
-
-    if (!member) return;
-
-    featured.innerHTML = `
-        <div class="featured-card">
-            <img src="images/${member.image}" alt="${member.name}">
-            <div>
-                <h2>🌟 Featured Member</h2>
-                <h3>${member.name}</h3>
-                <p>${member.address}</p>
-                <a href="${member.website}" target="_blank">Visit Website →</a>
-            </div>
-        </div>
-    `;
-}
-
-
-
-
-}
 
 getMembers();
 function getMembership(level) {
@@ -102,6 +67,7 @@ cards.classList.remove("grid");
 
 });
 
+
 /* NAV MENU */
 
 const menuButton = document.querySelector("#menuButton");
@@ -127,10 +93,50 @@ async function getMembers() {
 
     data.sort((a, b) => b.membership - a.membership);
 
-    allMembers = data; // 🔥 store data globally
+    allMembers = data;
 
     displayMembers(data);
+
+    const goldMember = data.find(m => m.membership === 3);
+    displayFeatured(goldMember);
 }
+
+function displayFeatured(member) {
+    const featured = document.querySelector("#featured");
+
+    if (!member) return;
+
+    featured.innerHTML = `
+        <div class="featured-card">
+            <img src="images/${member.image}" alt="${member.name}">
+            <div>
+                <h2>🌟 Featured Member</h2>
+                <h3>${member.name}</h3>
+                <p>${member.address}</p>
+                <a href="${member.website}" target="_blank">Visit Website →</a>
+            </div>
+        </div>
+    `;
+}
+
+
+
+gridButton.addEventListener("click", () => {
+    cards.classList.add("grid");
+    cards.classList.remove("list");
+
+    gridButton.classList.add("active");
+    listButton.classList.remove("active");
+});
+
+listButton.addEventListener("click", () => {
+    cards.classList.add("list");
+    cards.classList.remove("grid");
+
+    listButton.classList.add("active");
+    gridButton.classList.remove("active");
+});
+
 
 searchInput.addEventListener("input", applyFilters);
 filterSelect.addEventListener("change", applyFilters);

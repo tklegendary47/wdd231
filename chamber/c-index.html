@@ -24,60 +24,74 @@
 
 <link rel="stylesheet" href="styles/small.css">
 <link rel="stylesheet" href="styles/larger.css">
-<link rel="icon" type="image/png" sizes="32x32" href="images/social.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/social.png">
-<script defer src="scripts/directory.js"></script>
+<script defer src="scripts/home.js"></script>
 
 </head>
 
 <body>
 
-<header class="navbar">
-
+<header class="navbar"> 
+ 
   <div class="nav-left">
     <h1 class="logo">🏢Harare Chamber of Commerce</h1>
   </div>
 
+  <!-- 👇 MOVE BUTTON HERE -->
+  <button id="menuButton" aria-label="Menu"> 
+    <span class="bar"></span> 
+    <span class="bar"></span> 
+    <span class="bar"></span> 
+  </button> 
+
   <nav id="navMenu" class="nav-links">
-    <a href="c-index.html">Home</a>
-    <a href="directory.html" class="active">Directory</a>
+    <a href="chamber/c-index.html" class="active">Home</a>
+    <a href="directory.html">Directory</a>
     <a href="discover.html">Discover</a>
     <a href="join.html">Join</a>
   </nav>
-
- <button id="menuButton" aria-label="Menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</button>
-
+ 
 </header>
 
 <main>
 
+  <!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h2>Welcome to Harare Chamber of Commerce</h2>
+    <p>Connecting businesses. Empowering growth.</p>
+    <a href="join.html" class="cta-btn">Join the Chamber</a>
+  </div>
 
-   <section id="featured">
-  <h2>Featured Business</h2>
+  <div class="scroll-indicator">
+    <span></span>
+  </div>
 </section>
 
-    <div class="directory-controls">
-        <input type="text" id="search" placeholder="Search companies...">
-
-        <select id="filterLevel">
-            <option value="all">All Members</option>
-            <option value="3">Gold</option>
-            <option value="2">Silver</option>
-            <option value="1">Member</option>
-        </select>
-
-    
-        <div class="view-buttons">
-            <button id="grid">🔳 Grid</button>
-            <button id="list">📄 List</button>
-        </div>
+  <!-- EVENTS -->
+  <section class="events">
+    <div class="container">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li>📅 Business Networking – April 10</li>
+      <li>📅 Startup Pitch Night – April 15</li>
+      <li>📅 Marketing Workshop – April 20</li>
+    </ul>
     </div>
+  </section>
 
-    <div id="members" class="grid"></div>
+  <!-- WEATHER -->
+  <section class="weather">
+    <h2>Harare Weather</h2>
+    <div id="current-weather"></div>
+    <div id="forecast"></div>
+  </section>
+
+  <!-- SPOTLIGHTS -->
+  <section class="spotlights">
+    <h2>Business Spotlights</h2>
+    <div id="spotlight-container"></div>
+  </section>
 
 </main>
 

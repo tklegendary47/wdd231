@@ -94,10 +94,12 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
+
   background: linear-gradient(
-    rgba(15, 23, 42, 0.7),
-    rgba(15, 23, 42, 0.6)
+    rgba(15, 23, 42, 0.8),
+    rgba(15, 23, 42, 0.4)
   );
+
   z-index: 1;
 }
 
@@ -176,7 +178,7 @@ h2 {
 
 .hero-inner p {
   font-size: 1.2rem;
-  color: #e2e8f0;
+color: #e2e8f0;
   margin-bottom: 3rem;
 }
 

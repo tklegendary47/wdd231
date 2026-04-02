@@ -7,7 +7,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/large.css">
+  <link rel="stylesheet" href="styles/larger.css">
     <script defer src="scripts/home.js"></script>
   <!-- Favicon -->
   <link rel="icon" href="images/social.png">
@@ -15,8 +15,26 @@
 
 <body>
 
-<header>
-  <h1>Join Our Chamber</h1>
+<header class="navbar"> 
+ 
+  <div class="nav-left">
+    <h1 class="logo">🏢Join Our Chamber</h1>
+  </div>
+
+  <!-- 👇 MOVE BUTTON HERE -->
+  <button id="menuButton" aria-label="Menu"> 
+    <span class="bar"></span> 
+    <span class="bar"></span> 
+    <span class="bar"></span> 
+  </button> 
+
+  <nav id="navMenu" class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Directory</a>
+    <a href="discover.html">Discover</a>
+    <a href="join.html" class="active">Join</a>
+  </nav>
+ 
 </header>
 
 <main class="join-page">
@@ -29,21 +47,21 @@
 
       <label>
         First Name
-        <input type="text" name="fname" required   title="Enter your first name" autocomplete="given-name">
+        <input type="text" name="fname" required   title="Enter your first name" autocomplete="given-name" required>
       </label>
 
       <label>
         Last Name
-        <input type="text" name="lname" required title="Enter your last name" autocomplete="family-name">
+        <input type="text" name="lname" required title="Enter your last name" autocomplete="family-name" required>
       </label>
 
       <label>
   Business Description
-  <textarea name="description" title="Describe your business"></textarea>
+  <textarea name="description" title="Describe your business" required></textarea>
 </label>
 
 <label>
-  Title
+  Organizational Title
   <input 
     type="text"
     name="orgtitle"
@@ -51,24 +69,24 @@
     title="Enter your role (e.g. Marketing Manager)"
     autocomplete="organization-title"
     pattern="[A-Za-z0-9\- ]{7,}"
-  >
+  required>
 </label>
 
       <label>
         Email
         <input type="email" name="email"
           required placeholder="example@email.com"
-          autocomplete="email">
+          autocomplete="email" required>
       </label>
 
       <label>
         Phone
-        <input type="tel" name="phone" required autocomplete="tel">
+        <input type="tel" name="phone" required autocomplete="tel" required>
       </label>
 
       <label>
         Business Name
-        <input type="text" name="business" required  autocomplete="organization">
+        <input type="text" name="business" required  autocomplete="organization" required>
       </label>
 
       <label>
@@ -90,7 +108,7 @@
     </form>
   </section>
 
-  <!-- 💎 MEMBERSHIP CARDS -->
+  <!-- MEMBERSHIP CARDS -->
   <section class="membership-cards">
 
     <!-- NP -->
@@ -200,20 +218,42 @@
   <button class="modal-close" onclick="closeModal('goldModal')">Close</button>
 </dialog>
 
-<!-- JS -->
-<script>
-  // Timestamp
-  document.getElementById("timestamp").value = new Date().toISOString();
 
-  // Modal controls
-  function openModal(id) {
-    document.getElementById(id).showModal();
-  }
+<footer class="footer">
+  <div class="footer-container">
 
-  function closeModal(id) {
-    document.getElementById(id).close();
-  }
-</script>
+    <div class="footer-top">
 
+      <!-- LEFT -->
+      <div class="footer-brand">
+        <h2>Harare Chamber</h2>
+        <p>Connecting Businesses, Empowering Growth</p>
+      </div>
+
+      <!-- CENTER -->
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" data-name="Linkedin" target="_blank">
+          <img src="images/linkedin.svg" alt="LinkedIn">
+        </a>
+
+        <a href="https://github.com/tklegendary47" data-name="Github" target="_blank">
+          <img src="images/github.svg" alt="GitHub">
+        </a>
+
+        <a href="https://facebook.com" data-name="Facebook" target="_blank">
+          <img src="images/facebook.svg" alt="Facebook"> 
+        </a>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Takudzwa P. Matimura</p>
+        <p>Last Modified: <span id="modified"></span></p>
+      </div>
+
+    </div> <!-- CLOSE footer-top -->
+
+  </div> <!-- CLOSE footer-container -->
+</footer>
 </body>
 </html>

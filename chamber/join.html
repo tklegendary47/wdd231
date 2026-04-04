@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Chamber</title>
+  <title>Join the Harare Chamber of Commerce</title>
+<meta name="description" content="Join the Harare Chamber of Commerce to grow your business, network with professionals, and access exclusive opportunities.">
+<meta property="og:title" content="Join the Harare Chamber of Commerce">
 
+<meta property="og:description" content="Become a member of the Harare Chamber to connect, grow your business, and unlock new opportunities.">
+
+<meta property="og:image" content="https://github.com/tklegendary47/wdd231/blob/main/chamber/images/social.png">
+
+<meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/join.html">
+<meta name="author" content="Takudzwa P. Matimura">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
@@ -45,19 +58,19 @@
 
     <form method="get" action="thankyou.html">
 
-      <label>
+      <label for="fname">
         First Name
-        <input type="text" name="fname" required   title="Enter your first name" autocomplete="given-name" required>
+     <input id="fname" name="fname" required>
       </label>
 
       <label>
         Last Name
-        <input type="text" name="lname" required title="Enter your last name" autocomplete="family-name" required>
+        <input type="text" name="lname" required title="Enter your last name" autocomplete="family-name">
       </label>
 
       <label>
   Business Description
-  <textarea name="description" title="Describe your business" required></textarea>
+  <textarea name="description" title="Describe your business"></textarea>
 </label>
 
 <label>
@@ -76,17 +89,17 @@
         Email
         <input type="email" name="email"
           required placeholder="example@email.com"
-          autocomplete="email" required>
+          autocomplete="email">
       </label>
 
       <label>
         Phone
-        <input type="tel" name="phone" required autocomplete="tel" required>
+        <input type="tel" name="phone" required autocomplete="tel">
       </label>
 
       <label>
         Business Name
-        <input type="text" name="business" required  autocomplete="organization" required>
+        <input type="text" name="business" required  autocomplete="organization">
       </label>
 
       <label>
@@ -103,7 +116,7 @@
       <!-- TIMESTAMP -->
       <input type="hidden" name="timestamp" id="timestamp">
 
-      <button type="submit" class="btn-primary">Join Now</button>
+      <button type="submit" class="primary-btn">Join Now</button>
 
     </form>
   </section>
@@ -120,7 +133,7 @@
         <li>Community access</li>
         <li>Networking events</li>
       </ul>
-      <button onclick="openModal('npModal')" class="btn-secondary">
+     <button type="button" data-modal="npModal" class="secondary-btn open-modal">
         View Benefits
       </button>
     </div>
@@ -134,7 +147,7 @@
         <li>Email support</li>
         <li>Monthly newsletters</li>
       </ul>
-      <button onclick="openModal('bronzeModal')" class="btn-secondary">
+      <button type="button" data-modal="bronzeModal" class="secondary-btn open-modal">
         View Benefits
       </button>
     </div>
@@ -148,7 +161,7 @@
         <li>Event discounts</li>
         <li>Priority support</li>
       </ul>
-      <button onclick="openModal('silverModal')" class="btn-secondary">
+      <button type="button" data-modal="silverModal" class="secondary-btn open-modal">
         View Benefits
       </button>
     </div>
@@ -164,7 +177,7 @@
         <li>Event promotions</li>
         <li>Priority support</li>
       </ul>
-      <button onclick="openModal('goldModal')" class="btn-secondary">
+      <button type="button" data-modal="goldModal" class="secondary-btn open-modal">
         View Benefits
       </button>
     </div>
@@ -182,7 +195,7 @@
     <li>Community exposure</li>
     <li>Access to events</li>
   </ul>
-  <button class="modal-close" onclick="closeModal('npModal')">Close</button>
+ <button type="button" class="modal-close">Close</button>
 </dialog>
 
 <dialog id="bronzeModal" class="modal">
@@ -193,7 +206,7 @@
     <li>Email support</li>
     <li>Monthly updates</li>
   </ul>
-  <button class="modal-close" onclick="closeModal('bronzeModal')">Close</button>
+ <button type="button" class="modal-close">Close</button>
 </dialog>
 
 <dialog id="silverModal" class="modal">
@@ -204,7 +217,7 @@
     <li>Event discounts</li>
     <li>Priority support</li>
   </ul>
-  <button class="modal-close" onclick="closeModal('silverModal')">Close</button>
+ <button type="button" class="modal-close">Close</button>
 </dialog>
 
 <dialog id="goldModal" class="modal">
@@ -215,7 +228,7 @@
     <li>Advertising opportunities</li>
     <li>VIP event access</li>
   </ul>
-  <button class="modal-close" onclick="closeModal('goldModal')">Close</button>
+<button type="button" class="modal-close">Close</button>
 </dialog>
 
 

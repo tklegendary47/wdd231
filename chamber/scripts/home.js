@@ -130,6 +130,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // OPEN MODALS
+document.querySelectorAll('.open-modal').forEach(button => {
+  button.addEventListener('click', () => {
+    const modalId = button.dataset.modal;
+    document.getElementById(modalId).showModal();
+  });
+});
+
+// CLOSE MODALS
+document.querySelectorAll('.modal-close').forEach(button => {
+  button.addEventListener('click', () => {
+    button.closest('dialog').close();
+  });
+});
 
   // ✅ Footer (safe on all pages)
   const year = document.querySelector("#year");

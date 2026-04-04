@@ -2,6 +2,9 @@
 
 :root {
   --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e2e8f0;
+
   --bg: #f8fafc;
   --card: #ffffff;
   --text: #0f172a;
@@ -18,6 +21,11 @@
 
 html{
 scroll-padding-top:60px;
+  scroll-behavior: smooth;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 body {
@@ -291,7 +299,6 @@ margin-bottom:4px;
   top: 0;
   z-index: 100;
 
-  position: relative;
 }
 
 .join-page {
@@ -342,6 +349,7 @@ form textarea {
   color: #0f172a;
   transition: all 0.25s ease;
   outline: none;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
 }
 
 input:focus, select:focus, textarea:focus {
@@ -390,17 +398,18 @@ button:hover, input[type="submit"]:hover {
 
 .card {
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 1.5rem;
-
   backdrop-filter: blur(10px);
 
   transition: all 0.3s ease;
-
+margin-bottom: 10px;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.8s ease forwards;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .card:hover {
@@ -432,12 +441,6 @@ button:hover, input[type="submit"]:hover {
 .card:nth-child(3) { animation-delay: 0.3s; }
 .card:nth-child(4) { animation-delay: 0.4s; }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .modal {
   
@@ -457,7 +460,7 @@ button:hover, input[type="submit"]:hover {
 
 
 
-.btn-primary {
+.primary-btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
@@ -468,13 +471,13 @@ button:hover, input[type="submit"]:hover {
   transition: all 0.25s ease;
 }
 
-.btn-primary:hover {
+.primary-btn:hover {
   background: linear-gradient(135deg, #4f46e5, #4338ca);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
-.btn-secondary,
+.secondary-btn,
 .modal-close {
   display: inline-block;
   padding: 0.55rem 1.2rem;
@@ -494,7 +497,7 @@ button:hover, input[type="submit"]:hover {
   transition: all 0.25s ease;
 }
 
-.btn-secondary:hover,
+.secondary-btn:hover,
 .modal-close:hover {
   background: #6366f1;
   color: #ffffff;
@@ -508,7 +511,7 @@ button:hover, input[type="submit"]:hover {
     0 8px 20px rgba(99, 102, 241, 0.35);
 }
 
-.btn-secondary:active,
+.secondary-btn:active,
 .modal-close:active {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(99, 102, 241, 0.2);
@@ -786,7 +789,7 @@ backdrop-filter: blur(10px);
 }
 
 
-.container {
+.membership-container {
   max-width: 1100px;
   margin: auto;
 }
@@ -812,7 +815,7 @@ border-bottom: 1px solid #ccc;
 
 
 
-.card, #members section {
+ #members section {
 
 background: white;
 border-radius: 12px;
@@ -1233,10 +1236,7 @@ transform:translateX(-50%) translateY(0);
   }
 
   /* card becomes more compact */
-  .card {
-    padding: 1.5rem;
-    border-radius: 18px;
-  }
+
 
   /* header text scales better */
   .card-header h1 {
@@ -1277,7 +1277,7 @@ transform:translateX(-50%) translateY(0);
   }
 
   /* button feels more tappable */
-  .btn-primary {
+  .primary-btn {
     padding: 0.9rem;
     font-size: 0.95rem;
   }

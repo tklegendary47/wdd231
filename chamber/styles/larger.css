@@ -52,6 +52,8 @@ position:static;
 background:none;
 width:auto;
  gap: 20px;
+  max-height: none;     /* 🔥 CRITICAL */
+    overflow: visible;  
 }
 
 .nav-links a{

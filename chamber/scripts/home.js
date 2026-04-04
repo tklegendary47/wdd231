@@ -24,15 +24,7 @@ async function getWeather() {
   }
 }
 
-const menuButton = document.getElementById("menuButton");
-const navMenu = document.getElementById("navMenu");
 
-if (menuButton && navMenu) {
-  menuButton.addEventListener("click", () => {
-    menuButton.classList.toggle("open");
-    navMenu.classList.toggle("open");
-  });
-}
 
 function displayCurrent(data) {
   const current = data.list[0];
@@ -103,8 +95,41 @@ function displaySpotlights(members) {
 
 loadSpotlights();
 
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.showModal();
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.close();
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+  const menuButton = document.getElementById("menuButton");
+  const navMenu = document.getElementById("navMenu");
+
+  // Toggle menu
+  menuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuButton.classList.toggle("active");
+    navMenu.classList.toggle("show");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !menuButton.contains(e.target)) {
+      menuButton.classList.remove("active");
+      navMenu.classList.remove("show");
+    }
+  });
+
 
   // ✅ Footer (safe on all pages)
   const year = document.querySelector("#year");
@@ -125,26 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timestampField.value = new Date().toISOString();
   }
 
-  // THANK YOU PAGE DATA
-  const results = document.getElementById("results");
 
-  if (results) {
-    const params = new URLSearchParams(window.location.search);
-
-    const rawDate = params.get("timestamp");
-    const formattedDate = rawDate
-      ? new Date(rawDate).toLocaleString()
-      : "N/A";
-
-   results.innerHTML = `
-  <p><strong>First Name</strong> <span>${params.get("fname") || ""}</span></p>
-  <p><strong>Last Name</strong> <span>${params.get("lname") || ""}</span></p>
-  <p><strong>Email</strong> <span>${params.get("email") || ""}</span></p>
-  <p><strong>Phone</strong> <span>${params.get("phone") || ""}</span></p>
-  <p><strong>Business</strong> <span>${params.get("business") || ""}</span></p>
-  <p><strong>Membership</strong> <span>${params.get("membership") || ""}</span></p>
-  <p><strong>Submitted</strong> <span>${formattedDate}</span></p>
-`;
-  }
 
 });
+

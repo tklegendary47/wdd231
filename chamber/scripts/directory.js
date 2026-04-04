@@ -10,6 +10,25 @@ function getMembership(level) {
     
 }
 
+const menuButton = document.getElementById("menuButton");
+  const navMenu = document.getElementById("navMenu");
+
+  // Toggle menu
+  menuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuButton.classList.toggle("active");
+    navMenu.classList.toggle("show");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !menuButton.contains(e.target)) {
+      menuButton.classList.remove("active");
+      navMenu.classList.remove("show");
+    }
+  });
+
+
 function displayMembers(members) {
 
     cards.innerHTML = ""; // clear before rendering
@@ -68,21 +87,6 @@ cards.classList.remove("grid");
 });
 
 
-
-
-/* NAV MENU */
-
-const menuButton = document.querySelector("#menuButton");
-const navMenu = document.querySelector("#navMenu");
-
-menuButton.addEventListener("click", () => {
-
-    navMenu.classList.toggle("open");
-
-    // flip button
-    menuButton.classList.toggle("open");
-
-});
 
 const searchInput = document.querySelector("#search");
 const filterSelect = document.querySelector("#filterLevel");

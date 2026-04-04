@@ -9,7 +9,10 @@
 }
 
 
+/* ===== RESET (important) ===== */
 * {
+  
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -211,22 +214,6 @@ font-size:1.5rem;
 margin-bottom:4px;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0.75rem 1rem;
-  height: 60px;
-
-  background: rgba(15,23,42,0.95);
-  color: white;
-
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-}
 
 
 /* THANK YOU PAGE */
@@ -237,6 +224,7 @@ header {
   align-items: center;
   padding: 3rem 1rem;
 }
+
 
 .thankyou-card {
   background: rgba(255, 255, 255, 0.05);
@@ -288,23 +276,22 @@ header {
 }
 
 /* ================= NAVBAR ================= */
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-height:70px;
-padding:0 2rem;
+  padding: 1rem;
+  height: 60px;
 
-background: rgba(15,23,42,0.85);
-backdrop-filter: blur(10px);
+  background: rgba(15,23,42,0.95);
+  color: white;
 
-color:white;
-position:sticky;
-top:0;
-z-index:100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
-border-bottom:1px solid rgba(255,255,255,0.08);
+  position: relative;
 }
 
 .join-page {
@@ -600,41 +587,39 @@ button:hover, input[type="submit"]:hover {
 
 
 /* LOGO */
-.logo{
-font-size:1.1rem;
-font-weight:600;
-margin:0;
-letter-spacing:-0.3px;
-white-space:nowrap;
+.logo {
+  font-size: 1.1rem;
 }
 
 /* NAV LINKS */
-.nav-links{
-display:none;
-flex-direction:column;
-
-position:absolute;
-  top: 60px;   /* matches header height */
+.nav-links {
+  position: absolute;
+  top: 60px;
   left: 0;
-  right: 0;  
+  width: 100%;
 
-background:#1e293b;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15,23,42,0.98);
+
+  max-height: 0;
+  overflow: hidden;
+
+  transition: max-height 0.4s ease;
 }
 
 /* OPEN STATE (mobile) */
-.nav-links.open{
-display:flex;
+/* SHOW MENU */
+.nav-links.show {
+  max-height: 300px;
 }
 
-/* LINKS */
-.nav-links a{
-padding:12px 16px;
-text-decoration:none;
-color:white;
-font-size:0.95rem;
-opacity:0.85;
-
-transition:all .2s ease;
+/* Links */
+.nav-links a {
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* HOVER */
@@ -669,37 +654,34 @@ border-radius:2px;
 #menuButton {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5px;
 
-  width: 30px;
-  height: 22px;
-
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
-
-  z-index: 2000; /* 🔥 keeps it above everything */
+  z-index: 200;
 }
 
-#menuButton .bar {
-  width: 100%;
+.bar {
+  width: 25px;
   height: 3px;
   background: white;
-  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 /* MORPH INTO X */
 
 /* top bar */
-#menuButton.open .bar:nth-child(1) {
+/* ===== ☰ → X ANIMATION ===== */
+#menuButton.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
-#menuButton.open .bar:nth-child(2) {
+#menuButton.active .bar:nth-child(2) {
   opacity: 0;
 }
 
-#menuButton.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+#menuButton.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 /* when menu is open */
 
@@ -1168,10 +1150,7 @@ transform:translateX(-50%) translateY(0);
 @media (max-width: 600px){
 
   /* ===== FOOTER BASE ===== */
-  .footer {
-    padding: 2.5rem 1.2rem;
-    text-align: center;
-  }
+
 
   .footer-container {
     padding: 0;
@@ -1245,6 +1224,68 @@ transform:translateX(-50%) translateY(0);
   .footer-bottom p {
     font-size: 0.95rem;
     opacity: 0.85;
+  }
+
+
+    /* reduce outer spacing */
+  .thankyou-container {
+    padding: 1.5rem 0.8rem;
+  }
+
+  /* card becomes more compact */
+  .card {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+
+  /* header text scales better */
+  .card-header h1 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  /* badge spacing */
+  .badge {
+    margin-bottom: 1.2rem;
+    font-size: 0.7rem;
+  }
+
+  /* tighter but clean grid */
+  .grid {
+    gap: 0.9rem;
+    margin: 1.5rem 0;
+  }
+
+  /* item spacing optimized */
+  .item {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+  }
+
+  /* label smaller */
+  .item span {
+    font-size: 0.65rem;
+  }
+
+  /* value slightly smaller */
+  .item strong {
+    font-size: 0.95rem;
+  }
+
+  /* button feels more tappable */
+  .btn-primary {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  /* reduce footer clutter */
+  .footer {
+    font-size: 0.7rem;
+    margin-top: 1.5rem;
   }
 
 }

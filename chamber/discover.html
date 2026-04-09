@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Harare</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/discover.css">
+
+  <!-- JS (IMPORTANT: module) -->
+  <script type="module" src="scripts/discover.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+  <h1 class="logo">🌍 Discover Harare</h1>
+
+  <button id="menuButton">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav id="navMenu" class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Directory</a>
+    <a href="discover.html" class="active">Discover</a>
+    <a href="join.html">Join</a>
+  </nav>
+</header>
+
+<main class="discover">
+
+  <!-- VISIT MESSAGE -->
+  <div class="visit-message" id="visitMessage"></div>
+
+  <!-- GRID -->
+  <section class="discover-grid" id="discoverGrid">
+    <!-- Cards injected by JS -->
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span></p>
+</footer>
+
+</body>
+</html>

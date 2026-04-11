@@ -428,6 +428,22 @@ margin-bottom: 10px;
   }
 }
 
+
+@media (max-width: 1024px) {
+  .discover-card:hover {
+    transform: none;
+  }
+
+  .discover-card:hover img {
+    transform: none;
+  }
+}
+.discover-card + .discover-card {
+  margin-top: 0.3rem;
+}
+
+
+
 .card {
   background: var(--card);
   border: 1px solid var(--border);

@@ -1,8 +1,140 @@
 /* ===== DISCOVER PAGE ===== */
+/* ===== MOBILE BASE ===== */
+
+@media (max-width: 640px) {
+/* ===== MOBILE FIRST ===== */
 .discover {
   padding: 1rem;
-    position: relative;
+}
+
+/* VISIT MESSAGE */
+.visit-message {
+  font-size: 0.9rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* GRID (STACKED) */
+.discover-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+/* CARD */
+.discover-card {
+  border-radius: 16px;
   overflow: hidden;
+  background: #ffffff;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.card-image {
+  position: relative;
+  height: 180px; /* slightly smaller for mobile */
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY TEXT */
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 0.8rem;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2),
+    transparent
+  );
+
+  color: white;
+}
+
+.overlay h2 {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.overlay p {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 0.9rem;
+}
+
+.card-content p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.7rem;
+}
+
+/* BUTTON */
+.card-content button {
+  width: 100%; /* FULL WIDTH (mobile friendly) */
+  padding: 0.7rem;
+
+  border-radius: 999px;
+  border: none;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  background: #2563eb;
+  color: white;
+}
+
+.card-content button:active {
+  transform: scale(0.97);
+}
+
+
+.discover h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.discover p {
+  font-size: 0.9rem;
+}
+}
+
+
+.discover {
+  padding: 1rem 0.8rem;
+}
+
+/* GRID */
+.discover-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+    grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
 }
 
 .discover::before {
@@ -28,26 +160,9 @@
   text-align: center;
 }
 
-/* GRID */
-.discover-grid {
-  display: grid;
-  gap: 1rem;
-    position: relative;
-  z-index: 1;
-}
 
-/* SMALL */
-.discover-grid {
-  grid-template-areas:
-    "card1"
-    "card2"
-    "card3"
-    "card4"
-    "card5"
-    "card6"
-    "card7"
-    "card8";
-}
+
+
 
 /* MEDIUM */
 @media (min-width: 641px) {
@@ -73,21 +188,109 @@
 }
 
 /* CARD */
-.card {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+/* ===== TRAVEL CARD ===== */
+.discover-card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
+/* IMAGE SECTION */
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   padding: 1rem;
 
-  box-shadow:
-    0 8px 30px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2),
+    transparent
+  );
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  color: white;
+}
+
+/* TITLE */
+.overlay h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* ADDRESS */
+.overlay p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.overlay p::before {
+  content: "📍 ";
+}
+/* CONTENT */
+.card-content {
+  padding: 1rem;
+}
+
+
+.discover-card:nth-child(1) {
+  grid-column: span 2;
+}
+
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 0.8rem;
+}
+
+/* BUTTON */
+.card-content button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+.card-content button:hover {
+  background: #1d4ed8;
+}
+
+/* HOVER (DESKTOP ONLY) */
+@media (min-width: 1025px) {
+  .discover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  }
+
+  .discover-card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+  }
 }
 
 /* HOVER ONLY ON DESKTOP */

@@ -7,18 +7,24 @@ places.forEach(place => {
   const card = document.createElement("div");
   card.classList.add("card", "discover-card");
 
-  card.innerHTML = `
-    <h2>${place.name}</h2>
-    <figure>
-      <img src="${place.image}" alt="${place.name}" loading="lazy">
-    </figure>
-    <address>${place.address}</address>
+card.innerHTML = `
+  <figure class="card-image">
+    <img src="${place.image}" alt="${place.name}" loading="lazy">
+    <div class="overlay">
+      <h2>${place.name}</h2>
+      <p>${place.address}</p>
+    </div>
+  </figure>
+
+  <div class="card-content">
     <p>${place.description}</p>
-    <button>Learn More</button>
-  `;
+    <button>Explore</button>
+  </div>
+`;
 
   grid.appendChild(card);
 });
+
 
 
 // ===== VISIT MESSAGE (localStorage) =====
@@ -71,4 +77,26 @@ document.addEventListener("click", function(e) {
 
     setTimeout(() => circle.remove(), 600);
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+  const menuButton = document.getElementById("menuButton");
+  const navMenu = document.getElementById("navMenu");
+
+  // Toggle menu
+  menuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuButton.classList.toggle("active");
+    navMenu.classList.toggle("show");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !menuButton.contains(e.target)) {
+      menuButton.classList.remove("active");
+      navMenu.classList.remove("show");
+    }
+  });
 });

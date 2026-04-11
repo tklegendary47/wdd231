@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Harare</title>
+
+<style>
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #f5f7fa, #e4ecf2);
+}
+
+/* HEADER */
+header {
+  background: #0a3d62;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* VISIT BOX */
+.visit-box {
+  background: #0a3d62;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+/* GRID */
+.cards-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* CARD */
+.discover-card{
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.card h2 { margin: 0.5rem 0; }
+.card p { color: #444; }
+.card address { color: #777; font-size: 0.9rem; }
+
+.card button {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0a3d62, #3c6382);
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .cards-container { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 641px) {
+  .cards-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1025px) {
+  .cards-container { grid-template-columns: repeat(3, 1fr); }
+
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .card img:hover {
+    transform: scale(1.08);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Discover Harare</h1>
+</header>
+
+<section id="visit-message" class="visit-box"></section>
+
+<section id="cards" class="cards-container"></section>
+
+<script>
+/* DATA (INLINE INSTEAD OF MJS) */
+const places = [
+  {
+    name: "National Gallery",
+    address: "Park Lane, Harare",
+    description: "Zimbabwe's premier art museum.",
+    image: "images/gallery.webp"
+  },
+  {
+    name: "Mbare Musika",
+    address: "Mbare",
+    description: "Largest marketplace in Zimbabwe.",
+    image: "images/mbare.webp"
+  },
+  {
+    name: "Harare Gardens",
+    address: "CBD",
+    description: "Peaceful green space.",
+    image: "images/gardens.webp"
+  },
+  {
+    name: "Lake Chivero",
+    address: "Outside Harare",
+    description: "Fishing and wildlife destination.",
+    image: "images/lake.webp"
+  },
+  {
+    name: "Sam Levy Village",
+    address: "Borrowdale",
+    description: "Modern shopping center.",
+    image: "images/samlevy.webp"
+  },
+  {
+    name: "Wild Is Life",
+    address: "Harare",
+    description: "Animal sanctuary.",
+    image: "images/wildlife.webp"
+  },
+  {
+    name: "Avondale Flea Market",
+    address: "Avondale",
+    description: "Local crafts and goods.",
+    image: "images/flea.webp"
+  },
+  {
+    name: "Domboshava Caves",
+    address: "Northeast Harare",
+    description: "Historic rock formations.",
+    image: "images/caves.webp"
+  }
+];
+
+/* CREATE CARDS */
+const container = document.querySelector("#cards");
+
+places.forEach((place, index) => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  card.style.animationDelay = `${index * 0.1}s`;
+
+  card.innerHTML = `
+    <h2>${place.name}</h2>
+    <img src="${place.image}" alt="${place.name}" loading="lazy">
+    <address>${place.address}</address>
+    <p>${place.description}</p>
+    <button>Learn More</button>
+  `;
+
+  container.appendChild(card);
+});
+
+/* LOCAL STORAGE MESSAGE */
+const visitBox = document.querySelector("#visit-message");
+const lastVisit = localStorage.getItem("lastVisit");
+const now = Date.now();
+
+if (!lastVisit) {
+  visitBox.textContent = "Welcome! Let us know if you have any questions.";
+} else {
+  const days = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
+
+  if (days < 1) {
+    visitBox.textContent = "Back so soon! Awesome!";
+  } else if (days === 1) {
+    visitBox.textContent = "You last visited 1 day ago.";
+  } else {
+    visitBox.textContent = `You last visited ${days} days ago.`;
+  }
+}
+
+localStorage.setItem("lastVisit", now);
+</script>
+
+</body>
+</html>

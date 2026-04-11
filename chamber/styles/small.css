@@ -428,6 +428,11 @@ margin-bottom: 10px;
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 @media (max-width: 1024px) {
   .discover-card:hover {

@@ -48,3 +48,6 @@ export const places = [
     image: "images/sam-levy.webp"
   }
 ];
+
+document.querySelector("#year").textContent = new Date().getFullYear();
+document.querySelector("#modified").textContent = document.lastModified;

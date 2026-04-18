@@ -1,7 +1,6 @@
 // ============================================
 // TALENTTRACK - MAIN APPLICATION MODULE
 // WDD 231 Final Project
-// FIXED: Slideshow Buttons Fully Functional
 // ============================================
 
 import { jobsData, filterJobs, getBookmarks, saveBookmarks, toggleBookmark } from './jobs.js';
@@ -12,17 +11,13 @@ let currentFilters = { type: '', location: '', search: '' };
 let bookmarkedJobs = getBookmarks();
 let slideInterval = null;
 
-// ============================================
-// FOOTER DYNAMIC CONTENT FUNCTION
-// ============================================
+// Footer dynamic content
 function updateFooterInfo() {
-    // Set current year
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
     
-    // Set last modified date
     const modifiedSpan = document.getElementById('modified');
     if (modifiedSpan) {
         const lastModified = new Date(document.lastModified);
@@ -37,26 +32,43 @@ function updateFooterInfo() {
     }
 }
 
+// FIXED: Inject slide content without H1 tags
+const slideContentData = [
+    { title: "Find Your Dream Career", text: "Join thousands of professionals who found their perfect match", btn: "Explore Jobs →", nav: "jobs" },
+    { title: "AI-Powered Matching", text: "Smart recommendations tailored to your unique skills", btn: "Find Matches →", nav: "jobs" },
+    { title: "Remote Opportunities", text: "Work from anywhere with flexible, remote positions", btn: "View Remote Jobs →", nav: "jobs" },
+    { title: "Top Companies Hiring", text: "Connect with industry leaders and innovative startups", btn: "See Companies →", nav: "jobs" },
+    { title: "Career Growth Resources", text: "Access tools and insights to accelerate your career", btn: "Get Started →", nav: "contact" }
+];
 
-// ============================================
-// EXPOSE SLIDESHOW FUNCTIONS TO GLOBAL SCOPE
-// ============================================
+function injectSlideContent() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
+        if (index < slideContentData.length) {
+            const content = slideContentData[index];
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'slide-text';
+            contentDiv.innerHTML = `
+                <h2>${content.title}</h2>
+                <p>${content.text}</p>
+                <button class="cta-button" data-nav="${content.nav}">${content.btn}</button>
+            `;
+            slide.appendChild(contentDiv);
+        }
+    });
+}
+
+// Global functions
 window.changeSlide = changeSlide;
 window.showSlide = showSlide;
 window.resetInterval = resetInterval;
 window.stopSlideshow = stopSlideshow;
 
-// ============================================
-// FIXED: Mobile Menu Functions
-// ============================================
 window.toggleMobileMenu = function() {
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    
     if (!hamburger || !mobileMenu) return;
-    
     const isActive = hamburger.classList.contains('active');
-    
     if (!isActive) {
         hamburger.classList.add('active');
         mobileMenu.classList.add('active');
@@ -73,41 +85,28 @@ window.toggleMobileMenu = function() {
 window.closeMobileMenu = function() {
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    
     if (!hamburger || !mobileMenu) return;
-    
     hamburger.classList.remove('active');
     mobileMenu.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
 };
 
-// ============================================
-// Bookmark Functions
-// ============================================
 window.toggleBookmark = function(jobId) {
     bookmarkedJobs = toggleBookmark(jobId, bookmarkedJobs);
     saveBookmarks(bookmarkedJobs);
     renderCurrentPage();
 };
 
-// ============================================
-// Navigation
-// ============================================
 window.navigateTo = function(page) {
     currentPage = page;
     
-    // Update desktop nav
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .mobile-menu a').forEach(link => {
         const isActive = link.dataset.page === page;
         link.classList.toggle('active', isActive);
-        link.setAttribute('aria-current', isActive ? 'page' : null);
-    });
-    
-    // Update mobile nav
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-        const isActive = link.dataset.page === page;
-        link.classList.toggle('active', isActive);
+        if (link.classList.contains('nav-link')) {
+            link.setAttribute('aria-current', isActive ? 'page' : null);
+        }
     });
     
     const mainContent = document.getElementById('mainContent');
@@ -134,9 +133,6 @@ window.navigateTo = function(page) {
     closeMobileMenu();
 };
 
-// ============================================
-// Filter Functions
-// ============================================
 window.updateFilter = function(type, value) {
     currentFilters[type] = value;
     renderCurrentPage();
@@ -147,17 +143,13 @@ window.resetFilters = function() {
     renderCurrentPage();
 };
 
-// ============================================
-// Modal Functions
-// ============================================
 window.showJobDetails = function(jobId) {
     const job = jobsData.find(j => j.id === jobId);
     if (!job) return;
-    
     const isBookmarked = bookmarkedJobs.includes(jobId);
     
     const modalHtml = `
-        <div class="modal active" id="jobModal" onclick="closeModalOnBackground(event)" role="dialog" aria-modal="true" aria-label="Job details for ${job.title}">
+        <div class="modal active" id="jobModal" onclick="closeModalOnBackground(event)" role="dialog" aria-modal="true">
             <div class="modal-content">
                 <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
                 <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">${job.title}</h2>
@@ -177,7 +169,7 @@ window.showJobDetails = function(jobId) {
                     <li>Passion for innovation and continuous learning</li>
                 </ul>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="cta-button" onclick="navigateTo('contact'); closeModal();" style="font-size: 1rem; padding: 0.75rem 2rem;">Apply Now</button>
+                    <button class="cta-button" onclick="navigateTo('contact'); closeModal();">Apply Now</button>
                     <button class="btn-reset" style="background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); margin: 0;" 
                             onclick="toggleBookmark(${job.id}); closeModal();">
                         ${isBookmarked ? '★ Bookmarked' : '☆ Save Job'}
@@ -203,9 +195,6 @@ window.closeModalOnBackground = function(event) {
     if (event.target.id === 'jobModal') closeModal();
 };
 
-// ============================================
-// Render Functions
-// ============================================
 function renderJobCard(job) {
     const isBookmarked = bookmarkedJobs.includes(job.id);
     return `
@@ -242,7 +231,7 @@ function renderHome() {
                 ${featuredJobs.map(job => renderJobCard(job)).join('')}
             </div>
             <div style="text-align: center; margin-top: 3rem;">
-                <button class="cta-button" onclick="navigateTo('jobs')" style="font-size: 1rem;">View All ${jobsData.length} Jobs →</button>
+                <button class="cta-button" onclick="navigateTo('jobs')">View All ${jobsData.length} Jobs →</button>
             </div>
         </section>
     `;
@@ -257,7 +246,6 @@ function renderJobsPage() {
         const filterType = document.getElementById('filterType');
         const filterLocation = document.getElementById('filterLocation');
         const filterSearch = document.getElementById('filterSearch');
-        
         if (filterType) filterType.value = currentFilters.type;
         if (filterLocation) filterLocation.value = currentFilters.location;
         if (filterSearch) filterSearch.value = currentFilters.search;
@@ -292,16 +280,16 @@ function renderJobsPage() {
         
         <section>
             <div class="jobs-header">
-                <div class="jobs-count" role="status" aria-live="polite">Found ${displayJobs.length} position${displayJobs.length !== 1 ? 's' : ''}</div>
+                <div class="jobs-count" role="status">Found ${displayJobs.length} position${displayJobs.length !== 1 ? 's' : ''}</div>
                 <div class="bookmark-filter">
-                    <input type="checkbox" id="showBookmarkedOnly" onchange="renderCurrentPage()" ${showBookmarkedOnly ? 'checked' : ''} aria-label="Show bookmarked jobs only">
+                    <input type="checkbox" id="showBookmarkedOnly" onchange="renderCurrentPage()" ${showBookmarkedOnly ? 'checked' : ''}>
                     <label for="showBookmarkedOnly">Show bookmarked only</label>
                 </div>
             </div>
             
             <div class="jobs-grid">
                 ${displayJobs.length > 0 ? displayJobs.map(job => renderJobCard(job)).join('') : 
-                  '<p style="text-align: center; grid-column: 1/-1; padding: 3rem;">No jobs match your criteria. Try adjusting your filters.</p>'}
+                  '<p style="text-align: center; grid-column: 1/-1; padding: 3rem;">No jobs match your criteria.</p>'}
             </div>
         </section>
     `;
@@ -314,11 +302,11 @@ function renderContactPage() {
             <form id="applicationForm" method="GET" action="application-success.html">
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required aria-required="true">
+                    <input type="text" id="fullName" name="fullName" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
@@ -326,7 +314,7 @@ function renderContactPage() {
                 </div>
                 <div class="form-group">
                     <label for="jobPosition">Select Position *</label>
-                    <select id="jobPosition" name="jobPosition" required aria-required="true">
+                    <select id="jobPosition" name="jobPosition" required>
                         <option value="">Choose a position...</option>
                         ${jobsData.map(job => `<option value="${job.title} at ${job.company}">${job.title} - ${job.company}</option>`).join('')}
                     </select>
@@ -354,11 +342,7 @@ function renderCurrentPage() {
     navigateTo(currentPage);
 }
 
-// ============================================
-// FIXED: Event Listeners Setup with Direct Slideshow Button Binding
-// ============================================
 function setupEventListeners() {
-    // Hamburger menu click
     const hamburger = document.querySelector('.hamburger');
     if (hamburger) {
         hamburger.addEventListener('click', (e) => {
@@ -367,7 +351,6 @@ function setupEventListeners() {
         });
     }
     
-    // Desktop navigation
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             const page = e.target.dataset.page;
@@ -375,7 +358,6 @@ function setupEventListeners() {
         });
     });
     
-    // Mobile navigation
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', (e) => {
             const page = e.target.dataset.page;
@@ -383,118 +365,55 @@ function setupEventListeners() {
         });
     });
     
-    // CTA buttons
-    document.querySelectorAll('.cta-button').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('cta-button')) {
             const page = e.target.dataset.nav;
             if (page) window.navigateTo(page);
-        });
+        }
     });
     
-    // ============================================
-    // FIXED: Direct Slideshow Button Event Binding
-    // ============================================
     const prevButton = document.querySelector('.slide-nav.prev');
     const nextButton = document.querySelector('.slide-nav.next');
     
     if (prevButton) {
-        // Remove any existing listeners by cloning
-        const newPrev = prevButton.cloneNode(true);
-        prevButton.parentNode.replaceChild(newPrev, prevButton);
-        
-        // Add fresh click handler
-        newPrev.addEventListener('click', (e) => {
+        prevButton.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-            if (typeof window.changeSlide === 'function') {
-                window.changeSlide(-1);
-            }
+            window.changeSlide(-1);
         });
     }
     
     if (nextButton) {
-        // Remove any existing listeners by cloning
-        const newNext = nextButton.cloneNode(true);
-        nextButton.parentNode.replaceChild(newNext, nextButton);
-        
-        // Add fresh click handler
-        newNext.addEventListener('click', (e) => {
+        nextButton.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-            if (typeof window.changeSlide === 'function') {
-                window.changeSlide(1);
-            }
+            window.changeSlide(1);
         });
     }
     
-    // Also ensure the HTML onclick attributes work as fallback
-    // The buttons in HTML have: onclick="changeSlide(-1)" and onclick="changeSlide(1)"
-    
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobileMenu');
         const hamburger = document.querySelector('.hamburger');
-        
         if (mobileMenu && mobileMenu.classList.contains('active')) {
             const isClickInside = mobileMenu.contains(e.target) || (hamburger && hamburger.contains(e.target));
-            if (!isClickInside) {
-                window.closeMobileMenu();
-            }
+            if (!isClickInside) window.closeMobileMenu();
         }
     });
     
-    // Handle escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             window.closeModal();
             window.closeMobileMenu();
         }
-        
-        // Keyboard navigation for slideshow
-        if (e.key === 'ArrowLeft') {
-            if (typeof window.changeSlide === 'function') {
-                window.changeSlide(-1);
-            }
-        }
-        if (e.key === 'ArrowRight') {
-            if (typeof window.changeSlide === 'function') {
-                window.changeSlide(1);
-            }
-        }
+        if (e.key === 'ArrowLeft') window.changeSlide(-1);
+        if (e.key === 'ArrowRight') window.changeSlide(1);
     });
 }
 
-// ============================================
-// Initialize Application
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    injectSlideContent();
     initSlideshow();
     setupEventListeners();
     window.navigateTo('home');
-     updateFooterInfo();
-
-    
-    // Extra safety: Re-bind slideshow buttons after a short delay
-    // This ensures they work even if DOM isn't fully ready
-    setTimeout(() => {
-        const prevBtn = document.querySelector('.slide-nav.prev');
-        const nextBtn = document.querySelector('.slide-nav.next');
-        
-        if (prevBtn) {
-            prevBtn.onclick = (e) => {
-                e.preventDefault();
-                window.changeSlide(-1);
-            };
-        }
-        
-        if (nextBtn) {
-            nextBtn.onclick = (e) => {
-                e.preventDefault();
-                window.changeSlide(1);
-            };
-        }
-    }, 100);
-    
+    updateFooterInfo();
 });
 
 export { renderCurrentPage };

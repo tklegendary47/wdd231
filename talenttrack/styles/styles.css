@@ -1,6 +1,6 @@
 /* ============================================
    TALENTTRACK - MAIN STYLESHEET
-   WDD 231 Final Project
+   WDD 231 Final Project - Ultra-Polished
    ============================================ */
 
 * {
@@ -39,7 +39,6 @@ body {
     flex-direction: column;
 }
 
-/* Skip Link - Fixed Contrast */
 .skip-to-content {
     position: absolute;
     top: -40px;
@@ -206,7 +205,7 @@ body {
     color: var(--primary-dark);
 }
 
-/* Hero Slideshow - FIXED: No inline styles, using CSS classes */
+/* Hero Slideshow */
 .hero {
     margin-top: 70px;
     position: relative;
@@ -256,7 +255,6 @@ body {
     visibility: visible;
 }
 
-/* Slide content injected via JavaScript */
 .slide-text {
     position: relative;
     text-align: center;
@@ -286,14 +284,8 @@ body {
 }
 
 @keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .cta-button {
@@ -594,14 +586,8 @@ body {
 }
 
 @keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .modal-close {
@@ -685,7 +671,7 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-/* Footer - Fixed Contrast */
+/* Footer */
 .footer {
     background: var(--footer-bg);
     color: var(--footer-text);

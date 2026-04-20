@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Application confirmation - TalentTrack job application submitted successfully">
+    <!-- Unique Meta Description -->
+    <meta name="description" content="Your application has been successfully submitted to TalentTrack. View your application summary and next steps.">
     <meta name="author" content="Your Name">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link rel="stylesheet" href="styles/application-success.css">
-    <title>Application Submitted - TalentTrack</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Application Submitted - TalentTrack">
+    <meta property="og:description" content="Application confirmation for TalentTrack job board.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yourusername.github.io/wdd231/finalproject/images/og-image.jpg">
     
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>Application Submitted - TalentTrack</title>
+    <link rel="stylesheet" href="styles/application-success.css">
+<link rel="stylesheet" href="styles/normalize.css">
+<script type="module" src="scripts/application-success.js"></script>
 </head>
 <body>
     <div class="container">
@@ -31,10 +45,14 @@
                 <a href="index.html" class="btn btn-secondary">Browse More Jobs</a>
             </div>
             
+            <div class="video-link">
+                🎥 <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank" rel="noopener">Watch Project Demo Video</a>
+            </div>
+            
             <div class="submission-time" id="submissionTime"></div>
         </div>
     </div>
     
-    <script type="module" src="scripts/application-success.js"></script>
+
 </body>
 </html>

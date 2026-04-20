@@ -19,7 +19,7 @@
                     html += `
                         <div class="detail-group">
                             <div class="detail-label">${field.label}</div>
-                            <div class="detail-value">${value}</div>
+                            <div class="detail-value">${decodeURIComponent(value)}</div>
                         </div>
                     `;
                 }

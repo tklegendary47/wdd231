@@ -94,7 +94,19 @@ function renderJobCard(job) {
 
 function renderHome() {
     const featuredJobs = jobsData.slice(0, 6);
-    return `<section style="text-align:center;margin-bottom:3rem"><h1 style="font-size:2.5rem;margin-bottom:1rem;font-weight:700">Welcome to TalentTrack</h1><p style="color:var(--text-muted);font-size:1.2rem;max-width:700px;margin:0 auto">Your intelligent job matching platform connecting top talent with exceptional opportunities</p></section><section><div class="jobs-header"><h2 style="font-size:1.75rem;font-weight:600">Featured Opportunities</h2></div><div class="jobs-grid">${featuredJobs.map(job => renderJobCard(job)).join('')}</div><div style="text-align:center;margin-top:3rem"><button class="cta-button" onclick="navigateTo('jobs')">View All ${jobsData.length} Jobs →</button></div></section>`;
+    return `
+        <section>
+            <div class="jobs-header">
+                <h2 style="font-size: 1.75rem; font-weight: 600;">Featured Opportunities</h2>
+            </div>
+            <div class="jobs-grid">
+                ${featuredJobs.map(job => renderJobCard(job)).join('')}
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="cta-button" onclick="navigateTo('jobs')">View All ${jobsData.length} Jobs →</button>
+            </div>
+        </section>
+    `;
 }
 
 function renderJobsPage() {

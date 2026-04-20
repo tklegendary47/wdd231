@@ -63,19 +63,40 @@
         </div>
     </div>
 
-    <header class="hero" id="heroSection">
-        <div class="slideshow-container" id="slideshow" role="region" aria-label="Image carousel">
-            <div class="slide slide-1 active"></div>
-            <div class="slide slide-2"></div>
-            <div class="slide slide-3"></div>
-            <div class="slide slide-4"></div>
-            <div class="slide slide-5"></div>
-            
-            <button class="slide-nav prev" aria-label="Previous slide">❮</button>
-            <button class="slide-nav next" aria-label="Next slide">❯</button>
-            <div class="slide-dots" id="slideDots" role="tablist" aria-label="Slide navigation dots"></div>
+<!-- Hero Slideshow - Images now in HTML with alt text -->
+<header class="hero" id="heroSection">
+    <div class="slideshow-container" id="slideshow" role="region" aria-label="Image carousel">
+        
+        <div class="slide active">
+            <img src="images/slide1.webp" alt="Professional team collaborating in modern office" class="slide-image" loading="lazy">
+            <div class="slide-text-container"></div>
         </div>
-    </header>
+        
+        <div class="slide">
+            <img src="images/slide2.webp" alt="AI-powered job matching technology concept" class="slide-image" loading="lazy">
+            <div class="slide-text-container"></div>
+        </div>
+        
+        <div class="slide">
+            <img src="images/slide3.webp" alt="Remote worker with flexible lifestyle setup" class="slide-image" loading="lazy">
+            <div class="slide-text-container"></div>
+        </div>
+        
+        <div class="slide">
+            <img src="images/slide4.webp" alt="Top companies and startups hiring talent" class="slide-image" loading="lazy">
+            <div class="slide-text-container"></div>
+        </div>
+        
+        <div class="slide">
+            <img src="images/slide5.webp" alt="Career growth and professional development resources" class="slide-image" loading="lazy">
+            <div class="slide-text-container"></div>
+        </div>
+        
+        <button class="slide-nav prev" aria-label="Previous slide">❮</button>
+        <button class="slide-nav next" aria-label="Next slide">❯</button>
+        <div class="slide-dots" id="slideDots" role="tablist" aria-label="Slide navigation dots"></div>
+    </div>
+</header>
 
     <main id="mainContent" class="container" role="main"></main>
 

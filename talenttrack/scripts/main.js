@@ -31,13 +31,21 @@ const slideContentData = [
 ];
 
 function injectSlideContent() {
-    document.querySelectorAll('.slide').forEach((slide, index) => {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
         if (index < slideContentData.length) {
             const content = slideContentData[index];
-            const div = document.createElement('div');
-            div.className = 'slide-text';
-            div.innerHTML = `<h2>${content.title}</h2><p>${content.text}</p><button class="cta-button" data-nav="${content.nav}">${content.btn}</button>`;
-            slide.appendChild(div);
+            const container = slide.querySelector('.slide-text-container');
+            if (container) {
+                const div = document.createElement('div');
+                div.className = 'slide-text';
+                div.innerHTML = `
+                    <h2>${content.title}</h2>
+                    <p>${content.text}</p>
+                    <button class="cta-button" data-nav="${content.nav}">${content.btn}</button>
+                `;
+                container.appendChild(div);
+            }
         }
     });
 }

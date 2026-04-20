@@ -312,7 +312,18 @@ body {
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-
+/* Visually hidden H1 for accessibility and audit compliance */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }

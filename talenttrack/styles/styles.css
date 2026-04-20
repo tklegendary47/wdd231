@@ -211,7 +211,7 @@ body {
     position: relative;
     height: 600px;
     overflow: hidden;
-    background: var(--text-dark);
+    background: #0a0a0a;
 }
 
 .slideshow-container {

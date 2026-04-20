@@ -244,11 +244,11 @@ body {
     background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
 }
 
-.slide-1 { background-image: url('../images/slide1.jpg'); }
-.slide-2 { background-image: url('../images/slide2.jpg'); }
-.slide-3 { background-image: url('../images/slide3.jpg'); }
-.slide-4 { background-image: url('../images/slide4.jpg'); }
-.slide-5 { background-image: url('../images/slide5.jpg'); }
+.slide-1 { background-image: url('../images/slide1.webp'); }
+.slide-2 { background-image: url('../images/slide2.webp'); }
+.slide-3 { background-image: url('../images/slide3.webp'); }
+.slide-4 { background-image: url('../images/slide4.webp'); }
+.slide-5 { background-image: url('../images/slide5.webp'); }
 
 .slide.active {
     opacity: 1;

@@ -71,9 +71,19 @@ window.navigateTo = function(page) {
     document.querySelectorAll('.nav-link, .mobile-menu a').forEach(link => { const isActive = link.dataset.page === page; link.classList.toggle('active', isActive); if (link.classList.contains('nav-link')) link.setAttribute('aria-current', isActive ? 'page' : null); });
     const mainContent = document.getElementById('mainContent');
     const heroSection = document.getElementById('heroSection');
-    if (page === 'home') { heroSection.style.display = 'block'; mainContent.innerHTML = renderHome(); document.title = 'TalentTrack - Smart Job Board'; resetInterval(); }
-    else if (page === 'jobs') { heroSection.style.display = 'block'; mainContent.innerHTML = renderJobsPage(); document.title = 'Browse Jobs - TalentTrack'; resetInterval(); }
-    else if (page === 'contact') { heroSection.style.display = 'none'; mainContent.innerHTML = renderContactPage(); document.title = 'Apply - TalentTrack'; stopSlideshow(); }
+    const dynamicContent = document.getElementById('dynamicContent');
+
+
+    if (page === 'home') { heroSection.style.display = 'block';
+        
+       const dynamicContent = document.getElementById('dynamicContent');
+if (dynamicContent) {
+    dynamicContent.innerHTML = renderHome();
+}
+        
+        document.title = 'TalentTrack - Smart Job Board'; resetInterval(); }
+    else if (page === 'jobs') { heroSection.style.display = 'block';   if (dynamicContent) dynamicContent.innerHTML = renderJobsPage(); document.title = 'Browse Jobs - TalentTrack'; resetInterval(); }
+    else if (page === 'contact') { heroSection.style.display = 'none';  if (dynamicContent) dynamicContent.innerHTML = renderContactPage();  document.title = 'Apply - TalentTrack'; stopSlideshow(); }
     window.scrollTo({ top: 0, behavior: 'smooth' }); closeMobileMenu();
 };
 window.updateFilter = function(type, value) { currentFilters[type] = value; renderCurrentPage(); };

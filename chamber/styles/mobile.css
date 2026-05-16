@@ -3,9 +3,28 @@
 /* Base mobile adjustments (max 768px) */
 @media (max-width: 768px) {
   /* --- NAVIGATION --- */
-  .hamburger {
-    display: flex;
-  }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hamburger itself – fine‑tune */
+.hamburger {
+  display: flex !important;
+  flex-direction: column;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: transparent;
+  position: relative;
+  z-index: 1010;
+  cursor: pointer;
+  order: 1;   /* keep it on the right */
+}
   .nav-menu {
     position: fixed;
     top: var(--navbar-height);

@@ -7,7 +7,7 @@
   <meta name="description" content="Explore the Harare Chamber of Commerce directory to discover trusted local businesses.">
   <meta property="og:title" content="Harare Chamber Directory">
   <meta property="og:description" content="Discover trusted businesses in the Harare Chamber directory.">
-  <meta property="og:image" content="images/social.png">
+<meta property="og:image" content="https://tklegendary47.github.io/wdd231/chamber/images/social.png">
   <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
   <meta name="author" content="Takudzwa P. Matimura">
   <link rel="icon" href="images/social.png">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
   <link rel="stylesheet" href="styles/mobile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -39,7 +42,11 @@
       <div class="nav-actions">
         <a href="join.html" class="btn btn-outline">Join Now</a>
         <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-        <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
+     <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -122,6 +129,6 @@
       <p class="developer">Developed by Takudzwa P. Matimura</p>
     </div>
   </footer>
-  <script src="scripts/main.js"></script>
+<script src="scripts/main.js" defer></script>
 </body>
 </html>

@@ -1,137 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Harare Chamber Directory</title>
-
-<meta name="description" content="Explore the Harare Chamber of Commerce directory to discover trusted local businesses, connect with partners, and grow your network.">
-<meta name="author" content="Takudzwa P. Matimura">
-
-<meta property="og:title" content="Harare Chamber Directory">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
-<meta property="og:image" content="https://tklegendary47.github.io/wdd231/chamber/images/social.png">
-<meta property="og:description" content="Discover trusted businesses in the Harare Chamber directory and connect with partners to grow your network.">
-<link rel="icon" href="images/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:locale" content="en_US">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="styles/small.css">
-<link rel="stylesheet" href="styles/larger.css">
-<link rel="icon" type="image/png" sizes="16x16" href="images/social.png">
-<script defer src="scripts/home.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harare Chamber of Commerce</title>
+  <meta name="description" content="Empowering Harare businesses through innovation and collaboration.">
+  <meta property="og:title" content="Harare Chamber of Commerce">
+  <meta property="og:description" content="Empowering businesses through innovation and collaboration.">
+  <meta property="og:image" content="images/social.png">
+  <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/">
+  <meta name="author" content="Takudzwa P. Matimura">
+  <link rel="icon" href="images/social.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/mobile.css">
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header class="navbar"> 
- 
-  <div class="nav-left">
-    <h1 class="logo">🏢Harare Chamber of Commerce</h1>
-  </div>
-
-  
-  <button id="menuButton" aria-label="Menu"> 
-    <span class="bar"></span> 
-    <span class="bar"></span> 
-    <span class="bar"></span> 
-  </button> 
-
-  <nav id="navMenu" class="nav-links">
-    <a href="chamber/index.html" class="active">Home</a>
-    <a href="directory.html">Directory</a>
-    <a href="discover.html">Discover</a>
-    <a href="join.html">Join</a>
-  </nav>
- 
-</header>
-
-<main>
-
-  <!-- HERO -->
-<section class="hero">
-  <img src="images/hero.jpg" alt="Harare city skyline or local businesses">
-  <div class="hero-inner">
-    <h2>Welcome to Harare Chamber of Commerce</h2>
-    <p>Connecting businesses. Empowering growth.</p>
-    <a href="join.html" class="cta-btn">Join the Chamber</a>
-  </div>
-
-  <div class="scroll-indicator">
-    <span></span>
-  </div>
-</section>
-
-  <!-- EVENTS -->
-  <section class="events">
-    <div class="container">
-    <h2>Upcoming Events</h2>
-    <ul>
-      <li>📅 Business Networking – April 10</li>
-      <li>📅 Startup Pitch Night – April 15</li>
-      <li>📅 Marketing Workshop – April 20</li>
-    </ul>
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <img src="images/social.png" alt="" width="40">
+        <span class="logo-text">Harare Chamber</span>
+      </a>
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="join.html" class="btn btn-outline">Join Now</a>
+        <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- WEATHER -->
-  <section class="weather">
-    <h2>Harare Weather</h2>
-    <div id="current-weather"></div>
-    <div id="forecast"></div>
-  </section>
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container fade-in-up">
+        <h1 class="hero-title">Empowering Harare Businesses Through Innovation and Collaboration</h1>
+        <p class="hero-subtitle">Connecting entrepreneurs, fueling growth, and shaping the future of Zimbabwe’s economy.</p>
+        <div class="hero-cta">
+          <a href="join.html" class="btn btn-primary">Join the Chamber</a>
+          <a href="directory.html" class="btn btn-outline">Explore Businesses</a>
+        </div>
+<div class="hero-stats">
+  <div class="stat-card glass">
+    <span class="counter" data-count="1500">0</span><span>+</span>
+    <p>Active Members</p>
+  </div>
+  <div class="stat-card glass">
+    <span class="counter" data-count="45">0</span><span>+</span>
+    <p>Annual Events</p>
+  </div>
+  <div class="stat-card glass">
+    <span class="counter" data-count="12">0</span>
+    <p>Partner Districts</p>
+  </div>
+</div>
+      </div>
+      <div class="scroll-indicator"><span></span></div>
+    </section>
 
-  <!-- SPOTLIGHTS -->
-  <section class="spotlights">
-    <h2>Business Spotlights</h2>
-    <div id="spotlight-container"></div>
-  </section>
+    <!-- Featured Businesses -->
+    <section class="section container featured-businesses">
+      <h2 class="section-title">Featured Businesses</h2>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
 
-</main>
+    <!-- Economic Growth Stats -->
+    <section class="section stats-highlight bg-dark">
+      <div class="container">
+        <h2 class="section-title light">Harare’s Growth in Numbers</h2>
+        <div class="stats-grid">
+          <div class="growth-stat reveal">
+            <i class="fas fa-chart-line"></i>
+            <div class="counter" data-target="8.2">0</div><small>%</small>
+            <p>GDP Growth</p>
+          </div>
+          <div class="growth-stat reveal">
+            <i class="fas fa-building"></i>
+            <div class="counter" data-target="350">0</div><small>+</small>
+            <p>New Startups This Year</p>
+          </div>
+          <div class="growth-stat reveal">
+            <i class="fas fa-handshake"></i>
+            <div class="counter" data-target="98">0</div><small>%</small>
+            <p>Member Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-  <div class="footer-container">
+    <!-- Upcoming Events -->
+    <section class="section container events-section">
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="events-grid" id="eventsGrid"></div>
+    </section>
 
-    <div class="footer-top">
+    <!-- Weather Widget -->
+    <section class="section weather-section">
+      <div class="container">
+        <div class="weather-card glass" id="weatherWidget">
+          <div class="weather-main">
+            <i class="fas fa-cloud-sun weather-icon"></i>
+            <div class="weather-temp"><span id="weatherTemp">--</span>°C</div>
+            <div class="weather-details">
+              <p id="weatherDesc">--</p>
+              <p>Humidity: <span id="weatherHumidity">--</span>%</p>
+              <p>Wind: <span id="weatherWind">--</span> km/h</p>
+            </div>
+          </div>
+          <div class="weather-forecast" id="weatherForecast"></div>
+        </div>
+      </div>
+    </section>
 
-      <!-- LEFT -->
+    <!-- Member Spotlights Carousel -->
+    <section class="section bg-alt spotlight-section">
+      <div class="container">
+        <h2 class="section-title light">Member Spotlights</h2>
+        <div class="spotlight-carousel" id="spotlightCarousel"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section container testimonials">
+      <h2 class="section-title">What Our Members Say</h2>
+      <div class="testimonial-grid" id="testimonialGrid">
+        <div class="testimonial-card reveal">
+          <p>"The Chamber opened doors to investors we never thought possible."</p>
+          <h4>– Tendai Moyo, CEO TechWave</h4>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>"Networking events have tripled our B2B partnerships."</p>
+          <h4>– Rudo Ncube, EcoFarm Solutions</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Ready to Grow Your Business?</h2>
+        <p>Join the Harare Chamber of Commerce and connect with over 1,500 professionals.</p>
+        <a href="join.html" class="btn btn-primary">Become a Member</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <h2>Harare Chamber</h2>
-        <p>Connecting Businesses, Empowering Growth</p>
+        <img src="images/social.png" alt="" width="50">
+        <p>Harare Chamber of Commerce</p>
+        <p>Driving business forward.</p>
       </div>
-
-      <!-- CENTER -->
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" data-name="Linkedin" target="_blank">
-          <img src="images/linkedin.svg" alt="LinkedIn">
-        </a>
-
-        <a href="https://github.com/tklegendary47" data-name="Github" target="_blank">
-          <img src="images/github.svg" alt="GitHub">
-        </a>
-
-        <a href="https://facebook.com" data-name="Facebook" target="_blank">
-          <img src="images/facebook.svg" alt="Facebook"> 
-        </a>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="directory.html">Business Directory</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html">Membership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-
-      <!-- RIGHT -->
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Takudzwa P. Matimura</p>
-        <p>Last Modified: <span id="modified"></span></p>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Enterprise Rd, Harare</p>
+        <p><i class="fas fa-phone"></i> +263 242 123 456</p>
+        <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
       </div>
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; <span id="year"></span> Harare Chamber of Commerce. All rights reserved.</p>
+      <p>Last Modified: <span id="modified"></span></p>
+      <p class="developer">Developed by Takudzwa P. Matimura</p>
+    </div>
+  </footer>
 
-    </div> <!-- CLOSE footer-top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-  </div> <!-- CLOSE footer-container -->
-</footer>
-
+  <script src="scripts/main.js"></script>
 </body>
 </html>

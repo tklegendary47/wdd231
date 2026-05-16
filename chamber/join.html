@@ -4,271 +4,262 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join the Harare Chamber of Commerce</title>
-<meta name="description" content="Join the Harare Chamber of Commerce to grow your business, network with professionals, and access exclusive opportunities.">
-<meta property="og:title" content="Join the Harare Chamber of Commerce">
-
-<meta property="og:description" content="Become a member of the Harare Chamber to connect, grow your business, and unlock new opportunities.">
-
-<meta property="og:image" content="https://github.com/tklegendary47/wdd231/blob/main/chamber/images/social.png">
-
-<meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/join.html">
-<meta name="author" content="Takudzwa P. Matimura">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/larger.css">
-    <script defer src="scripts/home.js"></script>
-  <!-- Favicon -->
+  <meta name="description" content="Join the Harare Chamber of Commerce to grow your business, network with professionals, and access exclusive opportunities.">
+  <meta property="og:title" content="Join the Harare Chamber of Commerce">
+  <meta property="og:description" content="Become a member of the Harare Chamber to connect, grow your business, and unlock new opportunities.">
+  <meta property="og:image" content="images/social.png">
+  <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/join.html">
+  <meta name="author" content="Takudzwa P. Matimura">
   <link rel="icon" href="images/social.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/mobile.css">
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header class="navbar"> 
- 
-  <div class="nav-left">
-    <h1 class="logo">🏢Join Our Chamber</h1>
-  </div>
-
-  <!-- 👇 MOVE BUTTON HERE -->
-  <button id="menuButton" aria-label="Menu">
-    <span class="bar"></span> 
-    <span class="bar"></span> 
-    <span class="bar"></span> 
-  </button> 
-
-  <nav id="navMenu" class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="directory.html">Directory</a>
-    <a href="discover.html">Discover</a>
-    <a href="join.html" class="active">Join</a>
-  </nav>
- 
-</header>
-
-<main class="join-page">
-
-  <!--  FORM SECTION -->
-  <section class="form-section">
-    <h2>Membership Application</h2>
-
-    <form method="get" action="thankyou.html">
-
-      <label for="fname">
-        First Name
-     <input id="fname" name="fname" required>
-      </label>
-
-      <label>
-        Last Name
-        <input type="text" name="lname" required title="Enter your last name" autocomplete="family-name">
-      </label>
-
-      <label>
-  Business Description
-  <textarea name="description" title="Describe your business"></textarea>
-</label>
-
-<label>
-  Organizational Title
-  <input 
-    type="text"
-    name="orgtitle"
-    required
-    title="Enter your role (e.g. Marketing Manager)"
-    autocomplete="organization-title"
-    pattern="[A-Za-z0-9\- ]{7,}"
-  required>
-</label>
-
-      <label>
-        Email
-        <input type="email" name="email"
-          required placeholder="example@email.com"
-          autocomplete="email">
-      </label>
-
-      <label>
-        Phone
-        <input type="tel" name="phone" required autocomplete="tel">
-      </label>
-
-      <label>
-        Business Name
-        <input type="text" name="business" required  autocomplete="organization">
-      </label>
-
-      <label>
-        Membership Level
-        <select name="membership" required>
-          <option value="">Select Level</option>
-          <option value="np">NP Membership</option>
-          <option value="bronze">Bronze</option>
-          <option value="silver">Silver</option>
-          <option value="gold">Gold</option>
-        </select>
-      </label>
-
-      <!-- TIMESTAMP -->
-      <input type="hidden" name="timestamp" id="timestamp">
-
-      <button type="submit" class="primary-btn">Join Now</button>
-
-    </form>
-  </section>
-
-  <!-- MEMBERSHIP CARDS -->
-  <section class="membership-cards">
-
-    <!-- NP -->
-    <div class="card">
-      <h3>NP Membership</h3>
-      <p class="price">Free</p>
-      <ul class="features">
-        <li>Basic directory listing</li>
-        <li>Community access</li>
-        <li>Networking events</li>
-      </ul>
-     <button type="button" data-modal="npModal" class="secondary-btn open-modal">
-        View Benefits
-      </button>
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <img src="images/social.png" alt="" width="40">
+        <span class="logo-text">Harare Chamber</span>
+      </a>
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html" class="active">Join</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="join.html" class="btn btn-outline">Join Now</a>
+        <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Bronze -->
-    <div class="card">
-      <h3>Bronze Membership</h3>
-      <p class="price">$25<span>/month</span></p>
-      <ul class="features">
-        <li>Enhanced directory listing</li>
-        <li>Email support</li>
-        <li>Monthly newsletters</li>
-      </ul>
-      <button type="button" data-modal="bronzeModal" class="secondary-btn open-modal">
-        View Benefits
-      </button>
-    </div>
+  <main id="main-content">
+    <section class="page-hero join-hero">
+      <div class="container"><h1>Membership Plans</h1>
+      <p>Choose the right plan for your business and start connecting today.</p>
+      </div>
+    </section>
 
-    <!-- Silver -->
-    <div class="card">
-      <h3>Silver Membership</h3>
-      <p class="price">$50<span>/month</span></p>
-      <ul class="features">
-        <li>Homepage feature</li>
-        <li>Event discounts</li>
-        <li>Priority support</li>
-      </ul>
-      <button type="button" data-modal="silverModal" class="secondary-btn open-modal">
-        View Benefits
-      </button>
-    </div>
+    <section class="container membership-tiers">
+      
+      <!-- TIER CARDS -->
+      <div class="tier-grid" id="tierGrid">
 
-    <!-- Gold -->
-    <div class="card gold">
-      <div class="card-badge">Most Popular</div>
-      <h3>Gold Membership</h3>
-      <p class="price">$99<span>/month</span></p>
-      <ul class="features">
-        <li>Premium exposure</li>
-        <li>Homepage spotlight</li>
-        <li>Event promotions</li>
-        <li>Priority support</li>
-      </ul>
-      <button type="button" data-modal="goldModal" class="secondary-btn open-modal">
-        View Benefits
-      </button>
-    </div>
+        <!-- NP Membership -->
+        <div class="tier-card card">
+          <h3>NP Membership</h3>
+          <p class="price">Free</p>
+          <ul class="features">
+            <li><i class="fas fa-check-circle"></i> Basic directory listing</li>
+            <li><i class="fas fa-check-circle"></i> Community access</li>
+            <li><i class="fas fa-check-circle"></i> Networking events</li>
+          </ul>
+          <button type="button" data-modal="npModal" class="secondary-btn open-modal">
+            View Benefits
+          </button>
+        </div>
 
-  </section>
+        <!-- Bronze -->
+        <div class="tier-card card">
+          <h3>Bronze Membership</h3>
+          <p class="price">$25<span>/month</span></p>
+          <ul class="features">
+            <li><i class="fas fa-check-circle"></i> Enhanced directory listing</li>
+            <li><i class="fas fa-check-circle"></i> Email support</li>
+            <li><i class="fas fa-check-circle"></i> Monthly newsletters</li>
+          </ul>
+          <button type="button" data-modal="bronzeModal" class="secondary-btn open-modal">
+            View Benefits
+          </button>
+        </div>
 
-</main>
+        <!-- Silver -->
+        <div class="tier-card card">
+          <h3>Silver Membership</h3>
+          <p class="price">$50<span>/month</span></p>
+          <ul class="features">
+            <li><i class="fas fa-check-circle"></i> Homepage feature</li>
+            <li><i class="fas fa-check-circle"></i> Event discounts</li>
+            <li><i class="fas fa-check-circle"></i> Priority support</li>
+          </ul>
+          <button type="button" data-modal="silverModal" class="secondary-btn open-modal">
+            View Benefits
+          </button>
+        </div>
 
-<!-- 💬 MODALS -->
-<dialog id="npModal" class="modal">
-  <h3>NP Membership</h3>
-  <p>Designed for non-profit organizations.</p>
-  <ul>
-    <li>Free membership</li>
-    <li>Community exposure</li>
-    <li>Access to events</li>
-  </ul>
- <button type="button" class="modal-close">Close</button>
-</dialog>
+        <!-- Gold (featured) -->
+        <div class="tier-card card gold featured">
+          <div class="card-badge">Most Popular</div>
+          <h3>Gold Membership</h3>
+          <p class="price">$99<span>/month</span></p>
+          <ul class="features">
+            <li><i class="fas fa-check-circle"></i> Premium exposure</li>
+            <li><i class="fas fa-check-circle"></i> Homepage spotlight</li>
+            <li><i class="fas fa-check-circle"></i> Event promotions</li>
+            <li><i class="fas fa-check-circle"></i> Priority support</li>
+          </ul>
+          <button type="button" data-modal="goldModal" class="secondary-btn open-modal">
+            View Benefits
+          </button>
+        </div>
 
-<dialog id="bronzeModal" class="modal">
-  <h3>Bronze Membership</h3>
-  <p>Perfect for small businesses starting out.</p>
-  <ul>
-    <li>Directory listing</li>
-    <li>Email support</li>
-    <li>Monthly updates</li>
-  </ul>
- <button type="button" class="modal-close">Close</button>
-</dialog>
+      </div>
 
-<dialog id="silverModal" class="modal">
-  <h3>Silver Membership</h3>
-  <p>Great for growing businesses.</p>
-  <ul>
-    <li>Featured listings</li>
-    <li>Event discounts</li>
-    <li>Priority support</li>
-  </ul>
- <button type="button" class="modal-close">Close</button>
-</dialog>
+      <!-- The Apply FORM -->
+      <div class="membership-form-wrapper glass premium-form">
+        <div class="form-header">
+          <h2>Begin Your Journey</h2>
+          <p>Fill in your details and we’ll handle the rest.</p>
+        </div>
+        <form id="joinForm" novalidate>
+          <div class="form-row">
+            <div class="form-group floating-label">
+              <input type="text" id="firstName" name="firstName" required placeholder=" ">
+              <label for="firstName">First Name</label>
+            </div>
+            <div class="form-group floating-label">
+              <input type="text" id="lastName" name="lastName" required placeholder=" ">
+              <label for="lastName">Last Name</label>
+            </div>
+          </div>
+          <div class="form-group floating-label">
+            <input type="email" id="email" name="email" required placeholder=" ">
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-group floating-label">
+            <input type="tel" id="phone" name="phone" required placeholder=" ">
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="form-group floating-label">
+            <input type="text" id="business" name="business" required placeholder=" ">
+            <label for="business">Business Name</label>
+          </div>
+          <div class="form-group select-group">
+            <select id="tier" name="tier" required>
+              <option value="" disabled selected>Select Membership Tier</option>
+              <option value="NP">Non-Profit (Free)</option>
+              <option value="Bronze">Bronze</option>
+              <option value="Silver">Silver</option>
+              <option value="Gold">Gold</option>
+            </select>
+            <i class="fas fa-chevron-down select-icon"></i>
+          </div>
+          <div class="form-group floating-label">
+            <textarea id="businessDescription" name="businessDescription" rows="3" placeholder=" "></textarea>
+            <label for="businessDescription">Brief Business Description</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block pulse-glow">
+            <span>Submit Application</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<dialog id="goldModal" class="modal">
-  <h3>Gold Membership</h3>
-  <p>Maximum exposure and benefits.</p>
-  <ul>
-    <li>Homepage spotlight</li>
-    <li>Advertising opportunities</li>
-    <li>VIP event access</li>
-  </ul>
-<button type="button" class="modal-close">Close</button>
-</dialog>
+  <!-- MODALS -->
+  <dialog id="npModal" class="modal">
+    <h3>NP Membership</h3>
+    <p>Designed for non‑profit organisations.</p>
+    <ul>
+      <li>Free membership</li>
+      <li>Community exposure</li>
+      <li>Access to events</li>
+    </ul>
+    <button type="button" class="modal-close">Close</button>
+  </dialog>
 
+  <dialog id="bronzeModal" class="modal">
+    <h3>Bronze Membership</h3>
+    <p>Perfect for small businesses starting out.</p>
+    <ul>
+      <li>Directory listing</li>
+      <li>Email support</li>
+      <li>Monthly updates</li>
+    </ul>
+    <button type="button" class="modal-close">Close</button>
+  </dialog>
 
-<footer class="footer">
-  <div class="footer-container">
+  <dialog id="silverModal" class="modal">
+    <h3>Silver Membership</h3>
+    <p>Great for growing businesses.</p>
+    <ul>
+      <li>Featured listings</li>
+      <li>Event discounts</li>
+      <li>Priority support</li>
+    </ul>
+    <button type="button" class="modal-close">Close</button>
+  </dialog>
 
-    <div class="footer-top">
+  <dialog id="goldModal" class="modal">
+    <h3>Gold Membership</h3>
+    <p>Maximum exposure and benefits.</p>
+    <ul>
+      <li>Homepage spotlight</li>
+      <li>Advertising opportunities</li>
+      <li>VIP event access</li>
+    </ul>
+    <button type="button" class="modal-close">Close</button>
+  </dialog>
 
-      <!-- LEFT -->
+  <footer class="footer">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <h2>Harare Chamber</h2>
-        <p>Connecting Businesses, Empowering Growth</p>
+        <img src="images/social.png" alt="" width="50">
+        <p>Harare Chamber of Commerce</p>
+        <p>Driving business forward.</p>
       </div>
-
-      <!-- CENTER -->
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" data-name="Linkedin" target="_blank">
-          <img src="images/linkedin.svg" alt="LinkedIn">
-        </a>
-
-        <a href="https://github.com/tklegendary47" data-name="Github" target="_blank">
-          <img src="images/github.svg" alt="GitHub">
-        </a>
-
-        <a href="https://facebook.com" data-name="Facebook" target="_blank">
-          <img src="images/facebook.svg" alt="Facebook"> 
-        </a>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="directory.html">Business Directory</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html">Membership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-
-      <!-- RIGHT -->
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Takudzwa P. Matimura</p>
-        <p>Last Modified: <span id="modified"></span></p>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Enterprise Rd, Harare</p>
+        <p><i class="fas fa-phone"></i> +263 242 123 456</p>
+        <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
       </div>
-
-    </div> <!-- CLOSE footer-top -->
-
-  </div> <!-- CLOSE footer-container -->
-</footer>
-
-
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; <span id="year"></span> Harare Chamber of Commerce. All rights reserved.</p>
+      <p>Last Modified: <span id="modified"></span></p>
+      <p class="developer">Developed by Takudzwa P. Matimura</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

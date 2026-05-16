@@ -3,72 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Received</title>
-
-  <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/larger.css">
- <!-- Favicon -->
+  <title>Application Received | Harare Chamber</title>
   <link rel="icon" href="images/social.png">
-  <script defer src="scripts/thankyou.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/mobile.css">
 </head>
-
-<body>
-
-<header class="navbar">
-  <h1 class="logo">🎉 Application Received</h1>
-</header>
-
-<main class="thankyou-container">
-
-  <div class="confirmation-card">
-    <h2>Welcome to the Chamber 🚀</h2>
-    <p class="subtitle">Your application has been successfully submitted.</p>
-
-    <div id="results" class="results-grid">
-      <!-- JS injects data here -->
+<body class="thankyou-page">
+  <main id="main-content" class="thankyou-container">
+    <div class="thankyou-card glass">
+      <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+      <h1>Thank You!</h1>
+      <p>Your application has been received. Our team will review and get back to you within 2 business days.</p>
+      <div id="results" class="results-grid"></div>
+      <a href="index.html" class="btn btn-primary">Back to Homepage</a>
     </div>
-
-    <a href="index.html" class="btn-primary">Back to Home</a>
-  </div>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-top">
-
-      <!-- LEFT -->
-      <div class="footer-brand">
-        <h2>Harare Chamber</h2>
-        <p>Connecting Businesses, Empowering Growth</p>
-      </div>
-
-      <!-- CENTER -->
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/takudzwa-matimura-85886a279/" data-name="Linkedin" target="_blank">
-          <img src="images/linkedin.svg" alt="LinkedIn">
-        </a>
-
-        <a href="https://github.com/tklegendary47" data-name="Github" target="_blank">
-          <img src="images/github.svg" alt="GitHub">
-        </a>
-
-        <a href="https://facebook.com" data-name="Facebook" target="_blank">
-          <img src="images/facebook.svg" alt="Facebook"> 
-        </a>
-      </div>
-
-      <!-- RIGHT -->
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Takudzwa P. Matimura</p>
-        <p>Last Modified: <span id="modified"></span></p>
-      </div>
-
-    </div> <!-- CLOSE footer-top -->
-
-  </div> <!-- CLOSE footer-container -->
-</footer>
-
+  </main>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

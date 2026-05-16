@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Directory | Harare Chamber</title>
-  <meta name="description" content="Explore the Harare Chamber of Commerce directory to discover trusted local businesses.">
-  <meta property="og:title" content="Harare Chamber Directory">
-  <meta property="og:description" content="Discover trusted businesses in the Harare Chamber directory.">
+  <title>Events & Networking | Harare Chamber</title>
+  <meta name="description" content="Upcoming events and networking opportunities hosted by the Harare Chamber of Commerce.">
+  <meta property="og:title" content="Events - Harare Chamber of Commerce">
+  <meta property="og:description" content="Join our business events and networking sessions.">
   <meta property="og:image" content="images/social.png">
-  <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
   <meta name="author" content="Takudzwa P. Matimura">
   <link rel="icon" href="images/social.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,8 +28,8 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html" >Discover</a></li>
-          <li><a href="directory.html"  class="active">Directory</a></li>
-          <li><a href="events.html">Events</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="events.html" class="active">Events</a></li>
           <li><a href="join.html">Join</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -47,40 +46,15 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero directory-hero">
-      <div class="container"><h1>Business Directory</h1>
-      <p>Explore trusted local businesses and connect with partners.</p>
+    <section class="page-hero events-hero">
+      <div class="container"><h1>Events & Networking</h1>
+      <p>Stay connected, learn, and grow your business network.</p>
       </div>
     </section>
-<section class="directory-controls container">
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search businesses..." aria-label="Search">
-    <i class="fas fa-search"></i>
-  </div>
-  <div class="filter-options">
-    <select id="categoryFilter" aria-label="Filter by category">
-      <option value="all">All Categories</option>
-      <option value="Technology">Technology</option>
-      <option value="Finance">Finance</option>
-      <option value="Agriculture">Agriculture</option>
-      <option value="Tourism">Tourism</option>
-      <option value="Manufacturing">Manufacturing</option>
-      <!-- add more as needed -->
-    </select>
-    <div class="view-toggle">
-      <button id="gridViewBtn" class="view-btn active" aria-label="Grid view">
-        <i class="fas fa-th-large"></i>
-      </button>
-      <button id="listViewBtn" class="view-btn" aria-label="List view">
-        <i class="fas fa-list"></i>
-      </button>
-    </div>
-  </div>
-</section>
-<div class="container" id="directoryContainer"></div>
+    <div class="container events-full-grid" id="eventsFullGrid"></div>
   </main>
 
-  <footer class="footer">
+   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="images/social.png" alt="" width="50">

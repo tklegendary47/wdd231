@@ -9,22 +9,35 @@
   gap: 0.5rem;
 }
 
-/* Hamburger itself – fine‑tune */
 .hamburger {
   display: flex !important;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   width: 44px;
   height: 44px;
-  align-items: center;
-  justify-content: center;
+ 
+
   border-radius: 8px;
-  background: transparent;
   position: relative;
   z-index: 1010;
   cursor: pointer;
-  order: 1;   /* keep it on the right */
+  transition: background 0.2s;
 }
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hamburger .bar {
+  width: 24px;
+  height: 3px;
+
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
   .nav-menu {
     position: fixed;
     top: var(--navbar-height);

@@ -18,10 +18,12 @@
   const navMenu = document.getElementById('navMenu');
   if (!navbar || !hamburger || !navMenu) return;
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 10));
+
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true';
     hamburger.setAttribute('aria-expanded', !expanded);
-    navMenu.classList.toggle('open');
+      hamburger.classList.toggle("open");
+    navMenu.classList.toggle("open");
   });
   navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     navMenu.classList.remove('open');

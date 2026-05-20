@@ -78,6 +78,24 @@
   gap: 1rem;
 }
 
+/* ---- Intermediate screen sizes (769px - 1100px) ---- */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-menu ul {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  .btn-outline {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
 /* Hamburger – hidden on desktop, shown on mobile via mobile.css */
 .hamburger {
   display: none;
@@ -630,7 +648,8 @@
 }
 
 .list-view .member-card {
-  padding: 1.5rem 2rem;
+ 
+    padding: 1.5rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -645,6 +664,7 @@
   background: #f9f9f9;
   padding: 0.5rem;
   flex-shrink: 0;
+  display: none;
 }
 
 .list-view .member-info {
@@ -653,6 +673,7 @@
   align-items: center;
   gap: 1.5rem;
   flex: 1;
+  
 }
 
 .list-view .member-info h3 {
@@ -1137,7 +1158,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--clr-accent);
+  color: #ffffff; 
   padding-left: 6px;
 }
 

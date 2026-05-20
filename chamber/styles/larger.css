@@ -78,6 +78,24 @@
   gap: 1rem;
 }
 
+/* ---- Intermediate screen sizes (769px - 1100px) ---- */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-menu ul {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  .btn-outline {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
 /* Hamburger – hidden on desktop, shown on mobile via mobile.css */
 .hamburger {
   display: none;
@@ -114,6 +132,7 @@
 .hamburger.open .bar:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
+
 
 /* ---------- HERO ---------- */
 .hero {
@@ -263,6 +282,7 @@
   }
 }
 
+
 /* ---------- PAGE HEROES (inner pages) ---------- */
 .page-hero {
   padding-top: calc(var(--navbar-height) + 3rem);
@@ -281,6 +301,7 @@
   opacity: 0.9;
   margin-top: 0.5rem;
 }
+
 
 /* ---------- FEATURED BUSINESSES ---------- */
 .featured-grid {
@@ -304,6 +325,7 @@
   border-color: var(--clr-accent);
 }
 
+
 /* ---------- STATS HIGHLIGHT ---------- */
 .stats-grid,
 .counter-grid {
@@ -318,6 +340,7 @@
   color: var(--clr-accent);
   margin-bottom: 0.5rem;
 }
+
 
 /* ---------- EVENTS ---------- */
 .events-grid,
@@ -356,6 +379,7 @@
   font-weight: 600;
 }
 
+
 /* ---------- WEATHER ---------- */
 .weather-section {
   background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
@@ -386,6 +410,7 @@
   font-weight: 700;
 }
 
+
 /* ---------- SPOTLIGHT ---------- */
 .spotlight-carousel {
   max-width: 650px;
@@ -402,6 +427,7 @@
   border: 3px solid var(--clr-accent);
 }
 
+
 /* ---------- TESTIMONIALS ---------- */
 .testimonial-grid {
   display: grid;
@@ -417,6 +443,7 @@
   border-left: 4px solid var(--clr-accent);
 }
 
+
 /* ---------- CTA BANNER ---------- */
 .cta-banner {
   background: var(--clr-accent);
@@ -429,6 +456,7 @@
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 
 /* ---------- DISCOVER GRID ---------- */
 .discover-grid {
@@ -516,6 +544,7 @@
   transform: translateY(0);
 }
 
+
 /* ---------- DIRECTORY ---------- */
 .directory-controls {
   display: flex;
@@ -560,7 +589,7 @@
   border: 1px solid #ddd;
 }
 
-.chamber-view-btn {
+.view-btn {
   padding: 0.6rem 1rem;
   background: var(--clr-white);
   border: none;
@@ -568,7 +597,7 @@
   transition: background 0.2s;
 }
 
-.chamber-view-btn.active {
+.view-btn.active {
   background: var(--clr-primary);
   color: var(--clr-white);
 }
@@ -619,7 +648,8 @@
 }
 
 .list-view .member-card {
-  padding: 1.5rem 2rem;
+ 
+    padding: 1.5rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -627,7 +657,14 @@
 }
 
 .list-view .member-card img {
-  display: none;               /* images are hidden in list view per rubric */
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f9f9f9;
+  padding: 0.5rem;
+  flex-shrink: 0;
+  display: none;
 }
 
 .list-view .member-info {
@@ -636,6 +673,7 @@
   align-items: center;
   gap: 1.5rem;
   flex: 1;
+  
 }
 
 .list-view .member-info h3 {
@@ -704,6 +742,7 @@
   opacity: 1;
   transform: translateX(0);
 }
+
 
 /* ---------- JOIN ---------- */
 .tier-grid {
@@ -791,7 +830,7 @@
   font-size: 0.9rem;
 }
 
-.chamber-secondary-btn {
+.secondary-btn {
   display: inline-block;
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
@@ -804,7 +843,7 @@
   transition: all 0.3s;
 }
 
-.chamber-secondary-btn:hover {
+.secondary-btn:hover {
   background: var(--clr-accent);
   color: #000;
   transform: translateY(-2px);
@@ -868,7 +907,7 @@
   pointer-events: none;
 }
 
-.chamber-btn-full {
+.btn-full {
   width: 100%;
   display: flex;
   align-items: center;
@@ -878,7 +917,7 @@
   font-size: 1.1rem;
 }
 
-.chamber-pulse-glow {
+.pulse-glow {
   animation: pulseGlow 2.5s infinite;
 }
 
@@ -893,6 +932,7 @@
     box-shadow: 0 0 0 0 rgba(230, 184, 76, 0);
   }
 }
+
 
 /* ---------- CONTACT ---------- */
 .contact-layout {
@@ -962,6 +1002,7 @@
 .faq-answer.open {
   display: block;
 }
+
 
 /* ---------- ABOUT ---------- */
 .about-mission {
@@ -1069,6 +1110,7 @@
   margin-bottom: 0.5rem;
 }
 
+
 /* ---------- FOOTER ---------- */
 .footer {
   background: var(--clr-primary);
@@ -1107,7 +1149,7 @@
   font-size: 0.8rem;
 }
 
-/* Quick links hover – high contrast */
+/* Quick links hover */
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
@@ -1116,11 +1158,10 @@
 }
 
 .footer-links a:hover {
-  color: #ffffff;
+  color: #ffffff; 
   padding-left: 6px;
 }
 
-/* ---------- BACK TO TOP ---------- */
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -1144,6 +1185,7 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
 
 /* ---------- MODALS ---------- */
 .modal {
@@ -1189,7 +1231,7 @@
   margin: 1rem 0;
 }
 
-.chamber-modal-close {
+.modal-close {
   margin-top: 1.5rem;
   padding: 0.6rem 1.5rem;
   background: var(--clr-primary);
@@ -1200,10 +1242,11 @@
   transition: background 0.2s;
 }
 
-.chamber-modal-close:hover {
+.modal-close:hover {
   background: var(--clr-accent);
   color: #000;
 }
+
 
 /* ---------- THANK YOU ---------- */
 .thankyou-container {
@@ -1224,22 +1267,4 @@
   font-size: 4rem;
   color: var(--clr-accent);
   margin-bottom: 1rem;
-}
-
-/* ---- Intermediate tablet sizes (769px - 1100px) ---- */
-@media (min-width: 769px) and (max-width: 1100px) {
-  .nav-menu ul {
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
-  .logo-text {
-    font-size: 1.2rem;
-  }
-  .chamber-btn-outline {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-  .hero-title {
-    font-size: 3rem;
-  }
 }

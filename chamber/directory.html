@@ -10,8 +10,8 @@
   <meta property="og:image" content="https://tklegendary47.github.io/wdd231/chamber/images/social.png">
   <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
   <meta name="author" content="Takudzwa P. Matimura">
-  <link rel="icon" href="images/social.png">
   <meta name="theme-color" content="#0A1F44">
+  <link rel="icon" href="images/social.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,8 +25,11 @@
 
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo"><img src="images/social.png" alt="Harare Chamber logo" width="40"><span class="logo-text">Harare Chamber</span></a>
-      <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="logo" aria-label="Harare Chamber home">
+        <img src="images/social.png" alt="Harare Chamber logo" width="40">
+        <span class="logo-text">Harare Chamber</span>
+      </a>
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -38,8 +41,8 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a href="join.html" class="btn btn-outline">Join Now</a>
-        <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <a href="join.html" class="chamber-btn chamber-btn-outline">Join Now</a>
+        <button id="darkModeToggle" class="chamber-icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -72,8 +75,8 @@
           <option value="Manufacturing">Manufacturing</option>
         </select>
         <div class="view-toggle">
-          <button id="gridViewBtn" class="view-btn active" aria-label="Grid view"><i class="fas fa-th-large"></i></button>
-          <button id="listViewBtn" class="view-btn" aria-label="List view"><i class="fas fa-list"></i></button>
+          <button id="gridViewBtn" class="chamber-view-btn active" aria-label="Grid view"><i class="fas fa-th-large"></i></button>
+          <button id="listViewBtn" class="chamber-view-btn" aria-label="List view"><i class="fas fa-list"></i></button>
         </div>
       </div>
     </section>
@@ -108,7 +111,7 @@
         <h2>Stay Updated</h2>
         <form id="newsletterForm">
           <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
+          <button type="submit" class="chamber-btn chamber-btn-primary">Subscribe</button>
         </form>
         <div class="social-links">
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>

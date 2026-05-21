@@ -5,27 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Directory | Harare Chamber</title>
   <meta name="description" content="Explore the Harare Chamber of Commerce directory to discover trusted local businesses, connect with partners, and grow your network.">
+  <meta name="author" content="Takudzwa P. Matimura">
+  <meta name="theme-color" content="#0A1F44">
+<link rel="canonical" href="https://tklegendary47.github.io/wdd231/chamber/directory.html">
+<meta name="robots" content="index, follow">
+  <!-- Open Graph -->
   <meta property="og:title" content="Harare Chamber Directory">
-  <meta property="og:description" content="Discover trusted businesses in the Harare Chamber directory and connect with partners to grow your network.">
+  <meta property="og:description" content="Discover trusted businesses in the Harare Chamber directory.">
   <meta property="og:image" content="https://tklegendary47.github.io/wdd231/chamber/images/social.png">
   <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/directory.html">
-  <meta name="author" content="Takudzwa P. Matimura">
-  <link rel="icon" href="images/social.png">
-  <meta name="theme-color" content="#0A1F44">
+  <link rel="icon" href="images/social.png" type="image/png">
+<link rel="shortcut icon" href="images/social.png" type="image/png">
+
+  <!-- Fonts & Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons only – not a framework) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
   <link rel="stylesheet" href="styles/mobile.css">
+
+  <link rel="icon" href="images/social.png">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo"><img src="images/social.png" alt="Harare Chamber logo" width="40"><span class="logo-text">Harare Chamber</span></a>
+      <a href="index.html" class="logo">
+        <img src="images/social.png" alt="Harare Chamber logo" width="40">
+        <span class="logo-text">Harare Chamber</span>
+      </a>
       <nav class="nav-menu" id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -50,6 +67,7 @@
   </header>
 
   <main id="main-content">
+    <!-- PAGE HERO -->
     <section class="page-hero directory-hero">
       <div class="container">
         <h1>Business Directory</h1>
@@ -57,6 +75,7 @@
       </div>
     </section>
 
+    <!-- CONTROLS -->
     <section class="directory-controls container">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search businesses..." aria-label="Search businesses">
@@ -78,9 +97,15 @@
       </div>
     </section>
 
+    <section class="container" aria-labelledby="directory-heading">
+  <h2 id="directory-heading">Business Listings</h2>
+</section>
+
+    <!-- MEMBER CARDS CONTAINER -->
     <div class="container" id="directoryContainer"></div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -111,9 +136,9 @@
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
         <div class="social-links">
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
     </div>

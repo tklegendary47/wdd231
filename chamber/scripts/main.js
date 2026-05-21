@@ -201,21 +201,21 @@ async function initDirectory() {
 
 function renderDirectory(list) {
   const container = document.getElementById('directoryContainer');
-  container.className = gridView ? 'grid-view' : 'list-view'; // ✅ apply class
+  container.className = gridView ? 'grid-view' : 'list-view'; 
 
-  container.innerHTML = list.map(m => `
-    <div class="member-card fade-in-up">
-      <img src="images/${m.image}" alt="${m.name}" loading="lazy">
-      <div class="member-info">
-        <h3>${m.name}</h3>
-        <span class="membership-badge ${getMembershipClass(m.membership)}">${getMembershipClass(m.membership)}</span>
-        <p><i class="fas fa-map-marker-alt"></i> ${m.address}</p>
-        <p><i class="fas fa-phone"></i> ${m.phone}</p>
-        <a href="${m.website}" target="_blank"><i class="fas fa-globe"></i> Website</a>
-        <p>${m.description}</p>
-      </div>
+container.innerHTML = list.map(m => `
+  <div class="member-card ${gridView ? 'grid' : 'list'} fade-in-up">
+    <img src="images/${m.image}" alt="${m.name}" width="${m.width}" height="${m.height}" loading="lazy">
+    <div class="member-info">
+      <h3>${m.name}</h3>
+      <span class="membership-badge ${getMembershipClass(m.membership)}">${getMembershipClass(m.membership)}</span>
+      <p><i class="fas fa-map-marker-alt"></i> ${m.address}</p>
+      <p><i class="fas fa-phone"></i> ${m.phone}</p>
+    <a href="${m.website}" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a>
+      <p>${m.description}</p>
     </div>
-  `).join('');
+  </div>
+`).join('');
 }
 
 function getMembershipClass(level) {

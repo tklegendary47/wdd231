@@ -1,4 +1,4 @@
-/* ===== larger.css – Harare Chamber (final) ===== */
+/* ===== larger.css – Harare Chamber (final, audit‑ready) ===== */
 
 /* ---------- NAVBAR ---------- */
 .navbar {
@@ -124,7 +124,7 @@
   .logo-text {
     font-size: 1.2rem;
   }
-  .btn-outline {
+  .ch-btn-outline {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
   }
@@ -138,7 +138,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/wdd231/chamber/images/hero.jpg') center/cover no-repeat fixed;
+  /* Use longhand properties to keep background-color solid */
+  background-color: var(--clr-primary);
+  background-image: url('/wdd231/chamber/images/hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding-top: var(--navbar-height);
   overflow: hidden;
 }
@@ -247,6 +253,7 @@
   font-weight: 700;
   display: block;
   line-height: 1;
+  color: var(--clr-primary);
 }
 
 .scroll-indicator {
@@ -705,7 +712,7 @@
 
 .membership-badge.bronze {
   background: #CD7F32;
-    color: #000;
+  color: #000;
 }
 
 .membership-badge.np {
@@ -746,6 +753,7 @@
   margin-bottom: 1.5rem;
   color: var(--clr-dark-text);
 }
+
 
 /* ---------- JOIN ---------- */
 .tier-grid {
@@ -910,7 +918,7 @@
   pointer-events: none;
 }
 
-.btn-full {
+.ch-btn-full {
   width: 100%;
   display: flex;
   align-items: center;

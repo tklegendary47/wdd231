@@ -32,16 +32,16 @@
   <link rel="stylesheet" href="styles/larger.css">
   <link rel="stylesheet" href="styles/mobile.css">
 
-  <!-- Favicono -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/social.png">
   <link rel="shortcut icon" type="image/png" href="images/social.png">
 </head>
-<body>
+<body id="home">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAVBAR -->
   <header class="navbar" id="navbar">
-    <div class="container nav-container">
+    <div class="ch-container nav-container">
       <a href="index.html" class="logo">
         <img src="images/social.png" alt="Harare Chamber logo" width="40" height="40">
         <span class="logo-text">Harare Chamber</span>
@@ -58,7 +58,7 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a href="join.html" class="btn btn-outline">Join Now</a>
+        <a href="join.html" class="ch-btn ch-btn-outline">Join Now</a>
         <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
           <span class="bar"></span>
@@ -73,12 +73,12 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content container fade-in-up">
+      <div class="hero-content ch-container fade-in-up">
         <h1 class="hero-title">Empowering Harare Businesses Through Innovation and Collaboration</h1>
         <p class="hero-subtitle">Connecting entrepreneurs, fueling growth, and shaping the future of Zimbabwe’s economy.</p>
         <div class="hero-cta">
-          <a href="join.html" class="btn btn-primary">Join the Chamber</a>
-          <a href="directory.html" class="btn btn-outline">Explore Businesses</a>
+          <a href="join.html" class="ch-btn ch-btn-primary">Join the Chamber</a>
+          <a href="directory.html" class="ch-btn ch-btn-outline">Explore Businesses</a>
         </div>
         <div class="hero-stats">
           <div class="stat-card glass">
@@ -100,14 +100,14 @@
     </section>
 
     <!-- CURRENT EVENTS -->
-    <section class="section container events-section">
+    <section class="section ch-container events-section">
       <h2 class="section-title">Upcoming Events</h2>
       <div class="events-grid" id="eventsGrid"></div>
     </section>
 
     <!-- WEATHER -->
     <section class="section weather-section">
-      <div class="container">
+      <div class="ch-container">
         <div class="weather-card glass" id="weatherWidget">
           <div class="weather-main">
             <i class="fas fa-cloud-sun weather-icon"></i>
@@ -125,7 +125,7 @@
 
     <!-- COMPANY SPOTLIGHTS -->
     <section class="section bg-alt spotlight-section">
-      <div class="container">
+      <div class="ch-container">
         <h2 class="section-title light">Member Spotlights</h2>
         <div class="spotlight-carousel" id="spotlightCarousel"></div>
       </div>
@@ -134,7 +134,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-grid">
+    <div class="ch-container footer-grid">
       <div class="footer-brand">
         <img src="images/social.png" alt="Harare Chamber logo" width="50" height="50">
         <p>Harare Chamber of Commerce</p>
@@ -160,7 +160,7 @@
         <h4>Stay Updated</h4>
         <form id="newsletterForm">
           <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
+          <button type="submit" class="ch-btn ch-btn-primary">Subscribe</button>
         </form>
         <div class="social-links">
           <a href="#" aria-label="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
@@ -169,7 +169,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-bottom container">
+    <div class="footer-bottom ch-container">
       <p>&copy; <span id="year"></span> Harare Chamber of Commerce. All rights reserved.</p>
       <p>Last Modified: <span id="modified"></span></p>
       <p class="developer">Developed by Takudzwa P. Matimura</p>

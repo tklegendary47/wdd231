@@ -181,13 +181,12 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-md);
 }
 
-.btn-outline {
+.ch-btn-outline {
   border: 2px solid var(--clr-accent);
-  color: var(--clr-accent);
+  color: var(--clr-white);       /* white text for high contrast */
   background: transparent;
 }
-
-.btn-outline:hover {
+.ch-btn-outline:hover {
   background: var(--clr-accent);
   color: #000;
 }

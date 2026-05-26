@@ -5,31 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harare Chamber of Commerce</title>
   <meta name="description" content="Empowering Harare businesses through innovation and collaboration.">
+  <meta name="author" content="Takudzwa P. Matimura">
+  <meta name="theme-color" content="#0A1F44">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Harare Chamber of Commerce">
   <meta property="og:description" content="Empowering businesses through innovation and collaboration.">
-  <meta property="og:image" content="images/social.png">
+  <meta property="og:image" content="https://tklegendary47.github.io/wdd231/chamber/images/social.png">
   <meta property="og:url" content="https://tklegendary47.github.io/wdd231/chamber/">
-  <meta name="author" content="Takudzwa P. Matimura">
-  <link rel="icon" href="images/social.png">
+
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="https://tklegendary47.github.io/wdd231/chamber/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fonts & Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
   <link rel="stylesheet" href="styles/mobile.css">
-    <link rel="stylesheet" href="styles/normalize.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/social.png">
+  <link rel="shortcut icon" type="image/png" href="images/social.png">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo" aria-label="Home">
-        <img src="images/social.png" alt="" width="40">
+      <a href="index.html" class="logo">
+        <img src="images/social.png" alt="Harare Chamber logo" width="40" height="40">
         <span class="logo-text">Harare Chamber</span>
       </a>
-      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+      <nav class="nav-menu" id="navMenu">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="discover.html">Discover</a></li>
@@ -44,14 +61,16 @@
         <a href="join.html" class="btn btn-outline">Join Now</a>
         <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
-          <span></span><span></span><span></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- Hero -->
+    <!-- HERO -->
     <section class="hero" id="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content container fade-in-up">
@@ -61,61 +80,32 @@
           <a href="join.html" class="btn btn-primary">Join the Chamber</a>
           <a href="directory.html" class="btn btn-outline">Explore Businesses</a>
         </div>
-<div class="hero-stats">
-  <div class="stat-card glass">
-    <span class="counter" data-count="1500">0</span><span>+</span>
-    <p>Active Members</p>
-  </div>
-  <div class="stat-card glass">
-    <span class="counter" data-count="45">0</span><span>+</span>
-    <p>Annual Events</p>
-  </div>
-  <div class="stat-card glass">
-    <span class="counter" data-count="12">0</span>
-    <p>Partner Districts</p>
-  </div>
-</div>
-      </div>
-      <div class="scroll-indicator"><span></span></div>
-    </section>
-
-    <!-- Featured Businesses -->
-    <section class="section container featured-businesses">
-      <h2 class="section-title">Featured Businesses</h2>
-      <div class="featured-grid" id="featuredGrid"></div>
-    </section>
-
-    <!-- Economic Growth Stats -->
-    <section class="section stats-highlight bg-dark">
-      <div class="container">
-        <h2 class="section-title light">Harare’s Growth in Numbers</h2>
-        <div class="stats-grid">
-          <div class="growth-stat reveal">
-            <i class="fas fa-chart-line"></i>
-            <div class="counter" data-target="8.2">0</div><small>%</small>
-            <p>GDP Growth</p>
+        <div class="hero-stats">
+          <div class="stat-card glass">
+            <span class="counter" data-count="1500">0</span><span>+</span>
+            <p>Active Members</p>
           </div>
-          <div class="growth-stat reveal">
-            <i class="fas fa-building"></i>
-            <div class="counter" data-target="350">0</div><small>+</small>
-            <p>New Startups This Year</p>
+          <div class="stat-card glass">
+            <span class="counter" data-count="45">0</span><span>+</span>
+            <p>Annual Events</p>
           </div>
-          <div class="growth-stat reveal">
-            <i class="fas fa-handshake"></i>
-            <div class="counter" data-target="98">0</div><small>%</small>
-            <p>Member Satisfaction</p>
+          <div class="stat-card glass">
+            <span class="counter" data-count="12">0</span>
+            <p>Partner Districts</p>
           </div>
         </div>
       </div>
+      <!-- Scroll down indicator -->
+      <div class="scroll-indicator"><span></span></div>
     </section>
 
-    <!-- Upcoming Events -->
+    <!-- CURRENT EVENTS -->
     <section class="section container events-section">
       <h2 class="section-title">Upcoming Events</h2>
       <div class="events-grid" id="eventsGrid"></div>
     </section>
 
-    <!-- Weather Widget -->
+    <!-- WEATHER -->
     <section class="section weather-section">
       <div class="container">
         <div class="weather-card glass" id="weatherWidget">
@@ -133,43 +123,20 @@
       </div>
     </section>
 
-    <!-- Member Spotlights Carousel -->
+    <!-- COMPANY SPOTLIGHTS -->
     <section class="section bg-alt spotlight-section">
       <div class="container">
         <h2 class="section-title light">Member Spotlights</h2>
         <div class="spotlight-carousel" id="spotlightCarousel"></div>
       </div>
     </section>
-
-    <!-- Testimonials -->
-    <section class="section container testimonials">
-      <h2 class="section-title">What Our Members Say</h2>
-      <div class="testimonial-grid" id="testimonialGrid">
-        <div class="testimonial-card reveal">
-          <p>"The Chamber opened doors to investors we never thought possible."</p>
-          <h4>– Tendai Moyo, CEO TechWave</h4>
-        </div>
-        <div class="testimonial-card reveal">
-          <p>"Networking events have tripled our B2B partnerships."</p>
-          <h4>– Rudo Ncube, EcoFarm Solutions</h4>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-      <div class="container">
-        <h2>Ready to Grow Your Business?</h2>
-        <p>Join the Harare Chamber of Commerce and connect with over 1,500 professionals.</p>
-        <a href="join.html" class="btn btn-primary">Become a Member</a>
-      </div>
-    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="images/social.png" alt="" width="50">
+        <img src="images/social.png" alt="Harare Chamber logo" width="50" height="50">
         <p>Harare Chamber of Commerce</p>
         <p>Driving business forward.</p>
       </div>
@@ -196,9 +163,9 @@
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
         <div class="social-links">
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
     </div>
@@ -211,6 +178,6 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script src="scripts/main.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

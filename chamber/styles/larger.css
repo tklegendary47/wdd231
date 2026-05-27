@@ -414,6 +414,36 @@
   font-weight: 700;
 }
 
+.weather-forecast {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.forecast-day {
+  background: rgba(255,255,255,0.15);
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  text-align: center;
+  min-width: 80px;
+  flex: 1;
+}
+.forecast-date {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: var(--clr-white);
+}
+.forecast-temp {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+}
+.forecast-desc {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.8);
+}
 
 /* ---------- SPOTLIGHT ---------- */
 .spotlight-carousel {

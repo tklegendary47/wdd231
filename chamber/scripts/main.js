@@ -261,13 +261,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Weather widget
+// Weather widget with 3‑day forecast
 (async function() {
   const widget = document.getElementById('weatherWidget');
   if (!widget) return;
   const apiKey = "cca19e4e09b8c7a33e195bdb4c634832";
+  const city = "Harare";
+
+  // Current weather
   try {
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Harare&appid=${apiKey}&units=metric`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
     if (!res.ok) throw new Error();
     const d = await res.json();
     document.getElementById('weatherTemp').textContent = Math.round(d.main.temp);
@@ -275,11 +278,35 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('weatherHumidity').textContent = d.main.humidity;
     document.getElementById('weatherWind').textContent = d.wind.speed;
   } catch {
-    // fallback without console.error
     document.getElementById('weatherTemp').textContent = '26';
     document.getElementById('weatherDesc').textContent = 'Partly cloudy';
     document.getElementById('weatherHumidity').textContent = '52';
     document.getElementById('weatherWind').textContent = '3.6';
+  }
+
+  // 3‑day forecast
+  try {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const forecastContainer = document.getElementById('weatherForecast');
+    const daily = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+    forecastContainer.innerHTML = daily.map(day => `
+      <div class="forecast-day">
+        <p class="forecast-date">${new Date(day.dt_txt).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
+        <p class="forecast-temp">${Math.round(day.main.temp)}°C</p>
+        <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="${day.weather[0].description}" width="40" height="40" loading="lazy">
+        <p class="forecast-desc">${day.weather[0].description}</p>
+      </div>
+    `).join('');
+  } catch {
+    // fallback forecast
+    const forecastContainer = document.getElementById('weatherForecast');
+    forecastContainer.innerHTML = `
+      <div class="forecast-day"><p>Mon</p><p>28°C</p></div>
+      <div class="forecast-day"><p>Tue</p><p>30°C</p></div>
+      <div class="forecast-day"><p>Wed</p><p>27°C</p></div>
+    `;
   }
 })();
 

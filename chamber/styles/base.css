@@ -157,53 +157,41 @@ h1, h2, h3, h4 {
   top: 0;
 }
 
+.stat-plus {
+  color: var(--clr-primary);   
+  font-weight: 700;
+  font-size: inherit;
+}
+
 /* Buttons */
-.btn {
+.ch-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 2rem;
-  border-radius: 999px;   /* pill shape */
+  border-radius: 999px;
   font-weight: 600;
   transition: all var(--transition);
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-
-.btn-primary {
+.ch-btn-primary {
   background: var(--clr-accent);
   color: #000;
 }
-
-.btn-primary:hover {
-  background: #d18e00;      /* darker gold on hover */
+.ch-btn-primary:hover {
+  background: #d18e00;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-
 .ch-btn-outline {
   border: 2px solid var(--clr-accent);
-  color: var(--clr-white);       /* white text for high contrast */
+  color: var(--clr-white);        /* high contrast – white */
   background: transparent;
 }
 .ch-btn-outline:hover {
   background: var(--clr-accent);
   color: #000;
-}
-
-.icon-btn {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background 0.2s;
-  color: var(--clr-white);
-}
-
-.icon-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Glassmorphism utility */

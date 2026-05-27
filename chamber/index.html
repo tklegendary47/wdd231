@@ -34,7 +34,6 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/social.png">
-  <link rel="shortcut icon" type="image/png" href="images/social.png">
 </head>
 <body id="home">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -82,15 +81,15 @@
         </div>
         <div class="hero-stats">
           <div class="stat-card glass">
-            <span class="counter" data-count="1500">0</span><span>+</span>
+            <span class="counter" data-count="1500">0</span><span class="stat-plus">+</span>
             <p>Active Members</p>
           </div>
           <div class="stat-card glass">
-            <span class="counter" data-count="45">0</span><span>+</span>
+            <span class="counter" data-count="45">0</span><span class="stat-plus">+</span>
             <p>Annual Events</p>
           </div>
           <div class="stat-card glass">
-            <span class="counter" data-count="12">0</span>
+            <span class="counter" data-count="12">0</span><span class="stat-plus">+</span>
             <p>Partner Districts</p>
           </div>
         </div>
@@ -105,23 +104,24 @@
       <div class="events-grid" id="eventsGrid"></div>
     </section>
 
-    <!-- WEATHER -->
-    <section class="section weather-section">
-      <div class="ch-container">
-        <div class="weather-card glass" id="weatherWidget">
-          <div class="weather-main">
-            <i class="fas fa-cloud-sun weather-icon"></i>
-            <div class="weather-temp"><span id="weatherTemp">--</span>°C</div>
-            <div class="weather-details">
-              <p id="weatherDesc">--</p>
-              <p>Humidity: <span id="weatherHumidity">--</span>%</p>
-              <p>Wind: <span id="weatherWind">--</span> km/h</p>
-            </div>
-          </div>
-          <div class="weather-forecast" id="weatherForecast"></div>
+<!-- WEATHER -->
+<section class="section weather-section">
+  <div class="ch-container">
+    <h2 class="section-title light reveal">Harare Weather</h2>
+    <div class="weather-card glass" id="weatherWidget">
+      <div class="weather-main">
+        <i class="fas fa-cloud-sun weather-icon"></i>
+        <div class="weather-temp"><span id="weatherTemp">--</span>°C</div>
+        <div class="weather-details">
+          <p id="weatherDesc">--</p>
+          <p>Humidity: <span id="weatherHumidity">--</span>%</p>
+          <p>Wind: <span id="weatherWind">--</span> km/h</p>
         </div>
       </div>
-    </section>
+      <div class="weather-forecast" id="weatherForecast"></div>
+    </div>
+  </div>
+</section>
 
     <!-- COMPANY SPOTLIGHTS -->
     <section class="section bg-alt spotlight-section">
@@ -141,7 +141,7 @@
         <p>Driving business forward.</p>
       </div>
       <div class="footer-links">
-        <h4>Quick Links</h4>
+        <h2>Quick Links</h2>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="directory.html">Business Directory</a></li>
@@ -151,13 +151,13 @@
         </ul>
       </div>
       <div class="footer-contact">
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <p><i class="fas fa-map-marker-alt"></i> 123 Enterprise Rd, Harare</p>
         <p><i class="fas fa-phone"></i> +263 242 123 456</p>
         <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
       </div>
       <div class="footer-newsletter">
-        <h4>Stay Updated</h4>
+        <h2>Stay Updated</h2>
         <form id="newsletterForm">
           <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
           <button type="submit" class="ch-btn ch-btn-primary">Subscribe</button>

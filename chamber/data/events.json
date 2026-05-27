@@ -1,6 +1,6 @@
 [
-  { "title":"Business Networking Mixer", "date":"April 10, 2026", "description":"Connect with fellow entrepreneurs and professionals.", "image":"images/event1.jpg" },
-  { "title":"Startup Pitch Night", "date":"April 15, 2026", "description":"Pitch your idea to investors and mentors.", "image":"images/event2.jpg" },
-  { "title":"Marketing Workshop", "date":"April 20, 2026", "description":"Learn the latest digital marketing strategies.", "image":"images/event3.jpg" },
-  { "title":"Women in Business Brunch", "date":"July 20, 2026", "description":"Panel discussions and mentorship for female entrepreneurs.", "image":"images/event4.jpg" }
+  { "title":"Business Networking Mixer", "date":"August 10, 2026", "description":"Connect with fellow entrepreneurs and professionals.", "image":"images/event1.jpg" },
+  { "title":"Startup Pitch Night", "date":"August 15, 2026", "description":"Pitch your idea to investors and mentors.", "image":"images/event2.jpg" },
+  { "title":"Marketing Workshop", "date":"October 20, 2026", "description":"Learn the latest digital marketing strategies.", "image":"images/event3.jpg" },
+  { "title":"Women in Business Brunch", "date":"November 20, 2026", "description":"Panel discussions and mentorship for female entrepreneurs.", "image":"images/event4.jpg" }
 ]

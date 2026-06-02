@@ -1,6 +1,6 @@
-/***** main.js – all site logic *****/
+/***** main.js – Harare Chamber (final) *****/
 
-// Dark mode
+// ---------- Dark Mode ----------
 (function() {
   const toggle = document.getElementById('darkModeToggle');
   const saved = localStorage.getItem('harare-dark-mode');
@@ -11,7 +11,7 @@
   });
 })();
 
-// Navigation
+// ---------- Navigation ----------
 (function() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
@@ -21,8 +21,8 @@
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true';
     hamburger.setAttribute('aria-expanded', !expanded);
-    hamburger.classList.toggle("open");
-    navMenu.classList.toggle("open");
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
   });
   navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     navMenu.classList.remove('open');
@@ -30,7 +30,7 @@
   }));
 })();
 
-// Back to top
+// ---------- Back to Top ----------
 (function() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
@@ -38,7 +38,7 @@
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-// Footer year / last modified
+// ---------- Footer Year / Last Modified ----------
 (function() {
   const yearEl = document.getElementById('year');
   const modEl = document.getElementById('modified');
@@ -46,21 +46,14 @@
   if (modEl) modEl.textContent = document.lastModified;
 })();
 
-// Newsletter
+// ---------- Newsletter ----------
 document.getElementById('newsletterForm')?.addEventListener('submit', e => {
   e.preventDefault();
   alert('Thank you for subscribing!');
   e.target.reset();
 });
 
-// Join form
-document.getElementById('joinForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  if (this.checkValidity()) window.location.href = 'thankyou.html';
-  else this.reportValidity();
-});
-
-// Contact form
+// ---------- Contact Form ----------
 (function() {
   const contactForm = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
@@ -73,14 +66,14 @@ document.getElementById('joinForm')?.addEventListener('submit', function(e) {
   }
 })();
 
-// FAQ accordion
+// ---------- FAQ Accordion ----------
 document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => {
   const answer = q.nextElementSibling;
   answer.classList.toggle('open');
   q.querySelector('i').classList.toggle('fa-chevron-up');
 }));
 
-// Reveal animations
+// ---------- Reveal Animations ----------
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -91,7 +84,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Unified counter animation – handles both data-target and data-count
+// ---------- Animated Counters ----------
 function animateCounter(el) {
   const target = +(el.getAttribute('data-target') || el.getAttribute('data-count') || 0);
   if (!target) return;
@@ -101,21 +94,19 @@ function animateCounter(el) {
   function update(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // ease-out effect
     const eased = 1 - Math.pow(1 - progress, 3);
     current = Math.floor(target * eased);
     el.textContent = current;
     if (progress < 1) {
       requestAnimationFrame(update);
     } else {
-      el.textContent = target; // ensure final value
+      el.textContent = target;
     }
   }
   requestAnimationFrame(update);
 }
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.counter').forEach(counter => {
-    // Animate when visible using IntersectionObserver
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -128,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Load events
+// ---------- Load Events ----------
 async function loadEvents() {
   const grid = document.getElementById('eventsGrid') || document.getElementById('eventsFullGrid');
   if (!grid) return;
@@ -150,7 +141,7 @@ async function loadEvents() {
 }
 document.addEventListener('DOMContentLoaded', loadEvents);
 
-// Discover page
+// ---------- Discover Page ----------
 async function loadDiscover() {
   const grid = document.getElementById('discoverGrid');
   if (!grid) return;
@@ -183,7 +174,7 @@ async function loadDiscover() {
 }
 document.addEventListener('DOMContentLoaded', loadDiscover);
 
-// Directory
+// ---------- Directory ----------
 let members = [];
 let gridView = true;
 async function initDirectory() {
@@ -245,8 +236,8 @@ document.getElementById('listViewBtn')?.addEventListener('click', () => {
 });
 document.addEventListener('DOMContentLoaded', initDirectory);
 
-// Modals (join page)
-document.addEventListener("DOMContentLoaded", () => {
+// ---------- Modals (Join Page) ----------
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.open-modal').forEach(button => {
     button.addEventListener('click', () => {
       const modalId = button.dataset.modal;
@@ -259,9 +250,15 @@ document.addEventListener("DOMContentLoaded", () => {
       button.closest('dialog').close();
     });
   });
+
+  // Hidden timestamp for join form
+  const timestampField = document.getElementById('timestamp');
+  if (timestampField) {
+    timestampField.value = new Date().toISOString();
+  }
 });
 
-// Weather widget with 3‑day forecast
+// ---------- Weather Widget (current + 3‑day forecast) ----------
 (async function() {
   const widget = document.getElementById('weatherWidget');
   if (!widget) return;
@@ -300,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `).join('');
   } catch {
-    // fallback forecast
     const forecastContainer = document.getElementById('weatherForecast');
     forecastContainer.innerHTML = `
       <div class="forecast-day"><p>Mon</p><p>28°C</p></div>
@@ -310,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 
-// Member spotlights
+// ---------- Member Spotlights (Homepage) ----------
 const spotlights = [
   { name: 'TechWave Zimbabwe', blurb: 'Leading software development', img: 'images/tech.png' },
   { name: 'EcoFarm Solutions', blurb: 'Sustainable agriculture', img: 'images/cafe.png' },
@@ -332,7 +328,7 @@ if (document.getElementById('spotlightCarousel')) {
   setInterval(() => { current = (current + 1) % spotlights.length; renderSpotlight(); }, 4000);
 }
 
-// Featured businesses on homepage
+// ---------- Featured Businesses (Homepage) ----------
 async function loadFeatured() {
   const grid = document.getElementById('featuredGrid');
   if (!grid) return;
@@ -353,10 +349,21 @@ async function loadFeatured() {
 }
 document.addEventListener('DOMContentLoaded', loadFeatured);
 
-// Thank you page data
-if (document.getElementById('results')) {
+// ---------- Thank‑You Page Data (only runs if #results exists) ----------
+(function() {
+  const container = document.getElementById('results');
+  if (!container) return;
   const params = new URLSearchParams(window.location.search);
-  document.getElementById('results').innerHTML = ['fullName','email','phone','tier','businessDescription'].map(f => `
-    <div class="result-item"><span>${f}</span><strong>${params.get(f) || 'Not provided'}</strong></div>
-  `).join('');
-}
+  const getVal = (key) => params.get(key) || 'Not provided';
+  const timestamp = params.get('timestamp');
+  const formattedDate = timestamp ? new Date(timestamp).toLocaleString() : 'Not provided';
+
+  container.innerHTML = `
+    <div class="result-item"><span>First Name</span><strong>${getVal('firstName')}</strong></div>
+    <div class="result-item"><span>Last Name</span><strong>${getVal('lastName')}</strong></div>
+    <div class="result-item"><span>Email</span><strong>${getVal('email')}</strong></div>
+    <div class="result-item"><span>Phone</span><strong>${getVal('phone')}</strong></div>
+    <div class="result-item"><span>Business</span><strong>${getVal('business')}</strong></div>
+    <div class="result-item"><span>Submitted</span><strong>${formattedDate}</strong></div>
+  `;
+})();

@@ -1,36 +1,27 @@
-/* base.css */
+/* ===== base.css – Harare Chamber of Commerce (final) ===== */
 
 :root {
-  /* Stable 3‑colour palette */
-  --clr-primary: #0A1F44;     /* deep navy – backgrounds, text, nav */
-  --clr-secondary: #1E2F5C;   /* slightly lighter navy – used sparingly */
-  --clr-accent: #F0A500;      /* vibrant gold – decorative only (never text) */
+  --clr-primary: #0A1F44;
+  --clr-secondary: #1E2F5C;
+  --clr-accent: #F0A500;
   --clr-white: #FFFFFF;
-  --clr-light: #F8F9FC;       /* off‑white page background */
-  --clr-gray: #6B7280;        /* subtle grey for labels, muted text */
-  --clr-dark-text: #1F2937;   /* dark body text on light backgrounds */
+  --clr-light: #F8F9FC;
+  --clr-gray: #6B7280;
+  --clr-dark-text: #1F2937;
   --clr-glass-bg: rgba(255, 255, 255, 0.12);
   --clr-glass-border: rgba(255, 255, 255, 0.25);
-
-  /* Typography */
   --font-heading: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
-
-  /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
-
-  /* Borders & transitions */
   --radius: 12px;
   --transition: 0.3s ease;
-
-  /* Navbar */
   --navbar-height: 80px;
   --navbar-shrink-height: 70px;
 }
 
-/* Optional dark mode (if you want to keep it) */
+/* Dark mode */
 .dark {
   --clr-primary: #0D1B2A;
   --clr-secondary: #1B2A41;
@@ -41,7 +32,6 @@
   --clr-glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Global reset / base */
 *,
 *::before,
 *::after {
@@ -60,11 +50,6 @@ body {
   color: var(--clr-dark-text);
   line-height: 1.6;
   transition: background 0.3s, color 0.3s;
-  /* Subtle dot pattern (optional – keep if you like it) */
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.03) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
 
 img {
@@ -94,19 +79,17 @@ h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
-/* Utility container */
-.container {
+/* ===== Utility Classes ===== */
+.ch-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Section spacing */
 .section {
   padding: 6rem 0;
 }
 
-/* Section headings */
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 3rem;
@@ -130,7 +113,6 @@ h1, h2, h3, h4 {
   color: var(--clr-white);
 }
 
-/* Background helpers */
 .bg-dark {
   background: var(--clr-primary);
   color: var(--clr-white);
@@ -141,7 +123,6 @@ h1, h2, h3, h4 {
   color: var(--clr-white);
 }
 
-/* Skip link (accessibility) */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -157,13 +138,7 @@ h1, h2, h3, h4 {
   top: 0;
 }
 
-.stat-plus {
-  color: var(--clr-primary);   
-  font-weight: 700;
-  font-size: inherit;
-}
-
-/* Buttons */
+/* ===== Buttons ===== */
 .ch-btn {
   display: inline-flex;
   align-items: center;
@@ -175,26 +150,45 @@ h1, h2, h3, h4 {
   letter-spacing: 0.02em;
   text-decoration: none;
 }
+
 .ch-btn-primary {
   background: var(--clr-accent);
   color: #000;
 }
+
 .ch-btn-primary:hover {
   background: #d18e00;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
+
 .ch-btn-outline {
   border: 2px solid var(--clr-accent);
-  color: var(--clr-white);        /* high contrast – white */
+  color: var(--clr-white);
   background: transparent;
 }
+
 .ch-btn-outline:hover {
   background: var(--clr-accent);
   color: #000;
 }
 
-/* Glassmorphism utility */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+  color: var(--clr-white);
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Glass */
 .glass {
   background: var(--clr-glass-bg);
   backdrop-filter: blur(12px);
@@ -202,20 +196,14 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
 }
 
-/* Animations */
+/* ===== Animations ===== */
 .fade-in-up {
   animation: fadeInUp 0.8s forwards;
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .reveal {
@@ -231,12 +219,8 @@ h1, h2, h3, h4 {
 
 /* Skeleton loading */
 @keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .skeleton {
@@ -250,61 +234,40 @@ h1, h2, h3, h4 {
   background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
 }
 
-/* Form elements */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.floating-label {
-  position: relative;
-}
-
-.floating-label input,
-.floating-label textarea {
+/* ===== Form Elements ===== */
+.form-label {
+  display: block;
+  margin-bottom: 1.2rem;
   width: 100%;
-  padding: 1rem;
+}
+
+.label-text {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: var(--clr-dark-text);
+}
+
+.form-label input,
+.form-label select,
+.form-label textarea {
+  width: 100%;
+  padding: 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: var(--radius);
-  background: var(--clr-white);
+  font-size: 1rem;
   color: var(--clr-dark-text);
   transition: border 0.3s;
+  box-sizing: border-box;
+}
+
+.form-label input:focus,
+.form-label select:focus,
+.form-label textarea:focus {
+  border-color: var(--clr-accent);
   outline: none;
 }
 
-.floating-label input:focus,
-.floating-label textarea:focus {
-  border-color: var(--clr-accent);
-}
-
-.floating-label label {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  pointer-events: none;
-  transition: 0.2s;
-  color: var(--clr-gray);
-  font-size: 0.9rem;
-  background: var(--clr-white);
-  padding: 0 0.25rem;
-}
-
-.floating-label input:focus + label,
-.floating-label input:not(:placeholder-shown) + label,
-.floating-label textarea:focus + label,
-.floating-label textarea:not(:placeholder-shown) + label {
-  top: -0.65rem;
-  left: 0.8rem;
-  font-size: 0.75rem;
-  color: var(--clr-accent);
-}
-
-/* Make placeholder transparent so label interaction works */
-.floating-label input::placeholder,
-.floating-label textarea::placeholder {
-  color: transparent;
-}
-
-/* Select elements */
 select {
   width: 100%;
   padding: 0.8rem 1rem;
@@ -315,7 +278,6 @@ select {
   font-size: 0.95rem;
 }
 
-/* Textarea */
 textarea {
   resize: vertical;
   min-height: 100px;

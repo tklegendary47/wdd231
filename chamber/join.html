@@ -32,9 +32,9 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="navbar" id="navbar">
-    <div class="ch-container nav-container">
+    <div class="container nav-container">
       <a href="index.html" class="logo">
-        <img src="images/social.png" alt="Harare Chamber logo" width="40" height="40">
+        <img src="images/social.png" alt="Harare Chamber logo" width="40">
         <span class="logo-text">Harare Chamber</span>
       </a>
       <nav class="nav-menu" id="navMenu">
@@ -49,7 +49,7 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a href="join.html" class="ch-btn ch-btn-outline">Join Now</a>
+       <a href="join.html" class="ch-btn ch-btn-outline">Join Now</a>
         <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Menu">
           <span class="bar"></span>
@@ -192,7 +192,7 @@
           <input type="hidden" name="timestamp" id="timestamp" value="">
 
           <!-- Submit (must be input type="submit" per rubric) -->
-          <input type="submit" value="Submit Application" class="ch-btn ch-btn-primary ch-btn-full pulse-glow">
+         <button type="submit" class="ch-btn ch-btn-primary ch-btn-full pulse-glow">Submit Application</button>
         </form>
       </div>
     </section>
@@ -244,48 +244,49 @@
   </dialog>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="ch-container footer-grid">
-      <div class="footer-brand">
-        <img src="images/social.png" alt="Harare Chamber logo" width="50" height="50">
-        <p>Harare Chamber of Commerce</p>
-        <p>Driving business forward.</p>
+<footer class="footer">
+  <div class="ch-container footer-grid">
+    <div class="footer-brand">
+      <img src="images/social.png" alt="Harare Chamber logo" width="50" height="50">
+      <p>Harare Chamber of Commerce</p>
+      <p>Driving business forward.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="directory.html">Business Directory</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="join.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Enterprise Rd, Harare</p>
+      <p><i class="fas fa-phone"></i> +263 242 123 456</p>
+      <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
+    </div>
+    <div class="footer-newsletter">
+      <h4>Stay Updated</h4>
+      <!-- No <form> here – replaced by div -->
+      <div class="footer-newsletter-signup">
+        <input type="email" placeholder="Your email" required>
+        <button type="button" class="ch-btn ch-btn-primary">Subscribe</button>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="directory.html">Business Directory</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="join.html">Membership</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p><i class="fas fa-map-marker-alt"></i> 123 Enterprise Rd, Harare</p>
-        <p><i class="fas fa-phone"></i> +263 242 123 456</p>
-        <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
-      </div>
-      <div class="footer-newsletter">
-        <h4>Stay Updated</h4>
-        <form id="newsletterForm">
-          <input type="email" placeholder="Your email" required>
-          <button type="submit" class="ch-btn ch-btn-primary">Subscribe</button>
-        </form>
-        <div class="social-links">
-          <a href="#" aria-label="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-        </div>
+      <div class="social-links">
+        <a href="#" aria-label="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
-    <div class="footer-bottom ch-container">
-      <p>&copy; <span id="year"></span> Harare Chamber of Commerce. All rights reserved.</p>
-      <p>Last Modified: <span id="modified"></span></p>
-      <p class="developer">Developed by Takudzwa P. Matimura</p>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-bottom ch-container">
+    <p>&copy; <span id="year"></span> Harare Chamber of Commerce. All rights reserved.</p>
+    <p>Last Modified: <span id="modified"></span></p>
+    <p class="developer">Developed by Takudzwa P. Matimura</p>
+  </div>
+</footer>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 

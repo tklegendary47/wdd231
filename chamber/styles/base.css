@@ -282,3 +282,17 @@ textarea {
   resize: vertical;
   min-height: 100px;
 }
+
+.footer-newsletter-signup {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.footer-newsletter-signup input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: var(--clr-white);
+}

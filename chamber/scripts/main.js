@@ -46,12 +46,29 @@
   if (modEl) modEl.textContent = document.lastModified;
 })();
 
-// ---------- Newsletter ----------
-document.getElementById('newsletterForm')?.addEventListener('submit', e => {
-  e.preventDefault();
-  alert('Thank you for subscribing!');
-  e.target.reset();
-});
+// Footer Newsletter / Subscribe (works with form or standalone button)
+(function() {
+  const form = document.getElementById('newsletterForm');
+  const button = document.querySelector('.footer-newsletter-signup button');
+
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Thank you for subscribing!');
+      form.reset();
+    });
+  } else if (button) {
+    button.addEventListener('click', () => {
+      const input = document.querySelector('.footer-newsletter-signup input');
+      if (input && input.value.trim() !== '') {
+        alert('Thank you for subscribing!');
+        input.value = '';
+      } else {
+        alert('Please enter your email address.');
+      }
+    });
+  }
+})();
 
 // ---------- Contact Form ----------
 (function() {

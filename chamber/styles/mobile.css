@@ -112,13 +112,12 @@
   }
 
   /* --- JOIN PAGE --- */
- /* 1. Stack membership tier cards in a single column */
-  .tier-grid {
-    grid-template-columns: 1fr;          /* one card per row */
+  
+.tier-grid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  /* 2. Make the form wrapper fill the screen */
   .membership-form-wrapper,
   .premium-form {
     width: 100%;
@@ -128,13 +127,11 @@
     box-sizing: border-box;
   }
 
-  /* 3. Two‑column row stays stacked */
   .form-row {
     flex-direction: column;
     gap: 1.2rem;
   }
 
-  /* 4. Ensure labels and inputs stay within the screen */
   .form-label input,
   .form-label select,
   .form-label textarea {
@@ -142,18 +139,15 @@
     box-sizing: border-box;
   }
 
-  /* 5. Tier cards shouldn’t be too wide */
   .tier-card {
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* 6. Membership tiers section padding */
   .membership-tiers {
     padding: 0 0.5rem;
   }
 
-  /* 7. Newsletter signup (the div we created) stays inline */
   .footer-newsletter-signup {
     flex-direction: column;
     gap: 0.5rem;

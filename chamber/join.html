@@ -267,13 +267,13 @@
       <p><i class="fas fa-phone"></i> +263 242 123 456</p>
       <p><i class="fas fa-envelope"></i> info@hararechamber.co.zw</p>
     </div>
-    <div class="footer-newsletter">
-      <h3>Stay Updated</h3>
-      <!-- No <form> here – replaced by div -->
-      <div class="footer-newsletter-signup">
-        <input type="email" placeholder="Your email" required>
-        <button type="button" class="ch-btn ch-btn-primary">Subscribe</button>
-      </div>
+<div class="footer-newsletter-signup">
+  <div class="signup-input-wrapper">
+    <input type="email" id="newsletterEmail" placeholder="Your email" required>
+    <span class="signup-error" id="signupError"></span>
+  </div>
+  <button type="button" id="subscribeBtn" class="ch-btn ch-btn-primary">Subscribe</button>
+</div>
       <div class="social-links">
         <a href="#" aria-label="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>

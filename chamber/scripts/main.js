@@ -46,28 +46,49 @@
   if (modEl) modEl.textContent = document.lastModified;
 })();
 
-// Footer Newsletter / Subscribe (works with form or standalone button)
-(function() {
-  const form = document.getElementById('newsletterForm');
-  const button = document.querySelector('.footer-newsletter-signup button');
 
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Thank you for subscribing!');
-      form.reset();
-    });
-  } else if (button) {
-    button.addEventListener('click', () => {
-      const input = document.querySelector('.footer-newsletter-signup input');
-      if (input && input.value.trim() !== '') {
-        alert('Thank you for subscribing!');
-        input.value = '';
-      } else {
-        alert('Please enter your email address.');
-      }
-    });
+
+// ---------- Footer Newsletter / Subscribe (with email validation) ----------
+(function() {
+  const emailInput = document.getElementById('newsletterEmail');
+  const subscribeBtn = document.getElementById('subscribeBtn');
+  const errorSpan = document.getElementById('signupError');
+
+  if (!emailInput || !subscribeBtn) return;
+
+  function isValidEmail(email) {
+    // simple, solid regex – requires something@something.something
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
+
+  subscribeBtn.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      errorSpan.textContent = 'Please enter your email address.';
+      errorSpan.classList.add('show');
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      errorSpan.textContent = 'Please enter a valid email address.';
+      errorSpan.classList.add('show');
+      return;
+    }
+
+    // Valid email – clear error, show thanks, reset
+    errorSpan.textContent = '';
+    errorSpan.classList.remove('show');
+    alert('Thank you for subscribing!');   // or a nicer inline message
+    emailInput.value = '';
+  });
+
+  // Clear error when user starts typing
+  emailInput.addEventListener('input', () => {
+    if (errorSpan.classList.contains('show')) {
+      errorSpan.classList.remove('show');
+    }
+  });
 })();
 
 // ---------- Contact Form ----------

@@ -41,6 +41,23 @@
   .ch-btn-outline { padding: 0.5rem 1rem; font-size: 0.85rem; }
 }
 
+/* Join page – tablet specific (765px–900px) */
+@media (min-width: 765px) and (max-width: 900px) {
+  .tier-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .membership-form-wrapper,
+  .premium-form {
+    max-width: 90%;
+    margin: 2rem auto;
+  }
+
+  .tier-card {
+    width: 100%;
+  }
+}
 /* ---------- HERO ---------- */
 .hero {
   position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;

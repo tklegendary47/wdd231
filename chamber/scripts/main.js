@@ -1,17 +1,18 @@
-/***** main.js – Harare Chamber (final) *****/
+/***** main.js – Harare Chamber *****/
 
-// ---------- Dark Mode ----------
+// Dark Mode
 (function() {
   const toggle = document.getElementById('darkModeToggle');
+  if (!toggle) return;
   const saved = localStorage.getItem('harare-dark-mode');
   if (saved === 'enabled') document.body.classList.add('dark');
-  if (toggle) toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     localStorage.setItem('harare-dark-mode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
   });
 })();
 
-// ---------- Navigation ----------
+// Navigation
 (function() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
@@ -30,7 +31,7 @@
   }));
 })();
 
-// ---------- Back to Top ----------
+// Back to Top
 (function() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
@@ -38,7 +39,7 @@
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-// ---------- Footer Year / Last Modified ----------
+// Footer Year / Last Modified
 (function() {
   const yearEl = document.getElementById('year');
   const modEl = document.getElementById('modified');
@@ -46,72 +47,67 @@
   if (modEl) modEl.textContent = document.lastModified;
 })();
 
-
-
-// ---------- Footer Newsletter / Subscribe (with email validation) ----------
+// Newsletter / Subscribe (with email validation)
 (function() {
   const emailInput = document.getElementById('newsletterEmail');
   const subscribeBtn = document.getElementById('subscribeBtn');
   const errorSpan = document.getElementById('signupError');
-
   if (!emailInput || !subscribeBtn) return;
-
-  function isValidEmail(email) {
-    // simple, solid regex – requires something@something.something
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const form = document.getElementById('newsletterForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (errorSpan) { errorSpan.textContent = 'Please enter a valid email.'; errorSpan.classList.add('show'); }
+        return;
+      }
+      alert('Thank you for subscribing!');
+      form.reset();
+      if (errorSpan) errorSpan.classList.remove('show');
+    });
+  } else {
+    subscribeBtn.addEventListener('click', () => {
+      const email = emailInput.value.trim();
+      if (!email) {
+        if (errorSpan) { errorSpan.textContent = 'Please enter your email.'; errorSpan.classList.add('show'); }
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (errorSpan) { errorSpan.textContent = 'Please enter a valid email address.'; errorSpan.classList.add('show'); }
+        return;
+      }
+      alert('Thank you for subscribing!');
+      emailInput.value = '';
+      if (errorSpan) errorSpan.classList.remove('show');
+    });
   }
-
-  subscribeBtn.addEventListener('click', () => {
-    const email = emailInput.value.trim();
-
-    if (!email) {
-      errorSpan.textContent = 'Please enter your email address.';
-      errorSpan.classList.add('show');
-      return;
-    }
-
-    if (!isValidEmail(email)) {
-      errorSpan.textContent = 'Please enter a valid email address.';
-      errorSpan.classList.add('show');
-      return;
-    }
-
-    // Valid email – clear error, show thanks, reset
-    errorSpan.textContent = '';
-    errorSpan.classList.remove('show');
-    alert('Thank you for subscribing!');   // or a nicer inline message
-    emailInput.value = '';
-  });
-
-  // Clear error when user starts typing
   emailInput.addEventListener('input', () => {
-    if (errorSpan.classList.contains('show')) {
-      errorSpan.classList.remove('show');
-    }
+    if (errorSpan) errorSpan.classList.remove('show');
   });
 })();
 
-// ---------- Contact Form ----------
+// Contact Form
 (function() {
   const contactForm = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      contactForm.style.display = 'none';
-      if (successMsg) successMsg.style.display = 'block';
-    });
-  }
+  if (!contactForm) return;
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.style.display = 'none';
+    if (successMsg) successMsg.style.display = 'block';
+  });
 })();
 
-// ---------- FAQ Accordion ----------
+// FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => {
   const answer = q.nextElementSibling;
   answer.classList.toggle('open');
-  q.querySelector('i').classList.toggle('fa-chevron-up');
+  const icon = q.querySelector('i');
+  if (icon) icon.classList.toggle('fa-chevron-up');
 }));
 
-// ---------- Reveal Animations ----------
+// Reveal Animations
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -122,7 +118,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ---------- Animated Counters ----------
+// Animated Counters
 function animateCounter(el) {
   const target = +(el.getAttribute('data-target') || el.getAttribute('data-count') || 0);
   if (!target) return;
@@ -157,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ---------- Load Events ----------
+// Load Events (only if container exists)
 async function loadEvents() {
   const grid = document.getElementById('eventsGrid') || document.getElementById('eventsFullGrid');
   if (!grid) return;
@@ -179,7 +175,7 @@ async function loadEvents() {
 }
 document.addEventListener('DOMContentLoaded', loadEvents);
 
-// ---------- Discover Page ----------
+// Discover Page
 async function loadDiscover() {
   const grid = document.getElementById('discoverGrid');
   if (!grid) return;
@@ -201,18 +197,20 @@ async function loadDiscover() {
   } catch { grid.innerHTML = '<p>Could not load discover items.</p>'; }
 
   const msg = document.getElementById('visit-message');
-  const lastVisit = localStorage.getItem('last-visit');
-  const now = Date.now();
-  if (!lastVisit) msg.innerHTML = '<p>Welcome! Let us show you around Harare.</p>';
-  else {
-    const days = Math.floor((now - lastVisit) / 86400000);
-    msg.innerHTML = days < 1 ? '<p>Back so soon? Awesome!</p>' : `<p>You last visited ${days} day${days>1?'s':''} ago.</p>`;
+  if (msg) {
+    const lastVisit = localStorage.getItem('last-visit');
+    const now = Date.now();
+    if (!lastVisit) msg.innerHTML = '<p>Welcome! Let us show you around Harare.</p>';
+    else {
+      const days = Math.floor((now - lastVisit) / 86400000);
+      msg.innerHTML = days < 1 ? '<p>Back so soon? Awesome!</p>' : `<p>You last visited ${days} day${days>1?'s':''} ago.</p>`;
+    }
+    localStorage.setItem('last-visit', now);
   }
-  localStorage.setItem('last-visit', now);
 }
 document.addEventListener('DOMContentLoaded', loadDiscover);
 
-// ---------- Directory ----------
+// Directory
 let members = [];
 let gridView = true;
 async function initDirectory() {
@@ -229,6 +227,7 @@ async function initDirectory() {
 
 function renderDirectory(list) {
   const container = document.getElementById('directoryContainer');
+  if (!container) return;
   container.className = gridView ? 'grid-view' : 'list-view';
   container.innerHTML = list.map(m => `
     <div class="member-card ${gridView ? 'grid' : 'list'} fade-in-up">
@@ -252,29 +251,34 @@ function getMembershipClass(level) {
   return 'np';
 }
 
-document.getElementById('searchInput')?.addEventListener('input', e => {
+const searchInput = document.getElementById('searchInput');
+const categoryFilter = document.getElementById('categoryFilter');
+const gridViewBtn = document.getElementById('gridViewBtn');
+const listViewBtn = document.getElementById('listViewBtn');
+
+if (searchInput) searchInput.addEventListener('input', e => {
   const t = e.target.value.toLowerCase();
   renderDirectory(members.filter(m => m.name.toLowerCase().includes(t) || (m.category && m.category.toLowerCase().includes(t))));
 });
-document.getElementById('categoryFilter')?.addEventListener('change', e => {
+if (categoryFilter) categoryFilter.addEventListener('change', e => {
   const cat = e.target.value;
   renderDirectory(cat === 'all' ? members : members.filter(m => m.category === cat));
 });
-document.getElementById('gridViewBtn')?.addEventListener('click', () => {
+if (gridViewBtn) gridViewBtn.addEventListener('click', () => {
   gridView = true;
-  document.getElementById('gridViewBtn').classList.add('active');
-  document.getElementById('listViewBtn').classList.remove('active');
+  gridViewBtn.classList.add('active');
+  listViewBtn.classList.remove('active');
   renderDirectory(members);
 });
-document.getElementById('listViewBtn')?.addEventListener('click', () => {
+if (listViewBtn) listViewBtn.addEventListener('click', () => {
   gridView = false;
-  document.getElementById('listViewBtn').classList.add('active');
-  document.getElementById('gridViewBtn').classList.remove('active');
+  listViewBtn.classList.add('active');
+  gridViewBtn.classList.remove('active');
   renderDirectory(members);
 });
 document.addEventListener('DOMContentLoaded', initDirectory);
 
-// ---------- Modals (Join Page) ----------
+// Modals
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.open-modal').forEach(button => {
     button.addEventListener('click', () => {
@@ -289,21 +293,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hidden timestamp for join form
   const timestampField = document.getElementById('timestamp');
   if (timestampField) {
     timestampField.value = new Date().toISOString();
   }
 });
 
-// ---------- Weather Widget (current + 3‑day forecast) ----------
+// Weather Widget
 (async function() {
   const widget = document.getElementById('weatherWidget');
   if (!widget) return;
   const apiKey = "cca19e4e09b8c7a33e195bdb4c634832";
   const city = "Harare";
-
-  // Current weather
   try {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
     if (!res.ok) throw new Error();
@@ -313,18 +314,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('weatherHumidity').textContent = d.main.humidity;
     document.getElementById('weatherWind').textContent = d.wind.speed;
   } catch {
-    document.getElementById('weatherTemp').textContent = '26';
-    document.getElementById('weatherDesc').textContent = 'Partly cloudy';
-    document.getElementById('weatherHumidity').textContent = '52';
-    document.getElementById('weatherWind').textContent = '3.6';
+    const tempEl = document.getElementById('weatherTemp');
+    const descEl = document.getElementById('weatherDesc');
+    const humEl = document.getElementById('weatherHumidity');
+    const windEl = document.getElementById('weatherWind');
+    if (tempEl) tempEl.textContent = '26';
+    if (descEl) descEl.textContent = 'Partly cloudy';
+    if (humEl) humEl.textContent = '52';
+    if (windEl) windEl.textContent = '3.6';
   }
 
-  // 3‑day forecast
+  const forecastContainer = document.getElementById('weatherForecast');
+  if (!forecastContainer) return;
   try {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
     if (!res.ok) throw new Error();
     const data = await res.json();
-    const forecastContainer = document.getElementById('weatherForecast');
     const daily = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
     forecastContainer.innerHTML = daily.map(day => `
       <div class="forecast-day">
@@ -335,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
   } catch {
-    const forecastContainer = document.getElementById('weatherForecast');
     forecastContainer.innerHTML = `
       <div class="forecast-day"><p>Mon</p><p>28°C</p></div>
       <div class="forecast-day"><p>Tue</p><p>30°C</p></div>
@@ -344,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
-// ---------- Member Spotlights (Homepage) ----------
+// Member Spotlights
 const spotlights = [
   { name: 'TechWave Zimbabwe', blurb: 'Leading software development', img: 'images/tech.png' },
   { name: 'EcoFarm Solutions', blurb: 'Sustainable agriculture', img: 'images/cafe.png' },
@@ -366,7 +370,7 @@ if (document.getElementById('spotlightCarousel')) {
   setInterval(() => { current = (current + 1) % spotlights.length; renderSpotlight(); }, 4000);
 }
 
-// ---------- Featured Businesses (Homepage) ----------
+// Featured Businesses
 async function loadFeatured() {
   const grid = document.getElementById('featuredGrid');
   if (!grid) return;
@@ -387,7 +391,7 @@ async function loadFeatured() {
 }
 document.addEventListener('DOMContentLoaded', loadFeatured);
 
-// ---------- Thank‑You Page Data (only runs if #results exists) ----------
+// Thank-You Page Data
 (function() {
   const container = document.getElementById('results');
   if (!container) return;
@@ -395,7 +399,6 @@ document.addEventListener('DOMContentLoaded', loadFeatured);
   const getVal = (key) => params.get(key) || 'Not provided';
   const timestamp = params.get('timestamp');
   const formattedDate = timestamp ? new Date(timestamp).toLocaleString() : 'Not provided';
-
   container.innerHTML = `
     <div class="result-item"><span>First Name</span><strong>${getVal('firstName')}</strong></div>
     <div class="result-item"><span>Last Name</span><strong>${getVal('lastName')}</strong></div>

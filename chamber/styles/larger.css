@@ -138,7 +138,7 @@
 .cta-banner { background: var(--clr-accent); color: #000; text-align: center; padding: 4rem 1rem; }
 .cta-banner h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 
-/* ===== DISCOVER GRID – Premium Edition ===== */
+/* ===== DISCOVER GRID ===== */
 
 /* Layout: auto‑fill masonry that breathes */
 .discover-grid {
@@ -146,6 +146,9 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
+  overflow: visible;               /* allow the hover glow to peek out */
+  padding: 0.5rem;                 /* breathing room for the glow */
+  box-sizing: content-box;         /* padding adds space, not width */
 }
 
 /* Card foundation – floating, soft depth */

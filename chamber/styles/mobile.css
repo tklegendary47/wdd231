@@ -95,7 +95,10 @@
   /* --- DISCOVER PAGE --- */
   .discover-grid {
     grid-template-columns: 1fr;
+        padding: 0.25rem;
+    gap: 1.5rem;
   }
+
 
   /* --- DIRECTORY --- */
   .directory-controls {

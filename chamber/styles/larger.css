@@ -138,19 +138,146 @@
 .cta-banner { background: var(--clr-accent); color: #000; text-align: center; padding: 4rem 1rem; }
 .cta-banner h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 
-/* ---------- DISCOVER ---------- */
-.discover-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
-.discover-card { background: var(--clr-white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.4s, box-shadow 0.4s; border: 1px solid rgba(0,0,0,0.05); }
-.discover-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.15); border-color: var(--clr-accent); }
-.discover-card img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.8s; }
-.discover-card:hover img { transform: scale(1.1); }
-.discover-card .card-content { padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); color: white; transform: translateY(30%); transition: transform 0.5s; margin-top: -60px; }
-.discover-card:hover .card-content { transform: translateY(0); }
-.discover-card .card-content h3 { color: white; margin-bottom: 0.5rem; }
-.discover-card .card-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
-.tag { background: var(--clr-accent); color: #000; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 0.5rem; }
-.discover-card .explore-btn { display: inline-block; margin-top: 1rem; padding: 0.5rem 1.2rem; background: var(--clr-accent); color: #000; border-radius: 999px; font-weight: 600; text-decoration: none; opacity: 0; transform: translateY(10px); transition: opacity 0.4s, transform 0.4s; }
-.discover-card:hover .explore-btn { opacity: 1; transform: translateY(0); }
+/* ===== DISCOVER GRID – Premium Edition ===== */
+
+/* Layout: auto‑fill masonry that breathes */
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* Card foundation – floating, soft depth */
+.discover-card {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease,
+    border-color 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Lift & glow on hover */
+.discover-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(240, 165, 0, 0.3);
+  border-color: var(--clr-accent);
+}
+
+/* Image wrapper – smooth zoom */
+.discover-card img {
+  width: 100%;
+  height: 220px;                 /* slightly taller for visual impact */
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.discover-card:hover img {
+  transform: scale(1.08);        /* gentle zoom, not overbearing */
+}
+
+/* Content overlay – slides up gracefully */
+.discover-card .card-content {
+  padding: 1.8rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(10, 31, 68, 0.92) 0%,
+    rgba(10, 31, 68, 0.5) 60%,
+    transparent 100%
+  );
+  color: var(--clr-white);
+  transform: translateY(35%);
+  transition: transform 0.5s ease;
+  margin-top: -70px;
+  position: relative;
+}
+
+.discover-card:hover .card-content {
+  transform: translateY(0);
+}
+
+/* Typography inside the overlay */
+.discover-card .card-content h3 {
+  color: var(--clr-white);
+  margin-bottom: 0.4rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.3px;
+}
+
+.discover-card .card-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* Category tag – pill badge */
+.tag {
+  background: var(--clr-accent);
+  color: #000;
+  padding: 0.25rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+/* Explore button – appears on hover */
+.discover-card .explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.4rem;
+  background: var(--clr-accent);
+  color: #000;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    background 0.3s;
+}
+
+.discover-card .explore-btn:hover {
+  background: #d18e00;
+  transform: translateY(-2px);
+}
+
+.discover-card:hover .explore-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: subtle shimmer line on the card edge */
+.discover-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: var(--clr-accent);
+  transition: width 0.5s ease, left 0.5s ease;
+}
+
+.discover-card:hover::after {
+  width: 100%;
+  left: 0;
+}
 
 /* ---------- DIRECTORY ---------- */
 .directory-controls { display: flex; gap: 1rem; align-items: center; justify-content: space-between; margin: 2rem 0; flex-wrap: wrap; }

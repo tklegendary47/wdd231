@@ -8,7 +8,7 @@ import { fetchJobsData, getJobsData, filterJobs, getBookmarks, saveBookmarks, to
 import { initSlideshow, changeSlide, resetInterval, stopSlideshow } from './slideshow.js';
 
 let currentPage = 'home';
-let currentFilters = { type: '', location: '', search: '' };
+let currentFilters = { type: '', location: '', search: '', showBookmarked: false };
 let bookmarkedJobs = getBookmarks();
 let jobsData = [];
 
@@ -100,7 +100,7 @@ window.closeMobileMenu = function () {
 };
 
 // ============================================
-// FIXED: Bookmark toggle without page scroll
+// BOOKMARK TOGGLE — No page scroll
 // ============================================
 window.toggleBookmark = function (jobId, event) {
     if (event) {
@@ -128,15 +128,12 @@ function updateBookmarkButton(jobId) {
 }
 
 // ============================================
-// FIXED: Navigation with proper active state
+// NAVIGATION — With proper active state
 // ============================================
 window.navigateTo = function (page) {
     currentPage = page;
-
-    // Update ALL nav links (desktop + mobile)
     updateNavActiveState(page);
 
-    const mainContent = document.getElementById('mainContent');
     const heroSection = document.getElementById('heroSection');
     const dynamicContent = document.getElementById('dynamicContent');
 
@@ -169,44 +166,55 @@ window.navigateTo = function (page) {
 };
 
 // ============================================
-// FIXED: Update active state on ALL nav links
+// REFRESH CONTENT — No scroll (for filters/bookmarks)
+// ============================================
+function refreshContent() {
+    const dynamicContent = document.getElementById('dynamicContent');
+    if (!dynamicContent) return;
+
+    if (currentPage === 'home') {
+        dynamicContent.innerHTML = renderHome();
+    } else if (currentPage === 'jobs') {
+        dynamicContent.innerHTML = renderJobsPage();
+    } else if (currentPage === 'contact') {
+        dynamicContent.innerHTML = renderContactPage();
+    }
+}
+
+// ============================================
+// UPDATE ACTIVE STATE — All nav links
 // ============================================
 function updateNavActiveState(page) {
-    // Desktop nav links
     document.querySelectorAll('.nav-links a').forEach(link => {
         const linkPage = link.getAttribute('data-page');
-        
-        // Remove all active states first
         link.classList.remove('active');
         link.removeAttribute('aria-current');
-
-        // Set active on matching link
         if (linkPage && linkPage === page) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
         }
     });
 
-    // Mobile nav links
     document.querySelectorAll('.mobile-menu-content a').forEach(link => {
         const linkPage = link.getAttribute('data-page');
-        
         link.classList.remove('active');
-
         if (linkPage && linkPage === page) {
             link.classList.add('active');
         }
     });
 }
 
+// ============================================
+// FILTER FUNCTIONS — No scroll
+// ============================================
 window.updateFilter = function (type, value) {
     currentFilters[type] = value;
-    renderCurrentPage();
+    refreshContent();
 };
 
 window.resetFilters = function () {
-    currentFilters = { type: '', location: '', search: '' };
-    renderCurrentPage();
+    currentFilters = { type: '', location: '', search: '', showBookmarked: false };
+    refreshContent();
 };
 
 // ============================================
@@ -257,15 +265,29 @@ function renderHome() {
 
 function renderJobsPage() {
     const filtered = filterJobs(jobsData, currentFilters);
-    const showBookmarkedOnly = document.getElementById('showBookmarkedOnly')?.checked || false;
+    const showBookmarkedOnly = currentFilters.showBookmarked || false;
     const displayJobs = showBookmarkedOnly ? filtered.filter(job => bookmarkedJobs.includes(job.id)) : filtered;
+
     setTimeout(() => {
-        const ft = document.getElementById('filterType'), fl = document.getElementById('filterLocation'), fs = document.getElementById('filterSearch');
-        if (ft) ft.value = currentFilters.type;
-        if (fl) fl.value = currentFilters.location;
-        if (fs) fs.value = currentFilters.search;
+        const ft = document.getElementById('filterType');
+        const fl = document.getElementById('filterLocation');
+        const fs = document.getElementById('filterSearch');
+        const cb = document.getElementById('showBookmarkedOnly');
+
+        if (ft) ft.value = currentFilters.type || '';
+        if (fl) fl.value = currentFilters.location || '';
+        if (fs) fs.value = currentFilters.search || '';
+        if (cb) {
+            cb.checked = currentFilters.showBookmarked || false;
+            cb.onchange = function (e) {
+                e.preventDefault();
+                currentFilters.showBookmarked = this.checked;
+                refreshContent();
+            };
+        }
     }, 0);
-    return `<section class="filters-section"><h2 class="filters-title">🔍 Filter Opportunities</h2><div class="filters-grid"><div class="filter-group"><label for="filterType">Job Type</label><select id="filterType" onchange="updateFilter('type',this.value)"><option value="">All Types</option><option value="Full-time" ${currentFilters.type === 'Full-time' ? 'selected' : ''}>Full-time</option><option value="Part-time" ${currentFilters.type === 'Part-time' ? 'selected' : ''}>Part-time</option><option value="Contract" ${currentFilters.type === 'Contract' ? 'selected' : ''}>Contract</option><option value="Hybrid" ${currentFilters.type === 'Hybrid' ? 'selected' : ''}>Hybrid</option><option value="Remote" ${currentFilters.type === 'Remote' ? 'selected' : ''}>Remote</option></select></div><div class="filter-group"><label for="filterLocation">Location</label><input type="text" id="filterLocation" placeholder="City or 'Remote'" value="${currentFilters.location}" onkeyup="updateFilter('location',this.value)"></div><div class="filter-group"><label for="filterSearch">Search</label><input type="text" id="filterSearch" placeholder="Job title or company" value="${currentFilters.search}" onkeyup="updateFilter('search',this.value)"></div></div><button class="btn-reset" onclick="resetFilters()">Reset Filters</button></section><section><div class="jobs-header"><div class="jobs-count">Found ${displayJobs.length} position${displayJobs.length !== 1 ? 's' : ''}</div><div class="bookmark-filter"><input type="checkbox" id="showBookmarkedOnly" onchange="renderCurrentPage()" ${showBookmarkedOnly ? 'checked' : ''}><label for="showBookmarkedOnly">Show bookmarked only</label></div></div><div class="jobs-grid">${displayJobs.length > 0 ? displayJobs.map(job => renderJobCard(job)).join('') : '<p style="text-align:center;grid-column:1/-1;padding:3rem">No jobs match your criteria.</p>'}</div></section>`;
+
+    return `<section class="filters-section" aria-label="Job filters"><h2 class="filters-title">🔍 Filter Opportunities</h2><div class="filters-grid"><div class="filter-group"><label for="filterType">Job Type</label><select id="filterType" onchange="updateFilter('type',this.value)"><option value="">All Types</option><option value="Full-time" ${currentFilters.type === 'Full-time' ? 'selected' : ''}>Full-time</option><option value="Part-time" ${currentFilters.type === 'Part-time' ? 'selected' : ''}>Part-time</option><option value="Contract" ${currentFilters.type === 'Contract' ? 'selected' : ''}>Contract</option><option value="Hybrid" ${currentFilters.type === 'Hybrid' ? 'selected' : ''}>Hybrid</option><option value="Remote" ${currentFilters.type === 'Remote' ? 'selected' : ''}>Remote</option></select></div><div class="filter-group"><label for="filterLocation">Location</label><input type="text" id="filterLocation" placeholder="City or 'Remote'" value="${currentFilters.location || ''}" onkeyup="updateFilter('location',this.value)"></div><div class="filter-group"><label for="filterSearch">Search</label><input type="text" id="filterSearch" placeholder="Job title or company" value="${currentFilters.search || ''}" onkeyup="updateFilter('search',this.value)"></div></div><button class="btn-reset" onclick="resetFilters()">Reset Filters</button></section><section><div class="jobs-header"><div class="jobs-count" role="status" aria-live="polite">Found ${displayJobs.length} position${displayJobs.length !== 1 ? 's' : ''}</div><div class="bookmark-filter"><input type="checkbox" id="showBookmarkedOnly" ${currentFilters.showBookmarked ? 'checked' : ''}><label for="showBookmarkedOnly">Show bookmarked only</label></div></div><div class="jobs-grid">${displayJobs.length > 0 ? displayJobs.map(job => renderJobCard(job)).join('') : '<p style="text-align:center;grid-column:1/-1;padding:3rem">No jobs match your criteria. Try adjusting your filters.</p>'}</div></section>`;
 }
 
 function renderContactPage() {
@@ -273,20 +295,18 @@ function renderContactPage() {
 }
 
 function renderCurrentPage() {
-    navigateTo(currentPage);
+    refreshContent();
 }
 
 // ============================================
 // EVENT LISTENERS
 // ============================================
 function setupEventListeners() {
-    // Hamburger menu
     document.querySelector('.hamburger')?.addEventListener('click', (e) => {
         e.stopPropagation();
         window.toggleMobileMenu();
     });
 
-    // Desktop nav links
     document.querySelectorAll('.nav-links a').forEach(l => {
         l.addEventListener('click', (e) => {
             const p = e.currentTarget.getAttribute('data-page');
@@ -297,7 +317,6 @@ function setupEventListeners() {
         });
     });
 
-    // Mobile nav links
     document.querySelectorAll('.mobile-menu-content a').forEach(l => {
         l.addEventListener('click', (e) => {
             const p = e.currentTarget.getAttribute('data-page');
@@ -308,7 +327,6 @@ function setupEventListeners() {
         });
     });
 
-    // CTA buttons
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('cta-button')) {
             const p = e.target.dataset.nav;
@@ -316,17 +334,16 @@ function setupEventListeners() {
         }
     });
 
-    // Slideshow buttons
     document.querySelector('.slide-nav.prev')?.addEventListener('click', (e) => {
         e.preventDefault();
         changeSlide(-1);
     });
+
     document.querySelector('.slide-nav.next')?.addEventListener('click', (e) => {
         e.preventDefault();
         changeSlide(1);
     });
 
-    // Close mobile menu on outside click
     document.addEventListener('click', (e) => {
         const mm = document.getElementById('mobileMenu');
         const hb = document.querySelector('.hamburger');
@@ -335,7 +352,6 @@ function setupEventListeners() {
         }
     });
 
-    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModal();
@@ -363,7 +379,6 @@ async function initializeApp() {
     initSlideshow();
     setupEventListeners();
 
-    // Load the page specified in URL, or default to home
     const pageFromURL = getPageFromURL();
     navigateTo(pageFromURL);
 

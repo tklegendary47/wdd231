@@ -7,6 +7,15 @@
 import { fetchJobsData, getJobsData, filterJobs, getBookmarks, saveBookmarks, toggleBookmark } from './jobs.js';
 import { initSlideshow, changeSlide, resetInterval, stopSlideshow } from './slideshow.js';
 
+
+if ('loading' in HTMLImageElement.prototype) {
+    // Browser supports lazy loading natively
+    console.log('✅ Native lazy loading supported');
+} else {
+    // Fallback for older browsers
+    console.log('⚠️ Lazy loading polyfill needed');
+}
+
 let currentPage = 'home';
 let currentFilters = { type: '', location: '', search: '', showBookmarked: false };
 let bookmarkedJobs = getBookmarks();

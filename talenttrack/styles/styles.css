@@ -264,6 +264,7 @@ body {
     object-fit: cover;
     object-position: center;
     z-index: 1;
+    aspect-ratio: 2 / 1;
 }
 
 .slide::before {

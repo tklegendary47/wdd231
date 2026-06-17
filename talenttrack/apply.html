@@ -1,73 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Apply | TalentTrack</title>
-  <meta name="description" content="Apply for jobs easily using TalentTrack. Submit your application details securely.">
-  <meta name="author" content="Takudzwa P. Matimura">
-
-  <meta property="og:title" content="Apply for Jobs - TalentTrack">
-  <meta property="og:description" content="Submit your job application quickly and easily.">
-  <meta property="og:type" content="website">
-
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles/styles.css">
-  <script src="scripts/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Apply for open positions at TalentTrack. Browse available jobs and submit your application with our quick and easy online form.">
+    <meta name="author" content="Takudzwa P. Matimura">
+    <meta name="keywords" content="apply for jobs, job application, careers, TalentTrack, Zimbabwe jobs">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Apply for a Position - TalentTrack Job Board">
+    <meta property="og:description" content="Browse open positions and submit your application through TalentTrack's easy online form. Find your dream career today.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tklegendary47.github.io/wdd231/talenttrack/images/og-image.webp">
+    <meta property="og:url" content="https://tklegendary47.github.io/wdd231/talenttrack/apply.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Fonts with Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
+    
+    <!-- Two CSS Files (Required) -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    
+    <title>Apply for a Position - TalentTrack</title>
 </head>
-
 <body>
+    <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+    
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon" aria-hidden="true">🚀</span>
+                TalentTrack
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html?page=jobs">Jobs</a>
+                <a href="apply.html" class="active" aria-current="page">Apply</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="index.html?page=jobs">Jobs</a>
+            <a href="apply.html">Apply</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
-<header>
+    <header class="apply-hero-section">
+        <div class="container">
+            <h1>Apply for a Position</h1>
+            <p>Browse our open positions and submit your application below. We'll match you with the best opportunity.</p>
+        </div>
+    </header>
 
-  <div class="logo">TalentTrack</div>
-
-  <button id="menu-btn" aria-label="Toggle Navigation">☰</button>
-
-  <nav id="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="jobs.html">Jobs</a>
-    <a href="apply.html" class="active">Apply</a>
-  </nav>
-</header>
-
-<main>
-
-  <section class="page-header">
-    <h1>Job Application</h1>
-    <p>Fill in your details to apply.</p>
-  </section>
-
-  <section class="form-section">
-    <form action="results.html" method="get">
-
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="position">Position Applying For</label>
-      <input type="text" id="position" name="position" required>
-
-      <label for="experience">Experience Level</label>
-      <select id="experience" name="experience" required>
-        <option value="">Select one</option>
-        <option value="Junior">Junior</option>
-        <option value="Mid">Mid</option>
-        <option value="Senior">Senior</option>
-      </select>
-
-      <label for="message">Why should we hire you?</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit" class="btn">Submit Application</button>
-
-    </form>
-  </section>
-
-</main>
+    <main id="mainContent" class="container">
+        <section class="contact-section">
+            <div class="apply-hero">
+                <span class="apply-hero-icon" aria-hidden="true">📝</span>
+                <h2>Submit Your Application</h2>
+                <p>Fill out the form below and we'll match you with the best opportunities.</p>
+            </div>
+            
+            <form id="applicationForm" method="GET" action="application-success.html" novalidate>
+                <div class="apply-form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                        <span class="error-message" id="fullNameError">Please enter your full name.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <span class="error-message" id="emailError">Please enter a valid email with '@'.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+263 7XX XXX XXX">
+                        <span class="error-message" id="phoneError">Please enter a valid phone number.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobPosition">Select Position</label>
+                        <select id="jobPosition" name="jobPosition" required>
+                            <option value="">Choose a position...</option>
+                            <option value="Senior Frontend Developer at TechCorp Solutions">Senior Frontend Developer - TechCorp Solutions</option>
+                            <option value="UX/UI Designer at Creative Studio">UX/UI Designer - Creative Studio</option>
+                            <option value="Data Scientist at DataWorks Inc">Data Scientist - DataWorks Inc</option>
+                            <option value="Backend Engineer at CloudScale">Backend Engineer - CloudScale</option>
+                            <option value="Product Manager at InnovateLabs">Product Manager - InnovateLabs</option>
+                            <option value="DevOps Engineer at InfraCore">DevOps Engineer - InfraCore</option>
+                            <option value="iOS Developer at AppCraft">iOS Developer - AppCraft</option>
+                            <option value="QA Automation Engineer at QualityFirst">QA Automation Engineer - QualityFirst</option>
+                            <option value="Technical Writer at DocuPro">Technical Writer - DocuPro</option>
+                            <option value="Machine Learning Engineer at AI Innovations">Machine Learning Engineer - AI Innovations</option>
+                            <option value="Sales Executive at GrowthHive">Sales Executive - GrowthHive</option>
+                            <option value="Customer Success Manager at SupportHero">Customer Success Manager - SupportHero</option>
+                            <option value="Cybersecurity Analyst at SecureNet">Cybersecurity Analyst - SecureNet</option>
+                            <option value="Digital Marketing Manager at BrandBoost">Digital Marketing Manager - BrandBoost</option>
+                            <option value="HR Business Partner at PeopleFirst">HR Business Partner - PeopleFirst</option>
+                        </select>
+                        <span class="error-message" id="jobPositionError">Please select a position.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <select id="experience" name="experience">
+                            <option value="">Select experience level</option>
+                            <option value="0-1">0-1 years</option>
+                            <option value="2-4">2-4 years</option>
+                            <option value="5-7">5-7 years</option>
+                            <option value="8+">8+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Cover Letter / Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us why you're a great fit for this position..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Submit Application</button>
+            </form>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
@@ -104,14 +181,8 @@
             </div>
         </div>
     </footer>
-    
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const position = params.get("position");
 
-  if (position) {
-    document.getElementById("position").value = position;
-  }
-</script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/form-validation.js" defer></script>
 </body>
 </html>

@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Learn about TalentTrack – our mission to connect talent with opportunity through innovative, accessible job matching technology.">
+    <!-- Meta Description -->
+    <meta name="description" content="Learn about TalentTrack – our mission to connect talent with opportunity through innovative, accessible job matching technology built in Zimbabwe.">
     <meta name="author" content="Takudzwa P. Matimura">
-    <meta name="keywords" content="about TalentTrack, job board mission, career platform Zimbabwe, accessible hiring">
+    <meta name="keywords" content="about TalentTrack, job board mission, career platform Zimbabwe, accessible hiring, web development">
     
-    <meta property="og:title" content="About TalentTrack – Smart Job Board for Modern Job Seekers">
-    <meta property="og:description" content="Discover the mission behind TalentTrack: connecting exceptional talent with forward-thinking companies through accessible, mobile-first technology.">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="About TalentTrack – Our Mission to Connect Talent with Opportunity">
+    <meta property="og:description" content="Discover the mission behind TalentTrack: connecting exceptional talent with forward-thinking companies through accessible, mobile-first technology. Built in Zimbabwe.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://tklegendary47.github.io/wdd231/talenttrack/images/og-image.webp">
     <meta property="og:url" content="https://tklegendary47.github.io/wdd231/talenttrack/about.html">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- Google Fonts with Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
     
+    <!-- Two CSS Files (Required) -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/styles.css">
     
@@ -39,7 +44,7 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="index.html?page=jobs">Jobs</a>
-                <a href="index.html?page=contact">Apply</a>
+                <a href="apply.html">Apply</a>
                 <a href="about.html" class="active" aria-current="page">About</a>
                 <a href="contact.html">Contact</a>
             </div>
@@ -56,20 +61,20 @@
         <div class="mobile-menu-content">
             <a href="index.html">Home</a>
             <a href="index.html?page=jobs">Jobs</a>
-            <a href="index.html?page=contact">Apply</a>
+            <a href="apply.html">Apply</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
 
-    <main id="mainContent">
-        <section class="about-hero">
-            <div class="container">
-                <h1 class="about-hero-title">Connecting Talent,<br>Empowering Careers</h1>
-                <p class="about-hero-text">We believe every professional deserves a platform that works as hard as they do. TalentTrack bridges the gap between exceptional talent and forward‑thinking companies.</p>
-            </div>
-        </section>
+    <header class="about-hero">
+        <div class="container">
+            <h1 class="about-hero-title">Connecting Talent,<br>Empowering Careers</h1>
+            <p class="about-hero-text">We believe every professional deserves a platform that works as hard as they do. TalentTrack bridges the gap between exceptional talent and forward‑thinking companies.</p>
+        </div>
+    </header>
 
+    <main id="mainContent">
         <section class="about-mission container">
             <div class="about-mission-grid">
                 <div class="about-mission-text">
@@ -142,14 +147,14 @@
             <h2 class="section-heading">Meet the Builder</h2>
             <p class="section-subheading">TalentTrack was designed and developed as a capstone project demonstrating mastery of modern web development.</p>
             <div class="about-team-grid">
-<div class="about-team-card">
-    <div class="about-team-avatar">
-        <img src="images/takudzwa.webp" alt="Takudzwa P. Matimura - Lead Developer" class="about-team-img" loading="lazy">
-    </div>
-    <h3>Takudzwa P. Matimura</h3>
-    <p class="about-team-role">Lead Developer &amp; Designer</p>
-    <p class="about-team-bio">Full‑stack developer passionate about creating accessible, high‑performance web applications. BYU‑Idaho student specializing in modern front‑end technologies. Builder of TalentTrack — a production‑ready job board platform with 100/100 Lighthouse score and WCAG AA accessibility compliance.</p>
-</div>
+                <div class="about-team-card">
+                    <div class="about-team-avatar">
+                        <img src="images/profile.jpg" alt="Takudzwa P. Matimura - Lead Developer" class="about-team-img" loading="lazy">
+                    </div>
+                    <h3>Takudzwa P. Matimura</h3>
+                    <p class="about-team-role">Lead Developer &amp; Designer</p>
+                    <p class="about-team-bio">Full‑stack developer passionate about creating accessible, high‑performance web applications. BYU‑Idaho student specializing in modern front‑end technologies. Builder of TalentTrack — a production‑ready job board platform with 100/100 Lighthouse score and WCAG AA accessibility compliance.</p>
+                </div>
             </div>
         </section>
 
@@ -157,7 +162,7 @@
             <div class="container">
                 <h2>Ready to Find Your Next Opportunity?</h2>
                 <p>Browse our curated job listings and take the next step in your career.</p>
-                <a href="index.html?page=jobs" class="about-cta-button">Browse Jobs →</a>
+                <a href="index.html" class="about-cta-button">Browse Jobs →</a>
             </div>
         </section>
     </main>

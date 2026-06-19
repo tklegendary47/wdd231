@@ -181,13 +181,6 @@ function refreshContent() {
     const dynamicContent = document.getElementById('dynamicContent');
     if (!dynamicContent) return;
 
-    // Save the currently focused element
-    const activeElement = document.activeElement;
-    const activeElementId = activeElement ? activeElement.id : null;
-    const cursorPosition = (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) 
-        ? activeElement.selectionStart 
-        : null;
-
     if (currentPage === 'home') {
         dynamicContent.innerHTML = renderHome();
     } else if (currentPage === 'jobs') {
@@ -195,18 +188,26 @@ function refreshContent() {
     } else if (currentPage === 'contact') {
         dynamicContent.innerHTML = renderContactPage();
     }
+}
 
-    // Restore focus and cursor position
-    if (activeElementId) {
-        setTimeout(() => {
-            const restoredElement = document.getElementById(activeElementId);
-            if (restoredElement) {
-                restoredElement.focus();
-                if (cursorPosition !== null) {
-                    restoredElement.setSelectionRange(cursorPosition, cursorPosition);
-                }
-            }
-        }, 10);
+// Update only the job cards WITHOUT touching the filter inputs
+function updateJobCardsOnly() {
+    const filtered = filterJobs(jobsData, currentFilters);
+    const showBookmarkedOnly = currentFilters.showBookmarked || false;
+    const displayJobs = showBookmarkedOnly ? filtered.filter(job => bookmarkedJobs.includes(job.id)) : filtered;
+
+    // Update the jobs count
+    const jobsCount = document.querySelector('.jobs-count');
+    if (jobsCount) {
+        jobsCount.textContent = `Found ${displayJobs.length} position${displayJobs.length !== 1 ? 's' : ''}`;
+    }
+
+    // Update the jobs grid
+    const jobsGrid = document.querySelector('.jobs-grid');
+    if (jobsGrid) {
+        jobsGrid.innerHTML = displayJobs.length > 0 
+            ? displayJobs.map(job => renderJobCard(job)).join('') 
+            : '<p style="text-align:center;grid-column:1/-1;padding:3rem">No jobs match your criteria. Try adjusting your filters.</p>';
     }
 }
 
@@ -236,14 +237,29 @@ function updateNavActiveState(page) {
 // ============================================
 // FILTER FUNCTIONS — No scroll
 // ============================================
+
 window.updateFilter = function (type, value) {
     currentFilters[type] = value;
-    refreshContent();
+    updateJobCardsOnly();  // Only update the job cards, not the fi
 };
 
 window.resetFilters = function () {
     currentFilters = { type: '', location: '', search: '', showBookmarked: false };
-    refreshContent();
+    
+    // Reset the filter inputs
+    const ft = document.getElementById('filterType');
+    const fl = document.getElementById('filterLocation');
+    const fs = document.getElementById('filterSearch');
+    const cb = document.getElementById('showBookmarkedOnly');
+    
+    if (ft) ft.value = '';
+    if (fl) fl.value = '';
+    if (fs) fs.value = '';
+    if (cb) cb.checked = false;
+    
+    // Update only the job cards
+    updateJobCardsOnly();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // ============================================
@@ -297,32 +313,14 @@ function renderJobsPage() {
     const showBookmarkedOnly = currentFilters.showBookmarked || false;
     const displayJobs = showBookmarkedOnly ? filtered.filter(job => bookmarkedJobs.includes(job.id)) : filtered;
 
-    // Use setTimeout to set values AFTER DOM is updated
+    // Set up the checkbox handler AFTER the DOM is updated
     setTimeout(() => {
-        const ft = document.getElementById('filterType');
-        const fl = document.getElementById('filterLocation');
-        const fs = document.getElementById('filterSearch');
         const cb = document.getElementById('showBookmarkedOnly');
-
-        // Only update if the element exists AND it's not currently focused
-        if (ft && document.activeElement !== ft) {
-            ft.value = currentFilters.type || '';
-        }
-        if (fl && document.activeElement !== fl) {
-            fl.value = currentFilters.location || '';
-        }
-        if (fs && document.activeElement !== fs) {
-            fs.value = currentFilters.search || '';
-        }
-        if (cb && document.activeElement !== cb) {
-            cb.checked = currentFilters.showBookmarked || false;
-        }
-
-        // Attach event listener to checkbox
         if (cb) {
+            cb.checked = currentFilters.showBookmarked || false;
             cb.onchange = function () {
                 currentFilters.showBookmarked = this.checked;
-                refreshContent();
+                updateJobCardsOnly();
             };
         }
     }, 0);

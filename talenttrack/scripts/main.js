@@ -181,12 +181,32 @@ function refreshContent() {
     const dynamicContent = document.getElementById('dynamicContent');
     if (!dynamicContent) return;
 
+    // Save the currently focused element
+    const activeElement = document.activeElement;
+    const activeElementId = activeElement ? activeElement.id : null;
+    const cursorPosition = (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) 
+        ? activeElement.selectionStart 
+        : null;
+
     if (currentPage === 'home') {
         dynamicContent.innerHTML = renderHome();
     } else if (currentPage === 'jobs') {
         dynamicContent.innerHTML = renderJobsPage();
     } else if (currentPage === 'contact') {
         dynamicContent.innerHTML = renderContactPage();
+    }
+
+    // Restore focus and cursor position
+    if (activeElementId) {
+        setTimeout(() => {
+            const restoredElement = document.getElementById(activeElementId);
+            if (restoredElement) {
+                restoredElement.focus();
+                if (cursorPosition !== null) {
+                    restoredElement.setSelectionRange(cursorPosition, cursorPosition);
+                }
+            }
+        }, 10);
     }
 }
 
@@ -277,19 +297,30 @@ function renderJobsPage() {
     const showBookmarkedOnly = currentFilters.showBookmarked || false;
     const displayJobs = showBookmarkedOnly ? filtered.filter(job => bookmarkedJobs.includes(job.id)) : filtered;
 
+    // Use setTimeout to set values AFTER DOM is updated
     setTimeout(() => {
         const ft = document.getElementById('filterType');
         const fl = document.getElementById('filterLocation');
         const fs = document.getElementById('filterSearch');
         const cb = document.getElementById('showBookmarkedOnly');
 
-        if (ft) ft.value = currentFilters.type || '';
-        if (fl) fl.value = currentFilters.location || '';
-        if (fs) fs.value = currentFilters.search || '';
-        if (cb) {
+        // Only update if the element exists AND it's not currently focused
+        if (ft && document.activeElement !== ft) {
+            ft.value = currentFilters.type || '';
+        }
+        if (fl && document.activeElement !== fl) {
+            fl.value = currentFilters.location || '';
+        }
+        if (fs && document.activeElement !== fs) {
+            fs.value = currentFilters.search || '';
+        }
+        if (cb && document.activeElement !== cb) {
             cb.checked = currentFilters.showBookmarked || false;
-            cb.onchange = function (e) {
-                e.preventDefault();
+        }
+
+        // Attach event listener to checkbox
+        if (cb) {
+            cb.onchange = function () {
                 currentFilters.showBookmarked = this.checked;
                 refreshContent();
             };
